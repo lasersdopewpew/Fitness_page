@@ -46,6 +46,53 @@
                     this.gain = this.calories + 500;
                 }
             });
+
+            var macCalc = document.getElementById("macCalc");
+        	var tangle = new Tangle(macCalc, {
+            initialize: function () {
+                this.cal = 2000;
+                this.days = 3;
+            },
+
+            update: function () {
+            var n = 0.2 * this.cal;
+            var r = this.days * (this.cal + n) + (7 - this.days) * (this.cal - n)
+            
+            if (r > 7 * this.cal) {
+                var i = r - 7 * this.cal;
+                var s = i / this.days;
+                if (this.cal - n >= 1200) {
+                    this.workCal = Math.round(1 * this.cal + 1 * n - s);
+                    this.restCal = Math.round(this.cal - n)
+                } else if (this.cal - n < 1200) {
+                    this.workCal = this.cal;
+                    this.restCal = this.cal
+                }
+            } else if (r <= 7 * this.cal) {
+                var o = 7 * this.cal - r;
+                var u = o / (7-this.days);
+                if (this.cal - n >= 1200) {
+                    this.workCal = Math.round(this.cal * 1 + n);
+                    this.restCal = Math.round(this.cal * 1 - 1 * n + 1 * u)
+                } else if (this.cal - n < 1200) {
+                    this.workCal = this.cal;
+                    this.restCal = this.cal
+                }
+            }
+            this.wc_cal = Math.round(.35 * this.workCal);
+            this.wp_cal = Math.round(.25 * this.workCal);
+            this.wf_cal = Math.round(.4 * this.workCal);
+            this.rc_cal = Math.round(.15 * this.restCal);
+            this.rp_cal = Math.round(.25 * this.restCal);
+            this.rf_cal = Math.round(.6 * this.restCal);
+            this.wc_g = Math.round(this.wc_cal / 4);
+            this.wp_g = Math.round(this.wp_cal / 4);
+            this.wf_g = Math.round(this.wf_cal / 9);
+            this.rc_g = Math.round(this.rc_cal / 4);
+            this.rp_g = Math.round(this.rp_cal / 4);
+            this.rf_g = Math.round(this.rf_cal / 9)                
+            }
+        });     
         }
     </script>
 </head>
@@ -152,12 +199,12 @@
 
 <div class="container"><a id="body"></a>
 	<div class="row h1">
-		<div class="fourcol">
+		<div class="sixcol">
 			<h1>Тело</h1>
 		</div>
-		<div class="eightcol last quote">
+		<div class="sixcol last quote">
 			<h3>The human body is a machine which winds its own springs.</h3>
-			<p>—Julien Offroy de la Mettrie, <em>L'Homme Machine</em></p>
+			<p>— Julien Offroy de la Mettrie, <em>L'Homme Machine</em></p>
 		</div>
 	</div>
 </div>
@@ -168,7 +215,7 @@
 <div class="container">
 	<div class="row">
 		<div class="twelvecol last">
-			<h2>Строение тела</h2>
+			<h2>Телосложение</h2>
 		</div>
 	</div>
 	<div class="row">
@@ -179,44 +226,44 @@
 	<div class="row">
 		<div class="threecol">
 			<img src="./fitness_files/anatomy-thin.png" alt="Thin Body">
-			<p><em>Thin/Underweight</em>: You have little muscle mass and body fat. Consume more calories and incorporate weight training to build muscle mass while minimizing body fat accumulation.</p>
-			<p style="text-align: center; color: #999;"><em>—or—</em></p>
+			<p><em>Худой</em>: Небольшой объём как мышц, так и жировой ткани. Потребляйте больше калорий и тренируйтесь с отягощениями, чтобы увеличить объём мышц и избежать накопления жира.</p>
+			<p style="text-align: center; color: #999;"><em>—&thinsp;или&thinsp;—</em></p>
 		</div>		
 		<div class="threecol">
 			<img src="./fitness_files/anatomy-normal.png" alt="Normal Body">
-			<p><em>Average/"Skinnyfat"</em>: You have little to a moderate amount of muscle with some body fat. You have a few options: build up muscle first then burn fat later, or burn fat first then build muscle later, or do a <a href="http://www.bodyrecomposition.com/fat-loss/body-composition-recommendations.html" title="Body Recomposition">body recomposition</a>.</p>
-			<p style="text-align: center; color: #999;"><em>—or—</em></p>
+			<p><em>Средний/"Skinnyfat"</em>: Маленький или умеренный объём мышц и некоторое количество жира. У вас есть несколько вариантов: сначала увеличить объём мышечной ткани, а после этого сжечь жировую ткань, или сначала сжечь лишный жир, а потом нарастить мышцы. Или <a href="http://www.bodyrecomposition.com/fat-loss/body-composition-recommendations.html" title="Body Recomposition">конвертировать жир в мышцы</a>.</p>
+			<p style="text-align: center; color: #999;"><em>—&thinsp;или&thinsp;—</em></p>
 		</div>
 		<div class="threecol">
 			<img src="./fitness_files/anatomy-obese.png" alt="Obese Body">
-			<p><em>Obese/Overweight</em>: You have a moderate amount of muscle underneath a large layer of body fat. Burn fat by consuming fewer calories and incorporate an <a href="http://simplesciencefitness.com/#exercise">exercise program</a>.</p>
-			<p style="text-align: center; color: #999;"><em>—or—</em></p>
+			<p><em>Плотный/Страдаюший ожирением</em>: Небольшой объём мышц под большим слоем жира. Сжигайте жир потребляя калорий и <a href="http://simplesciencefitness.com/#exercise">тренируйтесь</a>.</p>
+			<p style="text-align: center; color: #999;"><em>—&thinsp;или&thinsp;—</em></p>
 		</div>
 		<div class="threecol last">
 			<img src="./fitness_files/anatomy-muscular.png" alt="Muscular Body">
-			<p><em>Muscular</em>: You have moderate to abundant amount of muscle with little to moderate body fat. If you are at least 15% body fat (25% for women), attempt to burn excess fat. At <a href="http://www.bodyrecomposition.com/muscle-gain/initial-body-fat-and-body-composition-changes.html" title="Initial Body Fat and Body Composition Changes">10% body fat</a> (20% for women), do a slow bulk to build more muscle. If you are at your ideal physique, maintain your caloric intake and training regimen.</p>
-		</div>						
+			<p><em>Мускулистый</em>: Объём мышц от среднего до гигантского при маленьком количестве жира. Если у вас больше 15% жира в организма (25% для женщин), попытайтесь сжечь лишний жир. At <a href="http://www.bodyrecomposition.com/muscle-gain/initial-body-fat-and-body-composition-changes.html" title="Initial Body Fat and Body Composition Changes">10% body fat</a> (20% for women), do a slow bulk to build more muscle. Если вы достигли идеального телосложения, то прододжайте поддерживать уровень потребления калорий и тренировочный режим (образ жизни).</p>
+		</div>					
 	</div>
 	<div class="row sectionBreak">
 		<div class="fourcol">
 			<h3>Ваш вес</h3>
-			<p>Your body weight does not consist of just muscle and fat, but also water, blood, organs, waste, tissue, and bones. Your scale tells you your weight, but it doesn’t tell you how much of it is lean muscle and how much of it is fat. If you gain or lose a few pounds over the course of the day, it is likely just fluctuations of water weight. It is best to measure progress week-by-week, first thing in the morning. Please be aware that you can expect to naturally and realistically burn up to 2 lbs of <em>fat</em> per week (the obese can burn more) or build <a href="http://www.bodyrecomposition.com/muscle-gain/whats-my-genetic-muscular-potential.html">0.5 lbs of <em>muscle</em></a> per week.</p>
-			<h3>Body Fat</h3>
-			<p>You can find out your approximate body fat percentage at home with <a href="http://amzn.to/S1r8KY" title="Defender body fat caliper">calipers</a>, or at a gym or a medical centre that offers DXA scans. You can roughly guess your body fat percentage by looking at your midsection in the mirror. If you have no visible abdominal muscles, you are likely over 20% body fat (or over 30% for women). If you can see partial outlines of your abs, you are likely 15-19% (25-29% for women). If you can see full abdominal muscles, you are likely at the most 10% (20% for women). Women have higher body fat percentages because of extra adipose tissue in their breasts and glutes.</p>
-			<p>You cannot <a href="http://www.netwellness.uc.edu/question.cfm/21417.htm">spot reduce</a>. When you burn fat, you burn fat all over your body. Men commonly have stubborn fat in their abdominal and lower back areas while women store more fat in their thighs, glutes, and breasts. How much fat being stored there is determined by genetics.</p>
+			<p>Ваше тело состоит не только из мышц и жира, но также из воды, крови, внутренних органов, тканей, костей и ненужных отходов. Цифра на весах показывает вес вашего тела, но не то, сколько в нём жира иличистой мышечной массы. Если вы набираете или теряете килограмм в течение дня, это скорее всего просто колебания количества воды в организме. Лучше всего измерять прогресс каждую неделю, первым делом с утра. Пожалуйста имейте в виду, что вы можете ожидать реалистичной естьственной потери <em>жира</em> до 1 кг в неделю ( <i class="incomplete">ожиревший могут сжигать больше</i>). Или построить до ¼ кг <em>мышц</em> <a href="http://www.bodyrecomposition.com/muscle-gain/whats-my-genetic-muscular-potential.html">в неделю</a>.</p>
+			<h3>Жир в организме</h3>
+			<p>Вы можете грубо оценить процент жира в своём организме, посмотрев на свой торс в зеркало. Если у вас нет видимых мышц живота, то скорее всего у вас больше 20% жира в организме (или больше 30% для женшин). Если вы видите частичные очертания вашего пресса, то вероятно у вас 15-19% (25-29% для женщин). Если вы видите брюшные мышцы, т.н. «кубики» то у вас не больше 10% (20% для женщин). У женщин больше процент жира в организме из-за дополнительной жировой ткани в области груди и ягодиц.</p>
+			<p>Невозможно <a href="http://www.netwellness.uc.edu/question.cfm/21417.htm">похудеть в одном месте</a>. Сжигая жир, вы сжигаете его по всему телу. <i class="incomplete">цитату из прогенес про жир</i> Нельзя сделать худым только живот. На самом деле для мужчин обычно сложнее всего избавиться от жира в зоне живота и низа спины, а для женщин в области бедер и ягодиц. Количество жира запасенного там определяется генетикой.</p>
 		</div>
 		<div class="fourcol">
-			<h3>Genetics</h3>
-			<p>Our height, structure, predisposition to store fat, and how muscular we are is genetically determined when we reach puberty. You can be short or you can be tall. Some women can be very thin yet also be very curvaceous. Some men are genetically predisposed to have large muscular legs. These factors determine our shape and appearance, and cannot be changed without surgery or drugs; however, we can control the increase and decrease of body fat and muscle to give us a new shape by understanding how diet and exercise can change our body's appearance.</p>
-			<h3>Body Image</h3>
+			<h3>Генетика</h3>
+			<p>Наш рост, телосложение, предрасположенность к полноте и мускулистость определяется генетически когда мы достигаем подросткового возраста. Можно быть низким или высоким. Некоторые женщины могуть быть очень худыми и при этом очень <i class="incomplete">стройными</i>. Некоторые мужчины имеют предрасположенность к большим мускулистым ногам. Эти факторы определяют нашу форму и внешность и не могут быть изменены без операции или медикаментов. Тем не менее, мы можем контроллировать увеличение или уменшение количества жира в организме и мышечной ткани, чтобы получить желаемую фигуру, понимая как питание и упражнения могут изменить внешний вид нашего тела.</p>
+			<h3>Образ тела</h3>
 			<p>While physical appearance play a large role in reasons and motivations to get fit, the primary approach should be for health. Good health is attractive, and aesthetics follow as a consequence of being healthy. With increased physical ability, confidence, and mental health, body image issues are then decreased.</p>
-			<h3>Metabolism</h3>
-			<p>With the exception of very rare cases, resting metabolism is  virtually the <a href="http://www.ncbi.nlm.nih.gov/pubmed/15534426">same from person to person</a>, so there is no such thing as a <a href="http://www.bodyrecomposition.com/fat-loss/you-are-not-different.html">fast or slow</a> metabolism, and having 3 vs. 6 meals in a day <a href="http://www.ncbi.nlm.nih.gov/pubmed/8383639">does not affect metabolism</a>. However, metabolism can be increased through <a href="http://examine.com/faq/does-metabolism-vary-between-two-people.html#summary2" title="Metabolic rate and exercise">exercise</a>, especially weight training, because of the energy expenditure during the workout and the energy required to repair the muscles.</p>
+			<h3>Метаболизм</h3>
+			<p>With the exception of very rare cases, resting metabolism is virtually the <a href="http://www.ncbi.nlm.nih.gov/pubmed/15534426">same from person to person</a>, so there is no such thing as a <a href="http://www.bodyrecomposition.com/fat-loss/you-are-not-different.html">fast or slow</a> metabolism, and having 3 vs. 6 meals in a day <a href="http://www.ncbi.nlm.nih.gov/pubmed/8383639">does not affect metabolism</a>. However, metabolism can be increased through <a href="http://examine.com/faq/does-metabolism-vary-between-two-people.html#summary2" title="Metabolic rate and exercise">exercise</a>, especially weight training, because of the energy expenditure during the workout and the energy required to repair the muscles.</p>
 			<h4>Diet Transitioning</h4>
 			<p>When transitioning from a bulk (increasing body weight) to a cut (decreasing body weight) or vice versa, it is important to adjust calories slowly by 200 to 250 calories per week. This gives the body time to adapt psychologically and physiologically.</p>
 		</div>
 		<div class="fourcol last">
-			<h3>80/20 Rule for Body Composition</h3>
+			<h3>Правило 80/20 для телосложения</h3>
 			<p>80% of your <em>body composition</em> (lean mass + fat) is the result of diet while 20% is from exercise. Diet enables you to change your weight, to build muscle mass or to burn fat, while exercise is a tool to manipulate further change, to demand the growth of muscle or to accelerate fat loss.</p>
 			<p>This does not mean exercise is minimized or excluded, however, and should always be paired with diet. Exercise provides numerous mental and physical <a href="http://simplesciencefitness.com/#exercise">health benefits</a> and should always be part of your lifestyle.</p>
 			<img src="./fitness_files/80-20-rule.png" alt="80/20 Rule">
@@ -755,77 +802,59 @@
 			<h3>Macronutrient Calculator</h3>
 			<p>The macronutrient calculator will give you a guideline of how many calories or grams to consume per day on your workout and rest days. Your desired daily caloric consumption should be based on your maintenance, weight gain, or weight loss goals from the <a href="http://simplesciencefitness.com/#calories-in-and-out" title="BMR Calculator">BMR calculator</a>.</p>
 
-<form name="mac_calc" class="calc">
-<fieldset>
-<ol class="calcStyle">
-	<li>
-		Desired daily caloric consumption:<br>
-		<input type="text" name="cal" maxlength="4" placeholder="Calories"><br>
-		Workout days per week:<br>
-		<input type="text" name="wdays" maxlength="1" placeholder="Days">
-	</li>
-	
-	<li>
-		<input type="button" value="Get Results" onclick="get_mac()">
-		<input type="reset" value="Reset">
-	</li>
-</ol>
-<h4>Results:</h4>
-<ol>
-	<li>
-		<label>Workout Days:</label>
-		<input class="textboxCalc" type="text" disabled="disabled" name="result_wcal" placeholder="Calories">
-	</li>
-	<li>
-		<label>Rest Days:</label>
-		<input class="textboxCalc" type="text" disabled="disabled" name="result_rcal" placeholder="Calories">
-	</li>
-</ol>
+	<div id="macCalc" class="macCalc">
+        <ol class="calcStyle">
+            <li>
+                Desired daily caloric consumption: <span data-var="cal" class="TKAdjustableNumber" data-min="1500" data-max="3500"> ккал</span><br>
+                Workout days per week: <span data-var="days" class="TKAdjustableNumber" data-min="0" data-max="7"> дней</span><br>
+            </li>
+        </ol>
+        
+        <p>Workout Days: <span data-var="workCal"></span><br/>
+        Rest Days: <span data-var="restCal"></span></p>
+        
+        <table>
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th colspan="2">Workout Days</th>
+                <th colspan="2">Rest Days</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td>ккал</td>
+                <td>грамм</td>
+                <td>ккал</td>
+                <td>грамм</td>
+            </tr>
+            <tr>
+                <td style="color:#009345;"><strong>Carbs</strong></td>
+                <td><span data-var="wc_cal"></span></td>
+                <td><span data-var="wc_g"></span></td>
+                <td><span data-var="rc_cal"></span></td>
+                <td><span data-var="rc_g"></span></td>
+            </tr>
+            <tr>
+                <td style="color:#1b75bb;"><strong>Protein</strong></td>
+                <td><span data-var="wp_cal"></span></td>
+                <td><span data-var="wp_g"></span></td>
+                <td><span data-var="rp_cal"></span></td>
+                <td><span data-var="rp_g"></span></td>
+            </tr>
+            <tr>
+                <td style="color:#f6921e;"><strong>Fat</strong></td>
+                <td><span data-var="wf_cal"></span></td>
+                <td><span data-var="wf_g"></span></td>
+                <td><span data-var="rf_cal"></span></td>
+                <td><span data-var="rf_g"></span></td>
+            </tr>       
+        </tbody>
+        </table>
+        </div>
 
-<table>
-<thead>
-	<tr>
-		<th>&nbsp;</th>
-		<th colspan="2">Workout Days</th>
-		<th colspan="2">Rest Days</th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td>&nbsp;</td>
-		<td>Calories</td>
-		<td>Grams</td>
-		<td>Calories</td>
-		<td>Grams</td>
-	</tr>
-	<tr>
-		<td style="color:#009345;"><strong>Carbs</strong></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="4" name="wc_cal"></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="3" name="wc_g"></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="4" name="rc_cal"></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="3" name="rc_g"></td>
-	</tr>
-	<tr>
-		<td style="color:#1b75bb;"><strong>Protein</strong></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="4" name="wp_cal"></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="3" name="wp_g"></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="4" name="rp_cal"></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="3" name="rp_g"></td>
-	</tr>
-	<tr>
-		<td style="color:#f6921e;"><strong>Fat</strong></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="4" name="wf_cal"></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="3" name="wf_g"></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="4" name="rf_cal"></td>
-		<td><input class="textboxCalc" type="text" disabled="disabled" size="3" name="rf_g"></td>
-	</tr>		
-</tbody>
-</table>
-
-</fieldset>
-</form>
-
-			<img src="./fitness_files/macronutrient-ratio.png" alt="Macronutrient Ratio and Portion Sizes">
+		<img src="./fitness_files/macronutrient-ratio.png" alt="Macronutrient Ratio and Portion Sizes">
 
 		</div>				
 	</div>
@@ -2489,16 +2518,7 @@
 	<div class="row">
 		<div class="twelvecol last">
 			<h4 class="adCaption">Advertisement: </h4>
-			<script type="text/javascript"><!--
-			google_ad_client = "ca-pub-8984373830257278";
-			/* Link unit - Exercise */
-			google_ad_slot = "2670419393";
-			google_ad_width = 728;
-			google_ad_height = 15;
-			//-->
-			</script>
-			<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-			</script>
+
 		</div>
 	</div>
 </div>
@@ -2672,11 +2692,11 @@
 		</div>
 	</div>
 </footer>
-
+	
 	<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
 	<!--<script type="text/javascript" src="./fitness_files/css3-mediaqueries.js"></script>
 	<script type="text/javascript" src="./fitness_files/bmr-calculator.min.js"></script>
-	<script type="text/javascript" src="./fitness_files/macronutrient-calculator.min.js"></script>
+	
 	<script src="./fitness_files/jquery.min.js"></script>
 	<script type="text/javascript" src="./fitness_files/jquery-tabs.js"></script>
 	<script type="text/javascript" src="./fitness_files/jquery-accordion.js"></script>

@@ -4,7 +4,7 @@
 
 body {
 	font-size: 14px;
-	font-family: PT Sans, Verdana, Georgia, sans-serif;
+	font-family: Georgia, PT Sans, Verdana, Georgia, sans-serif;
 	color: #2b2b2b;
 }
 
@@ -57,6 +57,50 @@ li {
     line-height: 1.7em;
 }
 
+.macCalc {
+	font-family: PT Sans;
+	background-color: rgba(245, 239, 198, 0.38);
+	padding: 1em;
+	border: 1px solid #ddd;
+    border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+    -webkit-border-radius: 0.4em;	
+    margin-bottom: 1.4286em;
+}
+
+.macCalcStyle {
+	background-color: #fff;
+	padding: 1em 0;
+	padding-left: 1em;
+	border: 1px solid #ddd;
+}
+
+.macCalc label {
+	display: inline-block;
+	width: 6em;
+}
+
+.macCalc input[type="text"] {
+	width: 5em;
+}
+.macCalc li {
+	list-style: none;
+}
+
+table {
+	width: 100%;
+}
+
+th, td {
+	text-align: left;
+	border-bottom: 1px solid #rgba(0, 0, 0, 0.07);
+	vertical-align: top;
+	/*font-family: 'Open Sans', Georgia, sans-serif;*/
+	font-size: 0.7143em; /* 10px */
+	line-height: 2em; /* 20px */
+}
+
+
 .sidebar{
 	padding: 10px;
 	background-color: rgba(245, 239, 198, 0.38);
@@ -65,13 +109,14 @@ li {
 	position: fixed;
 	right: 0px;
 	top:30%;
+	display: none;
 }
 .sidebar > a {
 	text-decoration: none;
 }
 
-#interactive{
-	background-color: rgba(245, 239, 198, 0.38);
+.incomplete{
+	background-color: rgba(255, 10, 29, 0.58);
 }
 
 .caption {
@@ -309,33 +354,22 @@ footer dt {
 }
 
 .quote h3 {
-	font-family: Georgia, sans-serif;
-	font-style: italic;
-	color: #aaa;
+	font-family: PT Serif, sans-serif;
+	/*font-style: italic;*/
+	color: #000;
 	padding-top: 1.1111em;
 	margin-bottom: 0;
+	text-align: right;
 }
 
 .quote p {
 	font-family: 'Open Sans', Georgia, sans-serif;
 	color: #2b2b2b;
+	text-align: right;
 }
 
 .sectionBreak {
 	border-top: 1px dotted #ddd;
-}
-
-table {
-	width: 100%;
-}
-
-th, td {
-	text-align: left;
-	border-bottom: 1px solid #eee;
-	vertical-align: top;
-	font-family: 'Open Sans', Georgia, sans-serif;
-	font-size: 0.7143em; /* 10px */
-	line-height: 2em; /* 20px */
 }
 
 .ad {
@@ -347,28 +381,6 @@ th, td {
 
 fieldset ol {
 	margin-bottom: 1.4286em;
-}
-
-.calc {
-	background-color: #f3f3f3;
-	padding: 1em;
-	border: 1px solid #ddd;
-    border-radius: 0.4em;
-    -moz-border-radius: 0.4em;
-    -webkit-border-radius: 0.4em;	
-    margin-bottom: 1.4286em;
-}
-
-.calcStyle {
-	background-color: #fff;
-	padding: 1em 0;
-	padding-left: 1em;
-	border: 1px solid #ddd;
-}
-
-.calc label {
-	display: inline-block;
-	width: 6em;
 }
 
 label.wideRadio {
@@ -394,22 +406,8 @@ input.loseHighlight {
 	font-weight: bold;
 }
 
-.calc input[type="text"] {
-	width: 5em;
-}
-
-input.textboxCalc {
-	border: 1px solid #fff;
-	width: 5em;
-	background-color: #ddd;	
-}
-
 input[type="button"], input[type="reset"] {
 	width: 8em;
-}
-
-.calc li {
-	list-style: none;
 }
 
 #contact label {
