@@ -17,10 +17,41 @@
 	<link rel="stylesheet" href="./fitness_files/1140.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="./fitness_files/styles.css" type="text/css" media="screen">
 	<link href="./fitness_files/css" rel="stylesheet" type="text/css">
-<style type="text/css"></style><link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script></head>
+
+    <!-- Tangle -->
+    <script type="text/javascript" src="Tangle.js"></script>
+    <link rel="stylesheet" href="TangleKit/TangleKit.css" type="text/css">
+    <script type="text/javascript" src="TangleKit/mootools.js"></script>
+    <script type="text/javascript" src="TangleKit/sprintf.js"></script>
+    <script type="text/javascript" src="TangleKit/BVTouchable.js"></script>
+    <script type="text/javascript" src="TangleKit/TangleKit.js"></script>
+    
+    <script type="text/javascript">
+
+        function setUpTangle () {
+
+            var element = document.getElementById("bmrCalc");
+
+            var tangle = new Tangle(element, {
+                initialize: function () {
+                    this.age = 20;
+                    this.weight = 70;
+                    this.height = 160;
+                    this.days = 3;
+                    this.isMan = true;
+                },
+                update: function () {
+                    this.calories = Math.round(((10 * (this.weight)) + (6.25 * (this.height)) - (5 * (this.age)) + (this.isMan? 5: -161)) * (0.09 * this.days + 1.2));
+                    this.lose = this.calories - 500;
+                    this.gain = this.calories + 500;
+                }
+            });
+        }
+    </script>
+</head>
 
 
-<body screen_capture_injected="true">
+<body onload="setUpTangle();">
 
 			<div id="fb-root"></div>
 			<script type="text/javascript" async="" src="./fitness_files/ga.js"></script><script type="text/javascript" async="" src="./fitness_files/plusone.js"></script><script id="twitter-wjs" src="./fitness_files/widgets.js"></script><script id="facebook-jssdk" src="./fitness_files/all.js"></script><script>(function(d, s, id) {
@@ -35,6 +66,7 @@
 
 <!-- //////////////////// NAV //////////////////// -->
 
+<!--
 <nav class="container" id="nav">
 	<div class="row">
 		<div class="twelvecol last">
@@ -77,7 +109,7 @@
 		</div>
 	</div>
 </nav>
-
+-->
 <!-- //////////////////// HEADER //////////////////// -->
 <!--
 <header class="container" style="padding-top: 0px;">
@@ -109,6 +141,13 @@
 </header>	
 -->
 
+<div class="sidebar">
+	
+	Тело<br/>
+	<b>Диета</b><br/>
+	Упражнения<br/>
+</div>
+
 <!-- //////////////////// BODY //////////////////// -->
 
 <div class="container"><a id="body"></a>
@@ -129,12 +168,12 @@
 <div class="container">
 	<div class="row">
 		<div class="twelvecol last">
-			<h2>Body Composition</h2>
+			<h2>Строение тела</h2>
 		</div>
 	</div>
 	<div class="row">
 		<div class="twelvecol last">
-		<h3>You Are</h3>
+		<h3>Вы</h3>
 		</div>
 	</div>
 	<div class="row">
@@ -160,7 +199,7 @@
 	</div>
 	<div class="row sectionBreak">
 		<div class="fourcol">
-			<h3>Your Weight</h3>
+			<h3>Ваш вес</h3>
 			<p>Your body weight does not consist of just muscle and fat, but also water, blood, organs, waste, tissue, and bones. Your scale tells you your weight, but it doesn’t tell you how much of it is lean muscle and how much of it is fat. If you gain or lose a few pounds over the course of the day, it is likely just fluctuations of water weight. It is best to measure progress week-by-week, first thing in the morning. Please be aware that you can expect to naturally and realistically burn up to 2 lbs of <em>fat</em> per week (the obese can burn more) or build <a href="http://www.bodyrecomposition.com/muscle-gain/whats-my-genetic-muscular-potential.html">0.5 lbs of <em>muscle</em></a> per week.</p>
 			<h3>Body Fat</h3>
 			<p>You can find out your approximate body fat percentage at home with <a href="http://amzn.to/S1r8KY" title="Defender body fat caliper">calipers</a>, or at a gym or a medical centre that offers DXA scans. You can roughly guess your body fat percentage by looking at your midsection in the mirror. If you have no visible abdominal muscles, you are likely over 20% body fat (or over 30% for women). If you can see partial outlines of your abs, you are likely 15-19% (25-29% for women). If you can see full abdominal muscles, you are likely at the most 10% (20% for women). Women have higher body fat percentages because of extra adipose tissue in their breasts and glutes.</p>
@@ -213,60 +252,22 @@
 	<div class="row sectionBreak">
 		<div class="fourcol">
 			<h3>BMR Calculator</h3>
-
-<form name="msje_calc" class="calc">
-<fieldset>
-<ol class="calcStyle">
-	<li>
-		<label for="male" class="wideRadio"><input type="radio" id="male" name="gender" checked=""> Male</label>
-		<label for="female" class="wideRadio"><input type="radio" id="female" name="gender"> Female</label>
-	</li>
-	<li>
-		<input type="text" name="age" maxlength="3" placeholder="Age"> years<br>
-	</li>
-	<li>
-		<label><input type="text" name="inch" maxlength="5" placeholder="Height"> in</label>
-		<label style="text-align: center; color: #999;"><em>—or—</em></label>
-		<label><input type="text" name="cm" maxlength="5" placeholder="Height"> cm</label>
-	</li>
-	<li>
-		<label><input type="text" name="lbs" maxlength="5" placeholder="Weight"> lbs</label>
-		<label style="text-align: center; color: #999;"><em>—or—</em></label>
-		<label><input type="text" name="kg" maxlength="4" placeholder="Weight"> kg</label>
-	</li>
-	
-	<li><label for="e1" class="wideRadio"><input type="radio" id="e1" name="multiplier" checked=""> Little to no exercise (sedentary)</label></li>
-    <li><label for="e2" class="wideRadio"><input type="radio" id="e2" name="multiplier"> Light exercise (1-3 days/week)</label></li>
-	<li><label for="e3" class="wideRadio"><input type="radio" id="e3" name="multiplier"> Moderate exercise (3-5 days/week)</label></li>
-	<li><label for="e4" class="wideRadio"><input type="radio" id="e4" name="multiplier"> Heavy exercise (6-7 days/week)</label></li>
-	<li><label for="e5" class="wideRadio"><input type="radio" id="e5" name="multiplier"> Extreme exercise (2x/days, daily)</label></li>
-	
-	<li>
-		<input type="button" value="Get Results" onclick="get_msje()">
-		<input type="reset" value="Reset">
-	</li>
-</ol>
-<h4>Results:</h4>
-<ol>
-	<li>
-		<label>BMR:</label>
-		<input class="textboxCalc" type="text" disabled="disabled" name="result_bmr" placeholder="Calories">
-	</li>
-	<li>
-		<label>To Maintain:</label>
-		<input class="maintainHighlight" type="text" disabled="disabled" name="result_msje" placeholder="Consume"> calories per day
-	</li>
-	<li>
-		<label>To Gain:</label>
-		<input class="gainHighlight" type="text" disabled="disabled" name="result_gain" placeholder="Consume"> calories per day
-	</li>
-	<li>
-		<label>To Lose:</label>
-		<input class="loseHighlight" type="text" disabled="disabled" name="result_lose" placeholder="Consume"> calories per day
-	</li>
-</ol>	
-</fieldset>
-</form>
+			<div id="bmrCalc" class="mycalc">
+            Я 
+           	<span data-var="isMan" class="TKToggle TKSwitch">
+            <span style="display: none;">женщина</span>
+            <span style="display: inline;">мужчина</span>
+            </span>
+             весом 
+            <span data-var="weight" class="TKAdjustableNumber" data-min="50" data-max="100"> кг</span> 
+            и ростом 
+            <span data-var="height" class="TKAdjustableNumber" data-min="155" data-max="210"> см</span>. И тренируюсь
+            <span data-var="days" class="TKAdjustableNumber" data-min="0" data-max="7"> дней</span>
+            в неделю
+            Я&nbsp;должен потреблять <i><span data-var="calories"></span></i> ккал.<br>
+            Чтобы похудеть <i><span data-var="lose"></span></i> ккал.<br>
+            Чтобы набрать вес <i><span data-var="gain"></span></i> ккал.
+            </div>
 		</div>
 		<div class="fourcol">
 			<h3>Understanding the Numbers</h3>
@@ -333,17 +334,9 @@
 <div class="container ad">
 	<div class="row">
 		<div class="twelvecol last">
-			<h4 class="adCaption">Advertisement: </h4>
-			<script type="text/javascript"><!--
-			google_ad_client = "ca-pub-8984373830257278";
-			/* 728x90 Leaderboard */
-			google_ad_slot = "8022882161";
-			google_ad_width = 728;
-			google_ad_height = 90;
-			//-->
-			</script>
-			<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-			</script>
+			
+
+
 		</div>
 	</div>
 </div>
@@ -1450,7 +1443,7 @@
 			<p><em>Vitamin D3</em>: Individuals who do not get enough sun or live in cold climates will greatly <a href="http://examine.com/supplements/Vitamin+D/" title="Benefits of Vitamin D3">benefit</a> from this important hormone. <a href="http://www.ncbi.nlm.nih.gov/pubmed/15989379" title="Benefits and requirements of vitamin D for optimal health: a review.">Vitamin D</a> helps the heart, improves performance and recovery, and lowers the risk of cancer and diabetes.</p>
 			<p><em>Fish Oil</em>: Found in fish, fish oil contains the omega-3 acids of EPA and DHA, which is an anti-inflammatory that offers several benefits to the heart, brain, liver, and reducing moods such as anxiety and <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1747-0080.2006.00109.x/abstract">depression</a>. In addition, fish oil helps with both <a href="http://examine.com/supplements/Fish+Oil/" title="Fish oil helps with weight loss and muscle building">weight loss and muscle building</a>.</p>				
 		</div>
-		<div class="fourcol last">			
+		<div id="interactive" class="fourcol last">			
 			<h3>For Bulking</h3>
 			<p><em>Creatine</em>: Naturally found in the body, creatine improves lifting performance while on a bulk and is not recommended for weight loss. Taking 5g (1 tsp) once a day at any time (<a href="http://www.ncbi.nlm.nih.gov/pubmed/8929583" title="Caffeine counteracts the ergogenic action of muscle creatine loading">except with caffeine</a>) is all that is needed.</p>
 			<h3>For Cutting</h3>
@@ -1507,17 +1500,7 @@
 <div class="container ad">
 	<div class="row">
 		<div class="twelvecol last">
-			<h4 class="adCaption">Advertisement: </h4>
-			<script type="text/javascript"><!--
-			google_ad_client = "ca-pub-8984373830257278";
-			/* Leaderboard 2 */
-			google_ad_slot = "1317014503";
-			google_ad_width = 728;
-			google_ad_height = 90;
-			//-->
-			</script>
-			<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-			</script>
+
 		</div>
 	</div>
 </div>
@@ -2691,7 +2674,7 @@
 </footer>
 
 	<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
-	<script type="text/javascript" src="./fitness_files/css3-mediaqueries.js"></script>
+	<!--<script type="text/javascript" src="./fitness_files/css3-mediaqueries.js"></script>
 	<script type="text/javascript" src="./fitness_files/bmr-calculator.min.js"></script>
 	<script type="text/javascript" src="./fitness_files/macronutrient-calculator.min.js"></script>
 	<script src="./fitness_files/jquery.min.js"></script>
@@ -2712,6 +2695,6 @@
 	  })();
 	</script>
 
-
+-->
 
 </body></html>

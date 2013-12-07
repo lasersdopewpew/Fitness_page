@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Tangle document</title>
+
+    <!-- Tangle -->
+    <script type="text/javascript" src="Tangle.js"></script>
+
+
+    <link rel="stylesheet" href="TangleKit/TangleKit.css" type="text/css">
+    <script type="text/javascript" src="TangleKit/mootools.js"></script>
+    <script type="text/javascript" src="TangleKit/sprintf.js"></script>
+    <script type="text/javascript" src="TangleKit/BVTouchable.js"></script>
+    <script type="text/javascript" src="TangleKit/TangleKit.js"></script>
+
+    <style>
+
+.mycalc{
+    padding: 10px;
+    background-color: rgba(245, 239, 198, 0.38);
+    font-family: PT Serif;  
+    font-size: 16px; 
+    width: 300px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    border: dashed 1px;
+    padding: 15px;
+    line-height: 1.7em;
+}
+
+    </style>
+
+    <!-- example -->
+    <script type="text/javascript">
+
+        function setUpTangle () {
+
+            var element = document.getElementById("example");
+
+            var tangle = new Tangle(element, {
+                initialize: function () {
+                    this.age = 20;
+                    this.weight = 70;
+                    this.height = 160;
+                    this.days = 3;
+                    this.isMan = true;
+                },
+                update: function () {
+                    this.calories = Math.round(((10 * (this.weight)) + (6.25 * (this.height)) - (5 * (this.age)) + (this.isMan? 5: -161)) * (0.09 * this.days + 1.2));
+                    this.lose = this.calories - 500;
+                    this.gain = this.calories + 500;
+                }
+            });
+        }
+
+    </script>
+</head>
+
+<body onload="setUpTangle();">
+
+    <p>This is a simple reactive document.</p>
+
+            <p id="example" class="mycalc">
+            Я 
+           <span data-var="isMan" class="TKToggle TKSwitch">
+            <span style="display: none;">женщина</span>
+            <span style="display: inline;">мужчина</span>
+            </span>
+             весом 
+            <span data-var="weight" class="TKAdjustableNumber" data-min="50" data-max="100"> кг</span> 
+            и ростом 
+            <span data-var="height" class="TKAdjustableNumber" data-min="155" data-max="210"> см</span>. И тренируюсь
+            <span data-var="days" class="TKAdjustableNumber" data-min="0" data-max="7"> дней</span>
+            в неделю
+            Я&nbsp;должен потреблять <i><span data-var="calories"></span></i> ккал.<br>
+            Чтобы похудеть <i><span data-var="lose"></span></i> ккал.<br>
+            Чтобы набрать вес <i><span data-var="gain"></span></i> ккал.
+            </p>
+
+</body>
+</html>
