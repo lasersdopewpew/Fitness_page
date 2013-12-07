@@ -52,8 +52,55 @@
                     this.gain = this.calories + 500;
                 }
             });
-        }
+        
 
+        var macCalc = document.getElementById("macCalc");
+        var tangle = new Tangle(macCalc, {
+            initialize: function () {
+                this.cal = 2000;
+                this.days = 3;
+            },
+
+            update: function () {
+            var n = 0.2 * this.cal;
+            var r = this.days * (this.cal + n) + (7 - this.days) * (this.cal - n)
+            
+            if (r > 7 * this.cal) {
+                var i = r - 7 * this.cal;
+                var s = i / this.days;
+                if (this.cal - n >= 1200) {
+                    this.workCal = Math.round(1 * this.cal + 1 * n - s);
+                    this.restCal = Math.round(this.cal - n)
+                } else if (this.cal - n < 1200) {
+                    this.workCal = this.cal;
+                    this.restCal = this.cal
+                }
+            } else if (r <= 7 * this.cal) {
+                var o = 7 * this.cal - r;
+                var u = o / (7-this.days);
+                if (this.cal - n >= 1200) {
+                    this.workCal = Math.round(this.cal * 1 + n);
+                    this.restCal = Math.round(this.cal * 1 - 1 * n + 1 * u)
+                } else if (this.cal - n < 1200) {
+                    this.workCal = this.cal;
+                    this.restCal = this.cal
+                }
+            }
+            this.wc_cal = Math.round(.35 * this.workCal);
+            this.wp_cal = Math.round(.25 * this.workCal);
+            this.wf_cal = Math.round(.4 * this.workCal);
+            this.rc_cal = Math.round(.15 * this.restCal);
+            this.rp_cal = Math.round(.25 * this.restCal);
+            this.rf_cal = Math.round(.6 * this.restCal);
+            this.wc_g = Math.round(this.wc_cal / 4);
+            this.wp_g = Math.round(this.wp_cal / 4);
+            this.wf_g = Math.round(this.wf_cal / 9);
+            this.rc_g = Math.round(this.rc_cal / 4);
+            this.rp_g = Math.round(this.rp_cal / 4);
+            this.rf_g = Math.round(this.rf_cal / 9)                
+            }
+        });     
+        }   
     </script>
 </head>
 
@@ -77,6 +124,67 @@
             Чтобы похудеть <i><span data-var="lose"></span></i> ккал.<br>
             Чтобы набрать вес <i><span data-var="gain"></span></i> ккал.
             </p>
+
+        <div id="macCalc" class="calc">
+        <fieldset>
+        <ol class="calcStyle">
+            <li>
+                Desired daily caloric consumption: <span data-var="cal" class="TKAdjustableNumber" data-min="1500" data-max="3500"> ккал</span><br>
+                Workout days per week: <span data-var="days" class="TKAdjustableNumber" data-min="0" data-max="7"> дней</span><br>
+            </li>
+        </ol>
+        <h4>Results:</h4>
+        <ol>
+            <li>
+                <label>Workout Days:</label>
+                <span data-var="workCal"></span>
+            </li>
+            <li>
+                <label>Rest Days:</label>
+               <span data-var="restCal"></span>
+            </li>
+        </ol>
+        
+        <table>
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th colspan="2">Workout Days</th>
+                <th colspan="2">Rest Days</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td>Calories</td>
+                <td>Grams</td>
+                <td>Calories</td>
+                <td>Grams</td>
+            </tr>
+            <tr>
+                <td style="color:#009345;"><strong>Carbs</strong></td>
+                <td><span data-var="wc_cal"></span></td>
+                <td><span data-var="wc_g"></span></td>
+                <td><span data-var="rc_cal"></span></td>
+                <td><span data-var="rc_g"></span></td>
+            </tr>
+            <tr>
+                <td style="color:#1b75bb;"><strong>Protein</strong></td>
+                <td><span data-var="wp_cal"></span></td>
+                <td><span data-var="wp_g"></span></td>
+                <td><span data-var="rp_cal"></span></td>
+                <td><span data-var="rp_g"></span></td>
+            </tr>
+            <tr>
+                <td style="color:#f6921e;"><strong>Fat</strong></td>
+                <td><span data-var="wf_cal"></span></td>
+                <td><span data-var="wf_g"></span></td>
+                <td><span data-var="rf_cal"></span></td>
+                <td><span data-var="rf_g"></span></td>
+            </tr>       
+        </tbody>
+        </table>
+        </div>
 
 </body>
 </html>
