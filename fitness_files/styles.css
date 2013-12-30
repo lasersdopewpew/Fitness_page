@@ -61,6 +61,16 @@ li {
     padding-left: 0px;
     line-height: 1.7em;
 }
+.redspan{
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(249,39,39,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(249,39,39,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(249,39,39,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  rgba(249,39,39,1) 0%,rgba(255,255,255,0) 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  rgba(249,39,39,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  rgba(249,39,39,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f92727', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
 
 .macCalc {
 	font-family: PT Sans;
@@ -71,6 +81,9 @@ li {
     -moz-border-radius: 0.4em;
     -webkit-border-radius: 0.4em;	
     margin-bottom: 1.4286em;
+    background-color: #F5F5EA;
+    background-color: #ffe9bf;
+	color: #664226;
 }
 
 .macCalcStyle {
@@ -167,7 +180,7 @@ h4 {
 	font-size: 1em; /* 14px */
 	line-height: 1.4286em; /* 20px */
 	margin-top: 1.4286em;
-	margin-bottom: 1.4286em;
+	/*margin-bottom: 1.4286em;*/
 }
 
 a {
