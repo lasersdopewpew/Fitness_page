@@ -42,6 +42,11 @@ li {
 	  line-height: 1.4286em;
 }
 
+.macCalc > h3{
+	margin-top: 0;
+	margin-bottom: 1.5em;
+}
+
 .mycalc{
 	border-top: black 1px dashed;
     padding: 10px;
