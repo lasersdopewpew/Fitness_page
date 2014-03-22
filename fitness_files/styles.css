@@ -8,6 +8,11 @@ body {
 	color: #2b2b2b;
 }
 
+li {
+	list-style-type: none;
+}
+/*li:before{content:"— ";}*/
+
 body:before { /* top shadow */ 
 	content: ""; 
 	position: absolute;
@@ -163,9 +168,10 @@ h2 {
 	line-height: 1.4286em; /* 40px */
 	margin-top: 0.7143em;
 	margin-bottom: 0em;
-	border-bottom: 1px solid #ccc;
+	/*border-bottom: 1px solid #ccc;*/
+	border-bottom: 1px solid rgba(255, 42, 42, 0.12);
 	color: #e82a33;
-	font-weight: 700;
+	/*font-weight: 700;*/
 }
 
 h3 {
@@ -186,7 +192,7 @@ h4 {
 a {
 	/*color: #2b2b2b;
 	border-bottom: 1px solid #d3ca59;*/
-
+	transition: color 0.25s ease-out, border-color 0.25s ease-out;
 	display: inline-block;
    	vertical-align: baseline;
    	line-height: .95;
@@ -196,9 +202,11 @@ a {
 }
 
 a:hover {
+	transition: color 0s ease-out, border-color 0s ease-out;
 	color: #d96100;
-	background-color: #fffbd2;
-	border-bottom: none;
+	border-color: rgba(208, 64, 0, 0.2);
+	/*background-color: #fffbd2;
+	border-bottom: none;*/
 }
 
 dl {
@@ -368,7 +376,8 @@ footer dt {
 
 .h1 {
 	margin-top: 2em;
-	border-bottom: 1px solid #000;
+	/*border-bottom: 1px solid #000;*/
+	border-bottom: 1px solid rgba(0, 0, 0, 0.31);
 }
 
 .quote h3 {
