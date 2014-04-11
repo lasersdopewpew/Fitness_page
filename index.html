@@ -1,0 +1,2694 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://simplesciencefitness.com/ -->
+<html lang="en" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Simple Science Fitness. Burn Fat &amp; Build Muscle for Healthy Humans.</title>
+	<meta name="description" content="Simple Science Fitness provides the latest information on diet and exercise to gain muscle or lose weight naturally.">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- 1140px Grid styles for IE -->
+	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" /><![endif]-->
+	<!--[if lte IE 8]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<link rel="icon" type="image/png" href="http://simplesciencefitness.com/img/favicon.png">
+	<link rel="stylesheet" href="./fitness_files/1140.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="./fitness_files/styles.css" type="text/css" media="screen">
+	<link href="./fitness_files/css" rel="stylesheet" type="text/css">
+
+    <!-- Tangle -->
+    <script type="text/javascript" src="Tangle.js"></script>
+    <link rel="stylesheet" href="TangleKit/TangleKit.css" type="text/css">
+    <script type="text/javascript" src="TangleKit/mootools.js"></script>
+    <script type="text/javascript" src="TangleKit/sprintf.js"></script>
+    <script type="text/javascript" src="TangleKit/BVTouchable.js"></script>
+    <script type="text/javascript" src="TangleKit/TangleKit.js"></script>
+    
+    <script type="text/javascript">
+
+        function setUpTangle () {
+
+            var element = document.getElementById("bmrCalc");
+
+            var tangle = new Tangle(element, {
+                initialize: function () {
+                    this.age = 20;
+                    this.weight = 70;
+                    this.height = 160;
+                    this.days = 3;
+                    this.isMan = true;
+                },
+                update: function () {
+                    this.calories = Math.round(((10 * (this.weight)) + (6.25 * (this.height)) - (5 * (this.age)) + (this.isMan? 5: -161)) * (0.09 * this.days + 1.2));
+                    this.lose = this.calories - 500;
+                    this.gain = this.calories + 500;
+                }
+            });
+
+            var macCalc = document.getElementById("macCalc");
+        	var tangle = new Tangle(macCalc, {
+            initialize: function () {
+                this.cal = 2000;
+                this.days = 3;
+            },
+
+            update: function () {
+            var n = 0.2 * this.cal;
+            var r = this.days * (this.cal + n) + (7 - this.days) * (this.cal - n)
+            
+            if (r > 7 * this.cal) {
+                var i = r - 7 * this.cal;
+                var s = i / this.days;
+                if (this.cal - n >= 1200) {
+                    this.workCal = Math.round(1 * this.cal + 1 * n - s);
+                    this.restCal = Math.round(this.cal - n)
+                } else if (this.cal - n < 1200) {
+                    this.workCal = this.cal;
+                    this.restCal = this.cal
+                }
+            } else if (r <= 7 * this.cal) {
+                var o = 7 * this.cal - r;
+                var u = o / (7-this.days);
+                if (this.cal - n >= 1200) {
+                    this.workCal = Math.round(this.cal * 1 + n);
+                    this.restCal = Math.round(this.cal * 1 - 1 * n + 1 * u)
+                } else if (this.cal - n < 1200) {
+                    this.workCal = this.cal;
+                    this.restCal = this.cal
+                }
+            }
+            this.wc_cal = Math.round(.35 * this.workCal);
+            this.wp_cal = Math.round(.25 * this.workCal);
+            this.wf_cal = Math.round(.4 * this.workCal);
+            this.rc_cal = Math.round(.15 * this.restCal);
+            this.rp_cal = Math.round(.25 * this.restCal);
+            this.rf_cal = Math.round(.6 * this.restCal);
+            this.wc_g = Math.round(this.wc_cal / 4);
+            this.wp_g = Math.round(this.wp_cal / 4);
+            this.wf_g = Math.round(this.wf_cal / 9);
+            this.rc_g = Math.round(this.rc_cal / 4);
+            this.rp_g = Math.round(this.rp_cal / 4);
+            this.rf_g = Math.round(this.rf_cal / 9)                
+            }
+        });     
+        }
+    </script>
+</head>
+
+
+<body onload="setUpTangle();">
+
+			<div id="fb-root"></div>
+			<script type="text/javascript" async="" src="./fitness_files/ga.js"></script><script type="text/javascript" async="" src="./fitness_files/plusone.js"></script><script id="twitter-wjs" src="./fitness_files/widgets.js"></script><script id="facebook-jssdk" src="./fitness_files/all.js"></script><script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>	
+
+<a id="top"></a>
+
+<!-- //////////////////// NAV //////////////////// -->
+
+<!--
+<nav class="container" id="nav">
+	<div class="row">
+		<div class="twelvecol last">
+		<ul>
+			<li><a class="navTitle scroll" href="http://simplesciencefitness.com/#top" title="Simple Science Fitness">Simple Science Fitness</a></li>
+			<li><a class="scroll" href="http://simplesciencefitness.com/#body" title="Body">Body</a>
+			<ul>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#body-composition" title="Body Composition">Body Composition</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#calories-in-and-out" title="How Many Calories In and Out?">How Many Calories In and Out?</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#anatomy" title="Anatomy">Anatomy</a></li>
+			</ul>
+			</li>
+			<li><a class="scroll" href="http://simplesciencefitness.com/#diet" title="Diet">Diet</a>
+			<ul>	
+				<li><a class="scroll" href="http://simplesciencefitness.com/#quality-foods" title="Quality Foods">Quality Foods</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#short-list-of-foods" title="Short List of Foods">Short List of Foods</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#macronutrients" title="Macronutrients">Macronutrients</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#meals" title="Meals">Meals</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#how-food-affects-our-body" title="How Food Affects Our Body">How Food Affects Our Body</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#supplements" title="Supplements">Supplements</a></li>
+			</ul>
+			</li>
+			<li><a class="scroll" href="http://simplesciencefitness.com/#exercise" title="Exercise">Exercise</a>
+			<ul>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#your-goals" title="Your Goals">Your Goals</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#anaerobic-training" title="Anaerobic Training">Anaerobic Training</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#aerobic-training" title="Aerobic Training">Aerobic Training</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#seeing-results" title="Seeing Results">Seeing Results</a></li>
+			</ul>
+			</li>
+			<li><a class="scroll" href="http://simplesciencefitness.com/#footer" title="Footer">+</a>
+			<ul>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#resources" title="Resources">Resources</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#about" title="About">About</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#footer-contact" title="Contact">Contact</a></li>
+				<li><a class="scroll" href="http://simplesciencefitness.com/#connect" title="Connect">Connect</a></li>
+			</ul>
+			</li>
+		</ul>
+		</div>
+	</div>
+</nav>
+-->
+<!-- //////////////////// HEADER //////////////////// -->
+<!--
+<header class="container" style="padding-top: 0px;">
+	<div class="row" style="text-align: center;">
+		<div class="twelvecol last">
+			<h1 class="logo">Simple Science Fitness</h1>
+			<img src="./fitness_files/simple-science-fitness-logo.png" alt="Simple Science Fitness">
+			<p style="color: #999;">Burn Fat <em>and</em> Build Muscle <br><em>for</em> Healthy Humans</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="threecol"></div>
+		<div class="sixcol intro">
+			<p>This site contains digestible information with cited links, to provide you with the fundamentals and tools to effortlessly burn fat and build muscle naturally in the shortest amount of time.</p>
+			<p>A sensible and scientific approach will give you results—no matter your age, weight, gender, or fitness level.</p>
+
+			<dl class="accordion">
+				<dt style="text-align: center;" class="caption"><a href="http://simplesciencefitness.com/#">—Disclaimer—</a></dt>
+				<dd style="display: none;">
+					<ol>
+					<li>I am not a physician or biochemistry professional, but the information on this site is backed up by scientific and medical research from experts, where I conclude this one to be beneficial and scientifically sound. While having several years of experience in researching, developing and following fitness and nutritional programs, the information presented on this site is of my own personal and professional opinion and does not necessarily reflect those of other organisations, professionals, or government bodies.</li>
+					<li>While any healthy, active adult can attempt this guide safely, the user should consult with their physician first, especially if any cardiovascular, pulmonary, or metabolic symptoms exist, before following any nutritional and exercise programs on this site.</li>
+					<li>The user assumes all liability and risk associated with undertaking the suggested diets, supplements, and programs on this site.</li>
+					</ol>
+				</dd>
+			</dl>​
+		</div>
+	</div>
+</header>	
+-->
+
+<div class="sidebar">
+	
+	Тело<br/>
+	<b>Диета</b><br/>
+	Упражнения<br/>
+</div>
+
+<!-- //////////////////// BODY //////////////////// -->
+
+<div class="container"><a id="body"></a>
+	<div class="row h1">
+		<div class="sixcol">
+			<h1>Тело</h1>
+		</div>
+		<div class="sixcol last quote">
+			<h3>The human body is a machine which winds its own springs.</h3>
+			<p>— Julien Offroy de la Mettrie, <em>L'Homme Machine</em></p>
+		</div>
+	</div>
+</div>
+
+<!-- ++++++++++++++++++++ BODY COMPOSITION ++++++++++++++++++++ -->
+<a id="body-composition"></a>
+
+<div class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>Телосложение</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="twelvecol last">
+		<h3>Вы</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="threecol">
+			<img src="./fitness_files/anatomy-thin.png" alt="Thin Body">
+			<p><em>Худой</em>: Небольшой объём как мышц, так и жировой ткани. Потребляйте больше калорий и тренируйтесь с отягощениями, чтобы увеличить объём мышц и избежать накопления жира.</p>
+			<p style="text-align: center; color: #999;"><em>—&thinsp;или&thinsp;—</em></p>
+		</div>		
+		<div class="threecol">
+			<img src="./fitness_files/anatomy-normal.png" alt="Normal Body">
+			<p><em>Средний/"Skinnyfat"</em>: Маленький или умеренный объём мышц и некоторое количество жира. У вас есть несколько вариантов: сначала увеличить объём мышечной ткани, а после этого сжечь жировую ткань, или сначала сжечь лишный жир, а потом нарастить мышцы. Или <a href="http://www.bodyrecomposition.com/fat-loss/body-composition-recommendations.html" title="Body Recomposition">конвертировать жир в мышцы</a>.</p>
+			<p style="text-align: center; color: #999;"><em>—&thinsp;или&thinsp;—</em></p>
+		</div>
+		<div class="threecol">
+			<img src="./fitness_files/anatomy-obese.png" alt="Obese Body">
+			<p><em>Плотный/Страдаюший ожирением</em>: Небольшой объём мышц под большим слоем жира. Сжигайте жир потребляя калорий и <a href="http://simplesciencefitness.com/#exercise">тренируйтесь</a>.</p>
+			<p style="text-align: center; color: #999;"><em>—&thinsp;или&thinsp;—</em></p>
+		</div>
+		<div class="threecol last">
+			<img src="./fitness_files/anatomy-muscular.png" alt="Muscular Body">
+			<p><em>Мускулистый</em>: Объём мышц от среднего до <span class="redspan">гигантского</span> при маленьком количестве жира. Если у вас больше 15% жира в организма (25% для женщин), попытайтесь сжечь лишний жир. At <a href="http://www.bodyrecomposition.com/muscle-gain/initial-body-fat-and-body-composition-changes.html" title="Initial Body Fat and Body Composition Changes">10% body fat</a> (20% for women), do a slow bulk to build more muscle. Если вы достигли идеального телосложения, то прододжайте поддерживать уровень потребления калорий и тренировочный режим (образ жизни).</p>
+		</div>					
+	</div>
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>Ваш вес</h3>
+			<p>Ваше тело состоит не только из мышц и жира, но также из воды, крови, внутренних органов, тканей, костей и ненужных отходов. Цифра на весах показывает вес вашего тела, но не то, сколько в нём жира иличистой мышечной массы. Если вы набираете или теряете килограмм в течение дня, это скорее всего просто колебания количества воды в организме. Лучше всего измерять прогресс каждую неделю, первым делом с утра. Пожалуйста имейте в виду, что вы можете ожидать реалистичной естьственной потери <em>жира</em> до 1 кг в неделю ( <i class="incomplete">ожиревший могут сжигать больше</i>). Или построить до ¼ кг <em>мышц</em> <a href="http://www.bodyrecomposition.com/muscle-gain/whats-my-genetic-muscular-potential.html">в неделю</a>.</p>
+			<h3>Жир в организме</h3>
+			<p>Вы можете грубо оценить процент жира в своём организме, посмотрев на свой торс в зеркало. Если у вас нет видимых мышц живота, то скорее всего у вас больше 20% жира в организме (или больше 30% для женшин). Если вы видите частичные очертания вашего пресса, то вероятно у вас 15-19% (25-29% для женщин). Если вы видите брюшные мышцы, т.н. «кубики» то у вас не больше 10% (20% для женщин). У женщин больше процент жира в организме из-за дополнительной жировой ткани в области груди и ягодиц.</p>
+			<p>Невозможно <a href="http://www.netwellness.uc.edu/question.cfm/21417.htm">похудеть в одном месте</a>. Сжигая жир, вы сжигаете его по всему телу. <i class="incomplete">цитату из прогенес про жир</i> Нельзя сделать худым только живот. На самом деле для мужчин обычно сложнее всего избавиться от жира в зоне живота и низа спины, а для женщин в области бедер и ягодиц. Количество жира запасенного там определяется генетикой.</p>
+		</div>
+		<div class="fourcol">
+			<h3>Генетика</h3>
+			<p>Наш рост, телосложение, предрасположенность к полноте и мускулистость определяется генетически когда мы достигаем подросткового возраста. Можно быть низким или высоким. Некоторые женщины могуть быть очень худыми и при этом очень <i class="incomplete">стройными</i>. Некоторые мужчины имеют предрасположенность к большим мускулистым ногам. Эти факторы определяют нашу форму и внешность и не могут быть изменены без операции или медикаментов. Тем не менее, мы можем контроллировать увеличение или уменшение количества жира в организме и мышечной ткани, чтобы получить желаемую фигуру, понимая как питание и упражнения могут изменить внешний вид нашего тела.</p>
+			<h3>Образ тела</h3>
+			<p>While physical appearance play a large role in reasons and motivations to get fit, the primary approach should be for health. Good health is attractive, and aesthetics follow as a consequence of being healthy. With increased physical ability, confidence, and mental health, body image issues are then decreased.</p>
+			<h3>Метаболизм</h3>
+			<p>За редким исключением, метаболизм практически не отличается от <a href="http://www.ncbi.nlm.nih.gov/pubmed/15534426">человека к человеку</a>, so there is no such thing as a <a href="http://www.bodyrecomposition.com/fat-loss/you-are-not-different.html">fast or slow</a> metabolism, and having 3 vs. 6 meals in a day <a href="http://www.ncbi.nlm.nih.gov/pubmed/8383639">does not affect metabolism</a>. However, metabolism can be increased through <a href="http://examine.com/faq/does-metabolism-vary-between-two-people.html#summary2" title="Metabolic rate and exercise">exercise</a>, especially weight training, because of the energy expenditure during the workout and the energy required to repair the muscles.</p>
+			<h4>Diet Transitioning</h4>
+			<p>When transitioning from a bulk (increasing body weight) to a cut (decreasing body weight) or vice versa, it is important to adjust calories slowly by 200 to 250 calories per week. This gives the body time to adapt psychologically and physiologically.</p>
+		</div>
+		<div class="fourcol last">
+			<h3>Правило 80/20 для телосложения</h3>
+			<p>80% вашей <em>комплекции</em> (чистые мышцы + жир) это результат вашего питания, а 20% — результат упражнений. Diet enables you to change your weight, to build muscle mass or to burn fat, while exercise is a tool to manipulate further change, to demand the growth of muscle or to accelerate fat loss.</p>
+			<p>This does not mean exercise is minimized or excluded, however, and should always be paired with diet. Exercise provides numerous mental and physical <a href="http://simplesciencefitness.com/#exercise">health benefits</a> and should always be part of your lifestyle.</p>
+			<img src="./fitness_files/80-20-rule.png" alt="80/20 Rule">
+		</div>
+	</div>
+</div>
+
+<!-- ++++++++++++++++++++ CALORIES IN AND OUT ++++++++++++++++++++ -->
+<a id="calories-in-and-out"></a>
+
+<div class="container">	
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>How Many Calories In and Out?</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="fourcol">
+			<h3>Закон сохранения энергии<p class="incomplete">Легкий способ похуеть</p></h3>
+			<p>Если вы потребляете больше калорий чем сжигаете, вы <em>набираете</em> вес. Если вы тратите больше калорий чем потребляете, вы <em>теряете</em> <a href="http://www.ncbi.nlm.nih.gov/pubmed/8561057" title="Similar weight loss with low- or high-carbohydrate diets">вес</a>. Exercise is a variable that <a href="http://www.bodyrecomposition.com/fat-loss/metabolic-rate-overview.html" title="Metabolic rate overview">increases</a>  caloric expenditure, thus increasing metabolism. You will need to find out your total daily energy expenditure (TDEE) to know how many calories to consume in order to gain or lose weight. To find out your TDEE, use the calculator below. It calculates your basal metabolic rate (BMR) using the Mifflin-St Jeor equation then applies the activity multiplier.</p>
+			<h3>To Maintain Weight</h3>
+			<p><img src="./fitness_files/law-of-thermodynamics-maintainence.png" alt="Law of Thermodynamics Maintainence"></p>			
+		</div>
+		<div class="fourcol">
+			<h3>To Gain Weight</h3>
+			<p><img src="./fitness_files/law-of-thermodynamics-weight-gain.png" alt="Law of Thermodynamics Weight Gain"></p>
+		</div>
+		<div class="fourcol last">
+			<h3>To Lose Weight</h3>
+			<p><img src="./fitness_files/law-of-thermodynamics-weight-loss.png" alt="Law of Thermodynamics Weight Loss"></p>
+		</div>				
+	</div>
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>BMR Calculator</h3>
+			<div id="bmrCalc" class="mycalc">
+            Я 
+           	<span data-var="isMan" class="TKToggle TKSwitch">
+            <span style="display: none;">женщина</span>
+            <span style="display: inline;">мужчина</span>
+            </span>
+             весом 
+            <span data-var="weight" class="TKAdjustableNumber" data-min="50" data-max="100"> кг</span> 
+            и ростом 
+            <span data-var="height" class="TKAdjustableNumber" data-min="155" data-max="210"> см</span>. И тренируюсь
+            <span data-var="days" class="TKAdjustableNumber" data-min="0" data-max="7"> дней</span>
+            в неделю
+            Я&nbsp;должен потреблять <i><span data-var="calories"></span></i> ккал.<br>
+            Чтобы похудеть <i><span data-var="lose"></span></i> ккал.<br>
+            Чтобы набрать вес <i><span data-var="gain"></span></i> ккал.
+            </div>
+		</div>
+		<div class="fourcol">
+			<h3>Understanding the Numbers</h3>
+			<p><em>BMR Calculator</em>: The calculator uses the Mifflin-St Jeor equation, which is a <a href="http://www.ncbi.nlm.nih.gov/pubmed/18947974">very accurate</a> way of calculating your BMR.</p><p>
+			</p><p><em>BMR (Basal Metabolic Rate)</em>: Assuming there is zero activity, the BMR is the number of calories you burn in a day in a rested metabolic state.</p>
+			<p><em>TDEE (Total Daily Energy Expenditure)</em>: The BMR with the activity level multiplier gives you the total calories you burn in a day.</p>
+			<p><em>Поддержание веса: (TDEE):</em> Потребление этого количества калорий позволит поддерживать ва текущий вес.</p>
+			<p><em>Набор веса: (TDEE + 500)</em>: Adding 500 calories per day to your TDEE will allow you to gain one pound of weight per week.</p>
+			<p><em>Потеря веса: (TDEE - 500)</em>: Subtracting 500 calories from your TDEE per day will allow you to lose one pound of weight per week.</p>
+		</div>		
+		<div class="fourcol last">
+			<h3>Adjust Your Numbers</h3>
+			<p>Every time you gain or lose 5 lbs of body weight, use the BMR calculator again to re-adjust your caloric intake. Caloric requirements will change as your weight changes.</p>
+			<h3>Bulking</h3>
+			<p>Eat more calories than you burn in a day. If you are a "hardgainer," you are simply not eating enough. Refer to <a href="http://simplesciencefitness.com/#bulking-tips">Bulking Tips</a>.</p>
+			<h3>Cutting</h3>
+			<p>Eat less calories than you burn in a day, but never fewer than <a href="http://www.ncbi.nlm.nih.gov/pubmed/21677272" title="Biology&#39;s response to dieting: the impetus for weight regain">1200 calories</a> or you will experience malnutrition and counterproductive results. If you are struggling to lose weight, please read the <a href="http://simplesciencefitness.com/#diet">Diet</a> section.</p>
+			<h3>Macronutrients</h3>
+			<p>To understand and calculate how much of your daily calories should be allocated to carbs, protein, and fat, you could use the <a href="http://simplesciencefitness.com/#macronutrients">macronutrient calculator</a>.</p>
+		</div>
+	</div>
+</div>
+
+<!-- ++++++++++++++++++++ ANATOMY ++++++++++++++++++++ -->
+<a id="anatomy"></a>
+
+<div class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>Anatomy</h2>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="fourcol">
+			<h3>Front</h3>
+			<p><img src="./fitness_files/front-anatomy.png" alt="Front Anatomy"></p>
+		</div>
+		<div class="fourcol">
+			<h3>Back</h3>
+			<p><img src="./fitness_files/back-anatomy.png" alt="Back Anatomy"></p>
+		</div>
+		<div class="fourcol last">
+			<h3>Anatomy Glossary</h3>
+			<p><em>Abs and Obliques</em>: Stabilizes the core.</p>
+			<p><em>Бицепсы</em>: Сгибают локоть.</p>
+			<p><em>Calves</em>: Raising of the heels.</p>
+			<p><em>Chest (Pectoralis major)</em>: Adduction of the arms.</p>
+			<p><em>Erector Spinae</em>: Extension of the back.</p>
+			<p><em>Forearms</em>: Movement of the wrist and fingers.</p>
+			<p><em>Glutes (Gluteus maximus)</em>: Bending or straightening the hip joints.</p>
+			<p><em>Hamstrings</em>: Bending of the knee.</p>
+			<p><em>Lats (Latissimus dorsi)</em>: Adduction and extension of the shoulders.</p>
+			<p><em>Shoulders (Deltoids)</em>: Allows rotation of the arms.</p>
+			<p><em>Бедра (Квадрицепсы)</em>: Разгибают колено.</p>
+			<p><em>Трапецевидная мышца</em>: Поднимает и перемещает лопатки.</p>
+			<p><em>Трицепсы</em>: Разгибают локоть.</p>
+		</div>
+	</div>
+</div>
+
+
+<!-- //////////////////// DIET //////////////////// -->
+
+<div class="container ad">
+	<div class="row">
+		<div class="twelvecol last">
+			
+
+
+		</div>
+	</div>
+</div>
+<div class="container"><a id="diet"></a>
+	<div class="row h1">
+		<div class="fourcol">
+			<h1>Питание</h1>
+		</div>
+		<div class="eightcol last quote">
+			<h3>Надо есть, чтобы жить, а не жить, чтобы есть.</h3>
+			<p>- Цицерон, <em>Rhetoricorum LV</em></p>
+		</div>
+	</div>
+</div>
+
+<!-- ++++++++++++++++++++ QUALITY FOODS ++++++++++++++++++++ -->
+<a id="quality-foods"></a>
+
+<div class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>Качественная еда</h2>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="fourcol">
+			<h3>Пишевая пирамида, которая работает</h3>
+
+			<p><img src="./fitness_files/simple-science-fitness-food-pyramid.png" alt="Simple Science Fitness Food Pyramid"></p>
+			<p><em>Please note that corn is a grain and peas are legumes, not vegetables. Also, peanuts are legumes, not nuts.</em></p>			
+			<p>The suggested food pyramid is a common sense approach to consuming healthy whole foods instead of processed or refined foods. Plant and animal sources are supplemented with side sources such as dairy, nuts &amp; seeds, whole grains, and legumes, along with spices, herbs, cocoa and honey for nutritional palatability.</p>
+			<h3>Это стиль жизни</h3>
+			<p>Maintaining a healthy diet shouldn't be temporary and should be a lifestyle. You will see great results by eating more whole foods instead of pre-packaged or processed foods. As soon as you trade it for <a href="http://www.ncbi.nlm.nih.gov/pubmed/15337404" title="Effects of high glycemic diets on fat storage">high-glycemic</a> refined carbohydrates, processed foods, and man-made oils, your health and results will deteriorate. A lifestyle means sticking to a diet for life that will give you long-term positive mental and physical benefits.</p>
+			<h3>Food Intolerances and Allergic Reactions</h3>
+			<p>Food intolerances, which include heartburn, cramps, and diarrhea, are commonly found in <a href="http://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0001820/" title="Food allergy">corn products, dairy, and wheat gluten</a>. Despite coeliac disease affecting only a small percentage of the population, <a href="http://www.ncbi.nlm.nih.gov/pubmed/22825366" title="Non-celiac wheat sensitivity diagnosed by double-blind placebo-controlled challenge">wheat sensitivity is common</a>. Also, some individuals are <a href="http://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0001820/" title="Food allergy">allergic</a> to peanuts, eggs, milk, fish, soy, shellfish, tree nuts, and wheat.</p>
+		</div>
+		<div class="fourcol">
+			<h3>Для здоровья и чистой мышечной массы</h3>
+
+			<p>The healthiest foods are primarily from plants and animals. These type of foods help your body to partition energy for steady nutrient intake instead of fat storage. They contain complete amino acids to build muscle and essential fatty acids for your brain. High quality foods are required to sustain and promote life.</p>
+			<p><strong>Nutrition:</strong> Plant and animal sources are the most dense macronurient and micronutrient sources, and together will fulfill the daily nutritional requirements in the fewest calories. Vegetables and fruit are abundant with vitamins, minerals, and fiber, while meats and oils will cover your protein and <a href="http://www.ncbi.nlm.nih.gov/pubmed/20329590" title="Essential fatty acids and human brain">essential fats</a> requirements, bioavailability of crucial vitamins, and additional vitamins and minerals (such as commonly deficient iron).</p>
+			<p>A diet rich in meats, eggs, fish, vegetables, and fruits have been known to contribute to <a href="http://www.ncbi.nlm.nih.gov/pubmed/22642064" title="Evaluation of biological and clinical potential of paleolithic diet">weight loss</a>, prevent <a href="http://www.ncbi.nlm.nih.gov/pubmed/17522610" title="Effects of a short-term intervention with a paleolithic diet in healthy volunteers">cardiovascular disease</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/19604407" title="Paleolithic diet reverses type=2 diabetes">type-2 diabetes</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/8450295" title="Apparent absence of stroke and ischaemic heart disease in a traditional Melanesian island: a clinical study in Kitava">stroke</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/22642064" title="Evaluation of biological and clinical potential of paleolithic diet">cancer, acne</a>, and <a href="http://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0002050/" title="Dental cavities">tooth decay</a>. Many body and mental health ailments can be prevented or alleviated.</p>			
+			<p><strong>Energy Density:</strong> Vegetables are very low in calories and contrary to popular belief, meats, seafood and eggs can be relatively low in energy density. For example, <a href="http://caloriecount.about.com/calories-cinnabon-classic-roll-i52903">1 Cinnabon</a> is the caloric equivalent of <a href="http://www.wolframalpha.com/input/?i=19+bacon">19 slices of bacon</a>, or <a href="http://www.wolframalpha.com/input/?i=10+large+eggs">10 large eggs</a>, or <a href="http://www.wolframalpha.com/input/?i=63+extra+large+shrimp">63 extra large shrimp</a>, or <a href="http://www.wolframalpha.com/input/?i=12oz+steak">1 huge 12 oz steak</a>. Even though animal fats and oil are very high in energy density, only small amounts should be used for cooking or flavour. For comparison, <a href="http://www.wolframalpha.com/input/?i=1+tbsp+butter">1 tbsp of butter</a> has less calories than <a href="http://www.wolframalpha.com/input/?i=1+can+coca-cola">1 can of Coca-Cola</a>.</p>
+			<p><strong>Satiety:</strong> Since protein, fiber and water contribute to <a href="http://www.ncbi.nlm.nih.gov/pubmed/7498104" title="A satiety index of common foods">satiety</a>, plant (fiber and water) and animal (protein) sources reduce appetite and hunger, and thus promote the feeling of fullness to prevent overeating.</p>
+			<h4>Note on Grains</h4>
+			<p>While the idea of reducing grains is unconventional in a Western diet, it contributes to overconsumption. Grains such as wheat flour, corn, and rice contain little nutrients relative to calories, and contain incomplete proteins. Whole grains also contain antinutrients such as phytic acid and lectins (as are found in nuts and seeds) and thus should be consumed in moderation. In addition, while corn products can be <a href="http://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0001820/" title="Food allergy">inflammatory</a>, wheat gluten has been shown to contribute to <a href="http://www.ncbi.nlm.nih.gov/pubmed/23253599" title="Gluten-free diet reduces adiposity, inflammation and insulin resistance">inflammation, obesity, and insulin resistance</a>. Rice, however, given its neutrality is an acceptable starchy source and is encouraged for consumption.</p>
+			<p>While grains are fair in fiber content, more fiber per calorie can be obtained from vegetables and fruits such as leafy greens, avocados, bell peppers, carrots, pears, apples, oranges, and bananas. For example, <a href="http://www.wolframalpha.com/input/?i=7+slices+whole+wheat+bread" title="Fiber in seven slices of whole wheat bread">seven slices of whole wheat bread</a> contain the same amount of dietary fiber as <a href="http://www.wolframalpha.com/input/?i=1+avocado" title="Fiber in one avocado">one avocado</a> or <a href="http://www.wolframalpha.com/input/?i=2+pears" title="Fiber in two pears">two pears</a>. Nuts, seeds, and legumes are other sources of fiber.
+		</p></div>
+		<div class="fourcol last">
+			<h3>The Metabolic Syndrome and Obesity Explained</h3>
+			<p>The main problem is not fat; the main problem are sweets and flour-based products that encourage added sugar and fats.</p>
+			<p>The obesity epidemic and modern diseases such as cardiovascular disease, stroke, diabetes, and cancer, are largely due to the common <a href="http://www.ajcn.org/content/81/2/341.full?sid=e5740cd5-32aa-4c0b-a58e-a97deaa730f4#sec-20" title="Neolithic foods causing diseases and obesity">Western diet</a>—where hyperpalatable, cheap, fast, and easy comes packaged in sweet, salty, or fried. The consumption of nutrient-poor and <a href="http://www.fitday.com/fitness-articles/nutrition/proteins/incomplete-vs-complete-proteins.html" title="Foods that do not have complete amino acids">incomplete protein</a> food sources that contribute to malnourishment and <a href="http://www.ncbi.nlm.nih.gov/pubmed/17349717" title="The influence of restrained and external eating patterns on overeating">overeating</a> are refined carbohydrates such as sugars, wheat-, and corn-based products and fat sources such as <a href="http://www.ncbi.nlm.nih.gov/pubmed/10479232" title="Essential fatty acids in health and chronic disease">high omega-6 seed oils</a>.</p>
+			<p><strong>Nutrition:</strong> Sugar, made up of 50% glucose and 50% fructose, and refined carbohydrates are considered "empty calories." Refined carbohydrates, especially fructose, can <a href="http://www.ncbi.nlm.nih.gov/pubmed/20647326" title="cancer cells can readily metabolize fructose to increase proliferation">contribute to cancer growth</a>.</p>
+			<p>We currently don't consume enough omega-3 fatty acids and consume significantly more omega-6 from fried foods and <a href="http://advances.nutrition.org/content/4/3/294.long" title="Dietary Fats and Health">polyunsaturated seed oils</a>, where the typical ratio can be as high as <a href="http://www.ncbi.nlm.nih.gov/pubmed/1908631" title="Omega-3 fatty acids in health and disease and in growth and development">1:25 omega-3 to omega-6</a> when the ratio should be closer to 1:1 or 1:2.</p>
+			<p><strong>Energy Density:</strong> Wheat flour is typically mixed with high energy density sugar and fat to create baked products, which contains a massive amount of calories that can be consumed in one sitting. For example, a dish of fettuccine alfredo pasta is <a href="http://www.olivegarden.com/menu/nutrition/" title="Fettuccine alfredo from Olive Garden">1200 calories</a>, a 12" medium cheese pizza is <a href="http://www.pizzahut.com/nutritionpizza.html" title="Cheese pizza from Pizza Hut">1920 calories</a>, and a plain Belgian waffle without the butter and syrup is still <a href="http://www.fatsecret.com/calories-nutrition/generic/waffle-plain?portionid=15735&portionamount=1.000" title="Plain Belgian Waffle">410 calories</a>. Even worse, easily consumable high calorie beverages such as juice, mixed coffee, pop/soda, and beer can quickly add up to <em>double your entire day's</em> caloric total. A milkshake can go over <a href="http://www.coldstonecreamery.com/assets/pdf/nutrition/cold-stone-creamery-shakes-nutritionals.pdf" title="Stone Cold Creamery Shakes Nutrition Data">1500 calories</a>.</p> 
+			<p><strong>Satiety:</strong> Nutrient-poor refined carbohydrates are extremely low in protein, water, and fiber, and coupled with hyperpalatability (sweet, salty, or fried), it is easy to <a href="http://www.ncbi.nlm.nih.gov/pubmed/23562869" title="The generation and inhibition of hedonically-driven food intake">overeat</a>. Sugar can be <a href="http://www.ncbi.nlm.nih.gov/pubmed/11733709/" title="Excessive sugar intake alters binding to dopamine and mu-opioid receptors in the brain">addictive</a> as it target the pleasure centres in the brain. A glass of orange juice is very different from an orange. Orange juice is missing the fiber and has extra sugar added for more total calories while the fiber in an orange slowly releases the natural sugars instead of a blood sugar spike. While being lower in calories, the fiber in an orange also helps with the feeling of fullness. Satiety can be compared where it is more satisfying to eat <a href="http://www.wolframalpha.com/input/?i=8+large+eggs" title="6 Large Eggs">6 large eggs</a> than it is to eat <a href="http://www.wolframalpha.com/input/?i=2+glazed+doughnuts" title="2 Glazed Doughnuts">2 glazed doughnuts</a> despite having the same amount of calories. It has also been hypothesized that the body craves nutrients and will overeat to reach nutritional requirements.</p>
+			<p>Many seemingly innocuous products actually have sugar added, especially products that make "low fat" claims, such as BBQ sauces, fruit drinks, yogurt, peanut butter, dried fruit, tomato sauce, salad dressing, and granola. Also, you don't necessarily have to be overweight to be considered unhealthy: you can be thin by consuming low-quality foods in <a href="http://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0001441/" title="Malnutrition">fewer calories</a> than you expend (malnourishment).</p>
+		</div>
+	</div>
+</div>
+
+<!-- ++++++++++++++++++++ SHORT LIST OF FOODS ++++++++++++++++++++ -->
+<a id="short-list-of-foods"></a>
+
+<div class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>Краткий список продуктов</h2>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="fourcol">
+			<h3>Необходимая пища</h3>
+			<p>This section contains short lists of the most accessible and nutrient-dense foods (vitamins, minerals, essential fatty acids, antioxidants, anti-inflammatory properties) along with healthy beverages which is typically very low calorie. Also, calorie for calorie, it will keep you more <a href="http://simplesciencefitness.com/#how-food-affects-our-body">satiated</a> than other types of foods.</p>
+			<p>If possible, try to aim for organic foods, such as <a href="http://www.nutritionj.com/content/9/1/10" title="A review of fatty acid profiles and antioxidant content in grass-fed and grain-fed beef">grass-fed beef</a> since it contains a <a href="http://www.nutritionj.com/content/9/1/10/table/T2" title="Comparison of mean polyunsatured fatty acid composition between grass-fed and grain-fed cattle">significant amount</a> of omega-3 fatty acids (as opposed to corn- and soy- fed cattle). and wild fish (as opposed to farmed). Beef products include steak, roasts, ribs, ground beef, sausages, and beef jerky. Pork products include bacon, sausages, ribs, and ham.<i class="incomplete">добавить творог и другие русские продукты</i></p>
+			<p><em>Еда, отмеченная наклонным шрифтом содежит наибольшее количество питательных веществ и наменьшее количество калорий.</em></p>
+			<p>Foods marked with a symbol are high in:</p>
+			<ul>
+				<li><span class="vitamins">V</span> Витамины</li>
+				<li><span class="minerals">M</span> Минералы</li>
+				<li><span class="protein">P</span> Белок</li>
+				<li><span class="fats">F</span> Хорошие жиры</li>
+				<li><span class="omega3">Ω</span> Омега-3 (полиненасыщенные жирные кислоты)</li>
+				<li><span class="fiber">f</span> Клетчатка</li>
+			</ul>
+		</div>
+		<div class="twocol">
+			<h4>Овощи</h4>
+			<ol>
+				<li><em>Листовая капуста</em><span class="vitamins">V</span><span class="minerals">M</span><span class="fiber">f</span></li>
+				<li><em>Китайская капуста</em><span class="vitamins">V</span><span class="minerals">M</span></li>
+				<li><em>Руккола</em><span class="vitamins">V</span><span class="minerals">M</span></li>				
+				<li><em>Шпинат</em><span class="vitamins">V</span><span class="minerals">M</span><span class="fiber">f</span></li>
+				<li><em>Мангольд</em><span class="vitamins">V</span><span class="minerals">M</span><span class="fiber">f</span></li>
+				<li><em>Брокколи</em><span class="vitamins">V</span><span class="fiber">f</span></li>
+				<li><em>Брюссельская капуста</em><span class="vitamins">V</span><span class="fiber">f</span></li>
+				<li>Грибы<span class="vitamins">V</span><span class="minerals">M</span><span class="fiber">f</span></li>
+				<li>Спаржа<span class="vitamins">V</span><span class="minerals">M</span><span class="fiber">f</span></li>
+				<li>Тыква<span class="vitamins">V</span><span class="minerals">M</span><span class="fiber">f</span></li>
+				<li>Кочанная капуста<span class="vitamins">V</span><span class="fiber">f</span></li>
+				<li>Салат<span class="vitamins">V</span></li>
+				<li>Томат<span class="vitamins">V</span><span class="fiber">f</span></li>
+				<li>Цветная капуста<span class="vitamins">V</span><span class="fiber">f</span></li>
+				<li>Редис<span class="vitamins">V</span><span class="fiber">f</span></li>
+				<li>Перец сладкий<span class="vitamins">V</span><span class="fiber">f</span></li>
+				<li>Чеснок<span class="vitamins">V</span></li>
+				<li>Лук<span class="vitamins">V</span></li>
+				<li>Морковь<span class="vitamins">V</span></li>
+				<li>Сладкий картофель<span class="vitamins">V</span><span class="fiber">f</span></li>
+				<li>Свёкла<span class="vitamins">V</span><span class="fiber">f</span></li>
+				<li>Картофель<span class="vitamins">V</span></li>
+			</ol>				
+		</div>
+		<div class="twocol">
+			<h4>Мясо, яйца и морепродукты</h4>
+			<ol>
+				<li><em>Лосось</em><span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span><span class="fats">F</span><span class="omega3">Ω</span></li>
+				<li><em>Яйца</em><span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span><span class="fats">F</span><span class="omega3">Ω</span></li>
+				<li><em>Говядина</em><span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span><span class="fats">F</span><span class="omega3">Ω</span></li>
+				<li>Скумбрия<span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span><span class="fats">F</span><span class="omega3">Ω</span></li>				
+				<li>Форель<span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span><span class="fats">F</span><span class="omega3">Ω</span></li>
+				<li>Сардины<span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span><span class="fats">F</span><span class="omega3">Ω</span></li>
+				<li>Анчоусы<span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span><span class="fats">F</span><span class="omega3">Ω</span></li>
+				<li>Бизон<span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span><span class="fats">F</span></li>
+				<li>Устрицы<span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span></li>
+				<li>Курица<span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span></li>
+				<li>Оленина<span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span></li>
+				<li>Свинина<span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span><span class="fats">F</span></li>
+				<li>Индейка<span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span></li>
+				<li>Lamb<span class="vitamins">V</span><span class="minerals">M</span><span class="protein">P</span><span class="fats">F</span></li>
+				<li>Тунец<span class="vitamins">V</span><span class="protein">P</span><span class="omega3">Ω</span></li>
+				<li>Краб<span class="minerals">M</span><span class="protein">P</span></li>
+				<li>Омар<span class="minerals">M</span><span class="protein">P</span></li>
+				<li>Креветки<span class="minerals">M</span><span class="protein">P</span><span class="omega3">Ω</span></li>
+			</ol>
+			<h4>Масла</h4>
+			<ol>
+				<li><em>Кокосовое масло</em><span class="fats">F</span></li>				
+				<li><em>Оливковое масло</em><span class="fats">F</span></li>
+				<li><em>Масло авокадо</em><span class="fats">F</span></li>
+				<li>Tallow<span class="fats">F</span></li>
+				<li>Ghee<span class="fats">F</span></li>
+				<li>Сливочное масло<span class="fats">F</span><span class="omega3">Ω</span></li>
+				<li>Palm Oil<span class="fats">F</span></li>
+				<li>Walnut Oil<span class="fats">F</span></li>						
+				<li>Flax Oil<span class="fats">F</span></li>
+			</ol>				
+		</div>
+		<div class="twocol">
+			<h4>Фрукты</h4>
+			<ol>
+				<li><em>Все ягоды</em><span class="fiber">f</span></li>
+				<li><em>Кокос</em><span class="fats">F</span></li>
+				<li><em>Авокадо</em><span class="fats">F</span><span class="fiber">f</span></li>
+				<li>Вишня</li>
+				<li>Яблоко<span class="fiber">f</span></li>
+				<li>Банан<span class="fiber">f</span></li>
+				<li>Апельсин<span class="fiber">f</span></li>
+				<li>Гранат</li>
+				<li>Лемон/Лайм</li>
+				<li>Гуава</li>
+				<li>Киви</li>
+				<li>Груша<span class="fiber">f</span></li>
+				<li>Манго</li>
+				<li>Персик</li>
+				<li>Канталупа</li>
+				<li>Ананас</li>
+				<li>Слива</li>
+				<li>Виноград</li>
+				<li>Арбуз</li>
+			</ol>
+			<h4>Напитки</h4>
+			<ol>
+				<li><em>Вода</em></li>
+				<li><em>Чай</em></li>
+				<li>Черный кофе</li>
+				<li>Кокосовое молоко</li>
+			</ol>							
+		</div>
+		<div class="twocol last">
+			<h4>Травы и пряности</h4>
+			<ul>
+				<li>Ямайский перец</li>
+				<li>Базилик</li>
+				<li>Гвоздика</li>
+				<li>Кардамон</li>
+				<li>Кайенский перец </li>
+				<li>Корица</li>
+				<li>Кориандр</li>
+				<li>Порошок чили</li>
+				<li>Тмин</li>
+				<li>Карри</li>
+				<li>Чесночный порошок</li>
+				<li>Имбирь</li>
+				<li>Горчица</li>
+				<li>Мускат</li>
+				<li>Луковый порошок</li>
+				<li>Душица</li>
+				<li>Паприка</li>
+				<li>Петрушка</li>
+				<li>Перец</li>
+				<li>Красный перец молотый</li>
+				<li>Розмарин</li>
+				<li>Шалфей</li>
+				<li>Тимьян</li>
+			</ul>
+			<h4>Приправы</h4>
+			<ul>
+				<li>Лемонный сок</li>
+				<li>Соль</li>
+				<li>Уксус</li>
+			</ul>
+		</div>				
+	</div>
+
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>Еда в умеренном количестве</h3>
+			<p>While not as nutrient-dense as the essentials above, these supplementary foods give your meals variety, flexibilty, supplementation, and satisfaction.</p>
+		</div>
+		<div class="twocol">
+		<h4>Орехи и семена</h4>
+			<ol>
+				<li><em>Миндаль</em><span class="fiber">f</span><span class="protein">P</span><span class="fats">F</span></li>
+				<li><em>Грецкий орех</em><span class="fats">F</span></li>
+				<li>Macadamia Nuts<span class="fats">F</span></li>
+				<li>Flaxseeds<span class="fiber">f</span><span class="fats">F</span></li>
+				<li>Фундук<span class="fats">F</span></li>
+				<li>Орех пекан<span class="fats">F</span></li>
+				<li>Грецкий орех<span class="fats">F</span></li>
+				<li>Семечки подсолнуха</li>
+				<li>Кунжут<span class="fiber">f</span></li>
+				<li>Кешью<span class="fiber">f</span></li>
+				<li>Фисташки<span class="fiber">f</span></li>
+				<li>Какао <br>(тёмный шоколад)<span class="minerals">M</span></li>
+			</ol>	
+		</div>
+		<div class="twocol">
+			<h4>Dairy</h4>
+			<ol>
+				<li>Греческий йогурт<span class="protein">P</span><span class="fats">F</span></li>
+				<li>Молоко<span class="protein">P</span><span class="fats">F</span></li>
+				<li>Сыр<span class="protein">P</span><span class="fats">F</span></li>
+				<li>Сливочный сыр<span class="fats">F</span></li>
+				<li>Сливки<span class="fats">F</span></li>
+			</ol>
+			<h4>Напитки</h4>
+			<ol>
+				<li>Красное вино</li>
+				<li>Крепкие напитки</li>
+			</ol>			
+		</div>
+		<div class="twocol">
+			<h4>Бобовые</h4>
+			<ol>
+				<li>Стручковая фасоль<span class="fiber">f</span></li>
+				<li>Чечевица<span class="fiber">f</span></li>
+				<li>Горох<span class="fiber">f</span></li>
+				<li>Нут<span class="fiber">f</span></li>
+				<li>Фасоль<span class="fiber">f</span></li>
+				<li>Арахис<span class="fiber">f</span></li>
+				<li>Арахисовое масло<span class="fiber">f</span></li>
+				<li>Соя (тофу)<span class="protein">P</span><span class="fiber">f</span></li>
+			</ol>
+		</div>
+		<div class="twocol last">
+			<h4>Зёрна</h4>
+			<ol>
+				<li>Овсяное зерно</li>				
+				<li>Quinoa</li>
+				<li>Ячмень</li>
+				<li>Ржаной хлеб</li>		
+				<li>Гречневая крупа</li>
+				<li>Рис</li>
+				<li>Кукуруза</li>
+			</ol>
+			<h4>Сладкое</h4>
+			<ol>
+				<li>Мёд</li>
+			</ol>			
+		</div>						
+	</div>
+
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>Foods to Avoid</h3>
+			<p>Most foods that are processed or packaged are unhealthy. If you see it on television, it is likely unhealthy. If a package makes a claim it is healthy, it is probably not. One of the biggest offenders are mixed beverages, which are packed with dense calories that are easily consumed. Looking at the ingredients list on processed food packages, you will probably see some form of sugar, wheat, corn, or soy added along with several hard-to-pronounce additives. This section contains common antinutrient empty-calorie foods and beverages that are inflammatory, fattening, disease-promoting, and thus, should be avoided.</p>
+			<p><em>* While indulgences can't always be avoided outside of your home, it is still encouraged to have the occasional treat as long as it is not part of your regular diet.</em></p>
+			<h4>Note on Sweeteners</h4>
+			<p>No-calorie sweeteners such as Splenda (sucralose) or Stevia are considered neutral since they have not been proven to cause any detrimental health effects; however, sweeteners or drinking diet soda are still not recommended as they are associated with <a href="http://ajcn.nutrition.org/content/early/2013/01/30/ajcn.112.050997" title="Consumption of artificially and sugar-sweetened beverages and incident type 2 diabetes">type-2 diabetes</a>, have addictive properties that cause <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2892765/" title="Artificial sweeteners and the neurobiology of sugar cravings">appetite cravings</a>, and promote poor <a href="http://www.uthscsa.edu/hscnews/singleformat2.asp?newID=3861" title="Related studies point to the illusion of the artificial ">dietary habits</a>.</p>
+		</div>		
+		<div class="twocol">
+			<h4>Продукты</h4>
+			<ul>
+				<li>Бублики</li>
+				<li>Печенье</li>	
+				<li>Торты</li>
+				<li>Конфеты</li>
+				<li>Овсяные хлопья</li>
+				<li>Шоколадные батончики</li>
+				<li>Печенье</li>				
+				<li>Крекеры</li>
+				<li>Пончики</li>							
+				<li>Мороженое</li>
+				<li>Картошка-фри</li>
+				<li>Мороженое</li>
+				<li>Гамбургеры</li>
+				<li>Хот доги</li>
+				<li>Кексы</li>
+				<li>Паста</li>
+				<li>Выпечка</li>
+				<li>Попкорн</li>
+				<li>Картофельные чипсы</li>
+				<li>Пироги</li>
+				<li>Пицца</li>
+				<li>Крендели</li>
+				<li>Переработанное мясо: сосиски, консервы, ветчина - processed meat</li>			
+				<li>Вафли</li>
+				<li>Белый хлеб</li>
+			</ul>
+			<p><strong>Note</strong>: Многое из вышеперечисленного это комбинации сладкого, соленого или жареного. 2/3 списка это продукты на основе пшеницы. Все это <em>очень</em> высококалорийно.</p>
+		</div>	
+		<div class="twocol">
+			<h4>Напитки</h4>
+			<ul>
+				<li>Пиво</li>
+				<li>Прохладительные напитки</li>
+				<li>Кока-кола, Пепси</li>
+				<li>Энергетики</li>
+				<li>Фруктовый сок</li>
+				<li>Low-Fat Drinks</li>
+				<li>Молочные коктейли</li>
+				<li>Алкогольные коктейли</li>
+			</ul>		
+		</div>
+		<div class="twocol">
+			<h4>Зёрна</h4>
+			<ul>
+				<li>Corn-Based Products</li>
+				<li>Wheat Flour and Wheat-Based Products</li>
+			</ul>	
+			<h4>Масла и жиры</h4>
+			<ul>				
+				<li>Рапсовое масло</li>
+				<li>Хлопковое масло</li>
+				<li>Масло виноградных косточек</li>
+				<li>Маргарин</li>
+				<li>Гидрогенизированные жиры</li>
+				<li>Арахисовое масло</li>
+				<li>Соевое масло</li>
+				<li><i class="incomplete">Подсолнечное масло</i></li>
+				<li>Сафлоровое масло</li>
+				<li>Транс-жиры</li>
+				<li>Растительное масло</li>				
+			</ul>
+		</div>
+		<div class="twocol last">
+			<h4>Сладости</h4>
+			<ul>
+				<li>Декстроза</li>
+				<li>Фруктоза</li>
+				<li>Глюкозно-фруктозный сироп</li>
+				<li>Джем</li>
+				<li>Мальтоза</li>
+				<li>Мальтодекстрин</li>
+				<li>Сукроза</li>
+				<li>Сахар</li>
+				<li>Сиропы</li>
+			</ul>		
+		</div>
+	</div>
+</div>
+
+<!-- ++++++++++++++++++++ MACRONUTRIENTS ++++++++++++++++++++ -->
+<a id="macronutrients"></a>
+
+<div class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>Питательные элементы</h2>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="fourcol">
+			<h3>Процентное соотношение</h3>
+			<p>Все питательные вещества выполняют важные функции. Следуя рекомендуемой <a href="#quality-foods">пищевой пирамиде</a>, потребление углеводов обычно ниже, т.к. овощи обычно малокалорийны, а белки и жиры содержат больше калорий. Рекомендуется потреблять больше углеводов в дни тренировок чтобы воспонить мышечный гликоген. When you alternate higher and lower carbohydrate intake on different days, it is called <a href="http://anthonymychal.com/2012/05/the-diet-to-end-all-diets-muscle-building-fat-loss-and-easy-living-without-the-calculator-or-scale/">carb cycling</a> or carb backloading. Сохраняйте уровень потребления белка на достаточно высоком уровне, примерно 1 грамм на 0,5 кг мышечной массы. К примеру, если вы весите 90 кг при 10% содержании жира, съедайте 180 грамм белка в день.</p>
+
+			<h3>Carbohydrates</h3>
+			<p><em>4 калории на грамм.</em></p>
+			<p><em>Хорошо</em>: Основной предпочитаемый телом источник энергии, особенно анаэробной, после алкоголя. Такие источники углеводов, как фрукты и овощи очень богаты клетчаткой и витаминами. Крахмалистые углеводы, такие как длиннозерный рис и картофель помогают восстановить запасы гликогена в мышцах. Мышечный гликоген используется как топливо и расходуется в течение интенсивных упражнений.</p>
+			<span class="incomplete">Написать что сначала тратится гликоген, потом только жиры</span>
+			<p><em>Плохо</em>: Источники переработанных углеводов, такие как сахар и продукты на основе пшеницы и кукурузы увеличивают <a href="http://www.sciencedaily.com/releases/2005/03/050326095632.htm" title="Study of obese diabetics explains why low-carb diets produce fast results">чувство голода</a> и вносят вклад в образование жира, <a href="http://www.ncbi.nlm.nih.gov/pubmed/21978979" title="Saturated fat, carbohydrates and cardiovascular disease">риск сердечно-сосудистых болезней</a>, и <a href="http://www.ncbi.nlm.nih.gov/pubmed/20089734" title="Refined carbohydrates increase triglycerides and small LDL particles, and reduce HDL cholesterol levels">уровень холестерола LDL</a> понижая уровень HDL (хорошего) холестерола. Чрезмерное потребление переработанных углеводов таких как сахар и пшеничной муки (wheat) в сочетании с жирной пищей это движущая сила эпидемии ожирения.</p>
+
+			<h3>Белки</h3>
+			<p><em>4 калории на грамм.</em></p>
+			<p><em>Хорошо</em>: Белки <a href="http://medicalxpress.com/news/2012-07-protein-meal-brain-full.html" title="Protein and satiety">вызывают</a> наибольшее чувство насышенности. Т.е. потребление белков уменьшает аппетит. Белки это строительные блоки для мышц и они необходимы для жизни.</p>
+			<p><em>Плохо</em>: Это плохой источник веществ для энергии.</p>
+		</div>
+		<div class="fourcol">
+			<h3>Fats</h3>
+			<p><em>9 калорий на грамм.</em></p>
+			<p><em>Хорошо</em>: Жирная пища обычно богата витаминами и минералами, как и необходимыми жирными кислотами, которые нужны для работы тела. Также это очень хороший источник энергии для тела и еще вносит свой вклад в потерю веса. Многие очень важные витамины являются жирорастворимыми и необходимыми для всасывания питательных веществ, включая витамины A, D, E, и K.</p>
+			<p><em>Плохо</em>: Телу нужны омега-3 и омега-6 в соотношении 1:1 и 1:2. Многие из нас потребляют их в соотношении <a href="http://www.ncbi.nlm.nih.gov/pubmed/12442909" title="The importance of the ratio of omega-6/omega-3 essential fatty acids">1:15 или выше</a>, which contributes to inflammation and oxidation in our bodies, leading to a host of <a href="http://www.ncbi.nlm.nih.gov/pubmed/17045449" title="Evolutionary aspects of diet, the omega-6/omega-3 ratio and genetic variation: nutritional implications for chronic diseases">critical diseases</a>. Старайтесь избегать таких продуктов как маргарин и растительное масло, и <a href="http://www.ncbi.nlm.nih.gov/pubmed/12480795" title="Omega-3 fatty acids in inflammation and autoimmune diseases">замените</a> их на животные жиры, яйца, рыба, сливочное масло, авокадо, кокосы, или оливковое масло.</p>
+			<p>Энергетическая плотность жиров очень высока, поэтому старайтесь употреблять жиры, которые уже являются частью животного (говядины, свинины, курицы, рыбы) или небольшого количества, используемого для приготовления еды. Жарка или добавление жиров в пищу может значительно увеличить общее количество калорий.</p>
+			<h3>Алкоголь</h3>
+			<p><em>7 калорий на грам, но из-за термического эффекта <a href="http://www.leangains.com/2010/07/truth-about-alcohol-fat-loss-and-muscle.html" title="Thermic effect on alcohol">5.7 калорий на грамм</a>.</em></p>
+			<p><em>Хорошо</em>: Возможны различные варианты ответов по данному вопросу в зависимости от степени интоксикации.</p>
+			<p>Полифенолы в красном вине проявляют <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2858991/" title="Protective effects of red wine polyphenolic compounds on the cardiovascular system">защитные эффекты</a> на сердечно-сосудистую систему и некоторые другие полезные свойства. Нужно отметить, что <span class="incomplete">данные вещества так же содержатся в виноградном соке и именно красное вино в данном отношении не имеет уникальных свойств.</span>
+			</p><p><em>Плохо</em>: Тело будет использовать алкоголь как главный источник энергии, останавливая процесс сжигания жира до тех пор пока весь алкоголь не будет метаболизирован. Также многие алкогольные напитки содержат сахар. И наконец, алкоголь <a href="http://www.ncbi.nlm.nih.gov/pubmed/10029201" title="Alcohol rapidly lowers plasma testosterone levels in the rat">снижает</a> уровень тестостерона.</p>			
+		</div>
+		<div class="fourcol last">
+			<!--<h3>Macronutrient Calculator</h3>
+			<p>The macronutrient calculator will give you a guideline of how many calories or grams to consume per day on your workout and rest days. Your desired daily caloric consumption should be based on your maintenance, weight gain, or weight loss goals from the <a href="http://simplesciencefitness.com/#calories-in-and-out" title="BMR Calculator">BMR calculator</a>.</p>-->
+
+			<div id="macCalc" class="macCalc">
+				<h3>Калькулятор питательных веществ</h3>
+       		 <ol class="calcStyle">
+            <li>
+                Желаемое дневное потребление: <span data-var="cal" class="TKAdjustableNumber" data-min="1500" data-max="3500"> ккал</span><br>
+                Тренировок в неделю: <span data-var="days" class="TKAdjustableNumber" data-min="0" data-max="7"> дней</span><br>
+            </li>
+        </ol>
+        
+        <p>Дни тренировок: <span data-var="workCal"></span><br/>
+        Дни отдыха: <span data-var="restCal"></span></p>
+        
+        <table>
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th colspan="2">Дни тренировок</th>
+                <th colspan="2">Дни отдыха</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td>ккал</td>
+                <td>грамм</td>
+                <td>ккал</td>
+                <td>грамм</td>
+            </tr>
+            <tr>
+                <td style="color:#009345;"><strong>Углеводы</strong></td>
+                <td><span data-var="wc_cal"></span></td>
+                <td><span data-var="wc_g"></span></td>
+                <td><span data-var="rc_cal"></span></td>
+                <td><span data-var="rc_g"></span></td>
+            </tr>
+            <tr>
+                <td style="color:#1b75bb;"><strong>Белки</strong></td>
+                <td><span data-var="wp_cal"></span></td>
+                <td><span data-var="wp_g"></span></td>
+                <td><span data-var="rp_cal"></span></td>
+                <td><span data-var="rp_g"></span></td>
+            </tr>
+            <tr>
+                <td style="color:#f6921e;"><strong>Жиры</strong></td>
+                <td><span data-var="wf_cal"></span></td>
+                <td><span data-var="wf_g"></span></td>
+                <td><span data-var="rf_cal"></span></td>
+                <td><span data-var="rf_g"></span></td>
+            </tr>       
+        </tbody>
+        </table>
+        </div>
+
+		<img src="./fitness_files/macronutrient-ratio.png" alt="Macronutrient Ratio and Portion Sizes">
+
+		</div>				
+	</div>
+</div>
+
+<!-- ++++++++++++++++++++ MEALS ++++++++++++++++++++ -->
+<a id="meals"></a>
+
+<div class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>Meals</h2>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="fourcol">
+			<h3>Food Combinations</h3>
+			<h4>The Power of Spices</h4>
+			<p>Don't use sauces and some dressings as they are generally high in sugar and seed oils. Instead use fats such as coconut oil, butter, and olive oil and combine with spices and herbs of all kinds plus salt, lemon/lime juice, and vinegar to create amazing meals. For Western dishes, use salt, pepper, paprika, cinnamon, onion powder, garlic powder, oregano, basil, sage, rosemary, and parsley. For a spicy dish, add cayenne pepper, paprika, chili powder, and red pepper flakes. For Eastern dishes, go with curry, ginger, coriander, cardamom, cloves, allspice, and nutmeg.</p>
+			<h4>Increasing Palatability and Health</h4>
+			<p>A potato contains a long list of beneficial micronutrients, yet it is bland to eat by itself. It is also very high in carbohydrates. By adding some butter, the combination increases the potato's palatability along with health benefits: butter contains various additional micronutrients, helps with the bioavailability of fat-soluble vitamins (A, D, E, and K), and the fat <a href="http://ajcn.nutrition.org/content/59/3/781S.full.pdf" title="Fat and starch gastric emptying rate in humans">lowers</a> the potato's high glycemic index. Adding a bit of <a href="http://www.ncbi.nlm.nih.gov/pubmed/7965369" title="The major electrolytes: sodium, potassium, and chloride">sea salt</a> and <a href="http://www.ncbi.nlm.nih.gov/pubmed/12792658" title="Glycemic index of single and mixed meal foods among common Japanese foods with white rice as a reference food">vinegar</a> further increases both the palatability and health benefits.</p>
+			<h4>Iron and Calcium</h4>
+			<p>Some foods should not be combined together in the same meal. If you have red meat or spinach with a glass of milk, you will miss out on iron absorption. Calcium inhibits the absorption of <a href="http://www.ncbi.nlm.nih.gov/pubmed/7770189" title="The inhibitory effect of dietary calcium on iron bioavailability">iron</a> and <a href="http://ajcn.nutrition.org/content/78/3/633S.full" title="Bioavailability of iron, zinc, and other trace minerals from vegetarian diets">zinc</a>.</p>
+			<h4>The Dose Makes the Poison</h4>
+			<p>Don't stick to one group of food, or you'll be consuming too much of one thing and not enough of another. Follow the recommended food pyramid and macronutrient ratio, and you will be consuming a variety of food with the micronutrients your body requires.</p>
+		</div>
+		<div class="fourcol">
+			<h3>Cooking</h3>
+			<p>Fast food and pre-cooked packages exist because creating your own meals take time. The trade-off for grocery shopping, preparation, and cooking time is that your diet, wallet, and health will buy you additional years of enjoyable living.</p> 
+			<p>Pound for pound, buying food bulk from places such as Costco and Trader Joe's is significantly cheaper than fast food in the long run. In addition, not only is cooking a useful and gratifying skill, you can make enough leftovers to save time. Refer to the recipes list for various cooking ideas.</p>
+			<p><img class="imgBorder" src="./fitness_files/sample-meal.jpg" alt="Bacon and egg frittatas"></p>
+			<h3>Your Kitchen</h3>
+			<p>By creating your own meals, most of your foods will be stocked in the fridge and freezer, with less stored in the pantry. Invest in empty or pre-filled spice jars and refill from bulk to save money. The items you will use most are portable and microwavable containers, a good set of knives, cutting boards, measuring cups and spoons, a cast-iron pan, and pots. To save time, a rice cooker, blender, and a slow cooker are essential kitchen appliances.</p>
+			<h3>Cheat Meals</h3>
+			<p>Cheat meals and occasional indulgences are <a href="http://www.t-nation.com/free_online_article/most_recent/in_defense_of_cheat_days" title="In defense of cheat days">acceptable</a> and encouraged. It reduces the chances of long term failure and serves positive psychological benefits as it is a break from structure. On the other hand, for some people, the side effects are short-term pleasure with negative bodily reactions.</p>
+			<p>Have anything you want for a cheat meal, but be aware of your caloric intake if you are trying to reduce weight.</p>
+		</div>		
+		<div class="fourcol last">
+			<h3>Recipes</h3>
+			<h4>Dishes</h4>
+			<dl class="accordion meal">
+				<dt><a href="http://simplesciencefitness.com/#">Jambalaya</a></dt>
+				<dd style="display: none;">
+					<p><strong>Jambalaya</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>2 tbsp butter</li>
+				<li>2-3 smoked sausages, sliced, <em>or</em> pork</li>
+				<li>2 tsp paprika</li>
+				<li>1 tsp cumin</li>
+				<li>1/4 tsp cayenne pepper</li>
+				<li>1/4 tsp pepper</li>
+				<li>1/2 tsp salt</li>
+				<li>2 diced tomatoes</li>
+				<li>1 diced bell pepper</li>
+				<li>1c diced celery stalks</li>
+				<li>0.5c diced carrots</li>
+				<li>1c rice</li>
+				<li>2c water or broth</li>
+				<li>1 lbs shrimp</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Melt butter in large pan. Add sausages and cook for 5 minutes.</li>
+						<li>Add all spices and cook for 1 minute.</li>
+						<li>Add tomatoes and cook for 3 minutes.</li>
+						<li>Add the rest of the vegetables and cook for 5 minutes.</li>
+						<li>Add the rice and water/broth and bring to a boil.</li>
+						<li>Bring heat to low and cover. Cook for 30 minutes.</li>
+						<li>Add shrimp and cook for an additional 5 minutes.</li>
+					</ol>
+				</dd>
+				<dt><a href="http://simplesciencefitness.com/#">Salmon with Indian Spices</a></dt>
+				<dd style="display: none;">
+					<p><strong>Salmon with Indian Spices</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>1 tbsp coconut oil</li>
+				<li>1 salmon fillet</li>
+				<li>1/4 tsp pepper</li>
+				<li>1/4 tsp minced garlic</li>
+				<li>1/8 tsp cumin
+				</li><li>1/8 tsp ginger</li>
+				<li>1/8 tsp coriander</li>
+				<li>1/8 tsp cayenne pepper</li>
+				<li>1 tbsp lemon/lime juice</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Spread all ingredients on the salmon. Bake with vegetables at 400°F for 20 minutes.</li>
+						<li>Serve with rice or your choice of side.</li>
+					</ol>
+				</dd>
+				<dt><a href="http://simplesciencefitness.com/#">Bacon Frittatas</a></dt>
+				<dd style="display: none;">
+					<p><strong>Bacon Frittatas</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>12 slices of bacon</li>
+				<li>8 eggs</li>
+				<li>5 tbsp chopped spinach</li>
+				<li>5 tbsp diced red pepper or tomatoes</li>
+				<li>3 slices of sharp cheddar cheese</li>
+				<li>1/2 tsp sea salt</li>
+				<li>1/2 tsp pepper</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Bake bacon on baking sheet for 11 minutes at 350°F. Mix the rest of the ingredients on a pan and cook until the eggs are partially cooked.</li>
+						<li>Ring the bacon and add the partially cooked egg mixture. Bake for another 20 minutes.</li>
+					</ol>
+				</dd>
+				<dt><a href="http://simplesciencefitness.com/#">Ground Beef Stuffed Bell Pepper</a></dt>
+				<dd style="display: none;">
+					<p><strong>Ground Beef Stuffed Bell Pepper</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>2 tbsp olive oil</li>
+				<li>1 bell pepper</li>
+				<li>500g ground beef</li>
+				<li>1c cooked rice</li>
+				<li>1 tsp paprika</li>
+				<li>1 tsp cumin</li>
+				<li>1 tsp garlic powder</li>
+				<li>1/2 tsp garlic powder</li>
+				<li>1/4 tsp sea salt</li>
+				<li>1/4 tsp pepper</li>
+				<li>1 small can of tomato paste</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Slice bell pepper in half, coat in olive oil, and bake at 400°F for 30 minutes.</li>
+						<li>Add olive oil on a pan at medium heat and cook ground beef with spices and tomato paste until browned.</li>
+						<li>Mix the meat with rice and stuff into each bell pepper.</li>
+					</ol>
+				</dd>
+			</dl>	
+
+
+			<h4>Soups</h4>
+			<dl class="accordion meal">
+				<dt><a href="http://simplesciencefitness.com/#">Chunky Chicken Soup</a></dt>
+				<dd style="display: none;">
+					<p><strong>Chunky Chicken Soup</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>2 tbsp butter</li>
+				<li>2 chicken breasts</li>
+				<li>1 shallot <em>or</em> onion</li>
+				<li>1c diced carrots</li>
+				<li>5 diced celery stalks</li>
+				<li>1 tsp onion powder</li>
+				<li>1 tsp garlic powder</li>
+				<li>3c water</li>
+				<li>4c chicken broth</li>
+				<li>1 tsp sea salt</li>
+				<li>1 tsp pepper</li>
+				<li>1 tbsp lemon juice</li>
+				<li>1c rice</li>
+				<li>2 tbsp parsley <em>or</em> cilantro</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Boil water in a large pot then reduce to low. Add garlic powder, onion powder and onion. Poach chicken breasts for 15 minutes.</li>
+						<li>Pour hot water into a cup for now and discard the shallot. Melt butter into pot and add salt, pepper, lemon juice and vegetables.</li>
+						<li>Add hot water and chicken broth into pot. Bring to a boil and add rice. Reduce to low, cover, and cook for 15 minutes.</li>
+						<li>Dice and add the cooked chicken breasts and parsley/cilantro.</li>
+					</ol>
+				</dd>
+
+				<dt><a href="http://simplesciencefitness.com/#">Meatball Tomato Soup</a></dt>
+				<dd style="display: none;">
+					<p><strong>Meatball Tomato Soup</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>Cooked meatballs (see sides for recipe)</li>
+				<li>1 tbsp olive oil</li>
+				<li>1 chopped shallot <em>or</em> small onion</li>
+				<li>1 clove minced garlic</li>
+				<li>6 chopped tomatoes</li>
+				<li>1/4c water</li>
+				<li>1/4c cream or whole milk</li>
+				<li>1 tbsp thyme</li>
+				<li>1 tbsp butter</li>
+				<li>1/2 tsp sea salt</li>
+				<li>1/2 tsp pepper</li>
+				<li>1 tbsp chives</li>
+				<li>2 tbsp Parmesan cheese</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Heat olive oil at medium heat in a pot. Add shallot, garlic, tomatoes and cook for 5 minutes.</li>
+						<li>Add water and thyme. Cook for 25 minutes.</li>
+						<li>Dump into a food processor and puree. Strain.</li>
+						<li>Add in cooked meatballs, cream/milk, butter, salt, and pepper. Garnish with chives and Parmesan cheese.</li>
+					</ol>
+				</dd>
+			</dl>
+			<h4>Slow Cooker</h4>
+			<dl class="accordion meal">
+				<dt><a href="http://simplesciencefitness.com/#">Beef Stew</a></dt>
+				<dd style="display: none;">
+					<p><strong>Beef Stew</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>2 tbsp butter</li>
+				<li>1kg beef stew cutlets</li>
+				<li>2 tsp salt</li>
+				<li>1 tsp pepper</li>
+				<li>1/4 tsp paprika</li>
+				<li>1/4 tsp garlic powder</li>
+				<li>1/4 tsp onion powder</li>
+				<li>1/8 tsp cayenne pepper</li>
+				<li>1/2 tsp oregano</li>
+				<li>1/2 tsp thyme</li>
+				<li>1/4 tsp basil</li>
+				<li>4c beef broth</li>
+				<li>2 tbsp tomato paste</li>
+				<li>6 potatoes</li>
+				<li>2c diced carrots</li>
+				<li>1c diced celery</li>
+				<li>1 tbsp parsley</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Sear the meat on medium-high, 2 minutes per side.</li>
+						<li>Add all ingredients in the list except for vegetables and parsley into a slow cooker. Set to cook on high for 8 hours.</li>
+						<li>After 1 hour, add in potatoes, carrots and celery for the remaining 7 hours. Add in parsley when complete.</li>
+					</ol>
+				</dd>
+				<dt><a href="http://simplesciencefitness.com/#">Tomato Chicken</a></dt>
+				<dd style="display: none;">
+					<p><strong>Tomato Chicken</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>2 tbsp butter</li>
+				<li>1kg chicken thighs or chicken breast</li>
+				<li>1c chopped celery</li>
+				<li>1c chopped carrots</li>
+				<li>1 tbsp salt</li>
+				<li>1 tbsp pepper</li>
+				<li>2 tsp onion powder</li>
+				<li>1 small can of tomato paste</li>
+				<li>1/4c lemon juice</li>
+				<li>2 tsp minced garlic</li>
+				<li>1 diced avocado</li>
+				<li>1/4c parsley <em>or</em> cilantro</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Place vegetables at the bottom of the slow cooker. Layer with chicken then season with salt and pepper.</li>
+						<li>Mix the sauce, spices, and juice then pour over the chicken.</li>
+						<li>Cook at low for 8 hours or at high for 4 hours.</li>
+						<li>Add parsley when complete.</li>
+					</ol>
+				</dd>				
+			</dl>
+
+			<h4>Sides</h4>
+			<dl class="accordion meal">
+				<dt><a href="http://simplesciencefitness.com/#">Mashed Potatoes</a></dt>
+				<dd style="display: none;">
+					<p><strong>Mashed Potatoes</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>3 potatoes</li>
+				<li>2 tbsp butter</li>
+				<li>1 tbsp sea salt</li>
+				<li>1c whole milk</li>
+				<li>3 cloves minced garlic</li>
+				<li>1/4c Parmesan cheese</li>
+				<li>1 tbsp chives</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Dice potatoes. Add potatoes and a pinch of salt to boiling water for 15 minutes.</li>
+						<li>Heat the milk, butter, and Parmesan. Drain the potatoes. Mash everything.</li>
+					</ol>
+				</dd>
+
+				<dt><a href="http://simplesciencefitness.com/#">Bulviniai Blynai (Potato Pancakes)</a></dt>
+				<dd style="display: none;">
+					<p><strong>Bulviniai Blynai (Potato Pancakes)</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>4 potatoes</li>
+				<li>2 eggs</li>
+				<li>1 shallot <em>or</em> 1/2 onion</li>
+				<li>1/4 tsp salt</li>
+				<li>1/8 tsp pepper</li>
+				<li>2 tbsp almond flour</li>
+				<li>1/2 tbsp lemon juice</li>
+				<li>1&amp;emdash;2 tbsp of milk (to thicken, if necessary)
+					</li></ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Grate potatoes and shallot.</li>
+						<li>Mix potatoes, shallot, eggs, salt, pepper, and flour until batter-like consistency. Add lemon juice last.</li>
+						<li>Fry in olive oil, ghee, tallow, or lard.</li>
+					</ol>
+				</dd>
+
+				<dt><a href="http://simplesciencefitness.com/#">Baked Greens</a></dt>
+				<dd style="display: none;">
+					<p><strong>Baked Greens</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>2c of broccoli or brussels sprouts</li>
+				<li>4 tbsp coconut oil or olive oil</li>
+				<li>1/2 tsp sea salt</li>
+				<li>1/2 tsp pepper</li>
+				<li>1/2 tsp garlic powder</li>
+				<li> 1 tbsp lemon juice or balsamic vinegar</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Mix ingredients and bake at 350°F for 30 minutes.</li>
+					</ol>
+				</dd>
+
+				<dt><a href="http://simplesciencefitness.com/#">Italian Meatballs</a></dt>
+				<dd style="display: none;">
+					<p><strong>Italian Meatballs</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+						<li>2 tbsp olive oil</li>
+				<li>1 kg ground beef</li>
+				<li>2 eggs</li>
+				<li>1/2 tsp garlic powder</li>
+				<li>1/8 tsp basil</li>
+				<li>1/8 tsp oregano</li>
+				<li>1/8 tsp rosemary</li>
+				<li>1/8 tsp cilantro</li>
+				<li>1/8 tsp thyme</li>
+				<li>1/8 tsp red pepper flakes</li>
+				<li>2 tsp parsley</li>
+				<li>2 tsp sea salt</li>
+				<li>1/2 tsp pepper
+				</li><li>1/4c Parmesan cheese</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Heat olive oil on a pan at medium. Mix the rest of the ingredients and form into balls.</li>
+						<li>Turn meatballs over every few minutes until cooked all the way through.</li>
+					</ol>
+				</dd>
+
+				<dt><a href="http://simplesciencefitness.com/#">Hasselbackspotatis (Baked Potatoes)</a></dt>
+				<dd style="display: none;">
+					<p><strong>Hasselbackspotatis (Baked Potatoes)</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>2 tbsp olive oil <em>or</em> melted butter</li>
+				<li>2 potatoes (red or sweet)</li>
+				<li>1 tbsp sea salt</li>
+				<li>1/2 tsp paprika <em>or</em> cayenne pepper <em>or</em> your choice</li>
+				<li>1 slice of aged cheese</li>
+				<li>Vinegar (optional)</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Slice the potatoes vertically almost all the way through. Coat with olive oil or butter.</li>
+						<li>Bake on a baking sheet at 400°F for 40 minutes. Add the slice of cheese in the last 5 minutes.</li>
+						<li>Drizzle with vinegar (optional).</li>
+					</ol>
+				</dd>
+				<dt><a href="http://simplesciencefitness.com/#">Egg Pancakes</a></dt>
+				<dd style="display: none;">
+					<p><strong>Egg Pancakes</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>1 tbsp coconut oil</li>
+				<li>2 eggs</li>
+				<li>1 banana</li>
+				<li>1/2 tsp vanilla extract</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Separate the yolk and whisk the egg whites.</li>
+						<li>Mash the yolk with the banana and vanilla.</li>
+						<li>Fold the whites into the mixture and fry in coconut oil.</li>
+					</ol>
+				</dd>
+				<dt><a href="http://simplesciencefitness.com/#">Delicious Rice</a></dt>
+				<dd style="display: none;">
+					<p><strong>Delicious Rice</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>2 tbsp of coconut oil <em>or</em> butter</li>						
+				<li>1c basmati <em>or</em> Jasmine rice</li>
+				<li>2c of water <em>or</em> coconut milk <em>or</em> broth</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Put all ingredients together in a rice cooker.</li>
+					</ol>
+				</dd>
+			</dl>
+
+			<h4>Smoothies</h4>
+			<dl class="accordion meal">
+				<dt><a href="http://simplesciencefitness.com/#">Bulker's Shake</a></dt>
+				<dd style="display: none;">
+					<p><strong>Bulker's Shake</strong></p>
+					<p>1050 calories, 95g carbs, 55g fat, 65g protein</p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>2 scoops whey protein</li>
+				<li>2c kale <em>or</em> spinach
+				</li><li>2 tbsp of almond butter</li>
+				<li>2 tbsp of coconut oil</li>
+				<li>2 tbsp lemon/lime juice</li>
+				<li>1 frozen banana</li>
+				<li>1c berries</li>
+				<li>1/4c oats</li>
+				<li>2c water</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Mix all ingredients in a blender.</li>
+					</ol>
+				</dd>
+				<dt><a href="http://simplesciencefitness.com/#">Cutter's Shake</a></dt>
+				<dd style="display: none;">
+					<p><strong>Cutter's Shake</strong></p>
+					<p>550 calories, 50g carbs, 30g fat, 30g protein</p>
+					<p><em>Ingredients</em></p>
+					<ul>
+				<li>1 scoops whey protein</li>
+				<li>2c kale <em>or</em> spinach
+				</li><li>2c water</li>
+				<li>1 tbsp of coconut oil <em>or</em> almond butter</li>
+				<li>2 tbsp lemon/lime juice</li>
+				<li>1 sliced frozen banana</li>
+				<li>1/2c berries</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Mix all ingredients in a blender.</li>
+					</ol>
+				</dd>				
+			</dl>
+			<h4>Condiments/Seasonings</h4>
+			<dl class="accordion meal">
+				<dt><a href="http://simplesciencefitness.com/#">Ketchup</a></dt>
+				<dd style="display: none;">
+					<p><strong>Ketchup</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+						<li>6oz tomato paste</li>
+						<li>2 tbsp vinegar</li>
+						<li>1/3c water</li>
+						<li>1/4 tsp dry mustard</li>
+						<li>1/4 tsp sea salt</li>
+						<li>1/8 tsp cayenne pepper</li>
+						<li>1/8 tsp cloves</li>
+						<li>1/8 tsp allspice</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Mix all ingredients. Refrigerate in airtight container.</li>
+					</ol>
+				</dd>
+				<dt><a href="http://simplesciencefitness.com/#">Taco Seasoning</a></dt>
+				<dd style="display: none;">
+					<p><strong>Taco Seasoning</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+						<li>1/2c chili powder</li>
+						<li>1/4c onion powder</li>
+						<li>1/8c cumin</li>
+						<li>1 tbsp garlic powder</li>
+						<li>1 tbsp paprika</li>
+						<li>1 tbsp sea salt</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Mix all ingredients. Store in airtight container.</li>
+					</ol>
+				</dd>
+				<dt><a href="http://simplesciencefitness.com/#">Marinara Sauce</a></dt>
+				<dd style="display: none;">
+					<p><strong>Marinara Sauce</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+						<li>2 tbsp olive oil</li>
+						<li>3c Roma tomatoes, crushed</li>
+						<li>1/4c minced onion <em>or</em> shallot</li>
+						<li>2 tsp minced garlic</li>
+						<li>1/4 tsp salt</li>
+						<li>1/4 tsp pepper</li>
+						<li>1 tsp parsley</li>
+						<li>1/4 tsp oregano</li>
+						<li>1/8 tsp red pepper flakes</li>
+						<li>2 tbsp basil</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Heat olive oil over medium-high heat.</li>
+						<li>Saute onions for 1 1/2 minutes then add garlic, salt, parsley, oregano and red pepper flakes for another 30 seconds.</li>
+						<li>Add tomatoes, pepper and basil. Reduce to medium-low for 20 minutes, stirring occasionally until thickened.</li>
+					</ol>
+				</dd>							
+			</dl>
+			<h4>Dessert</h4>
+			<dl class="accordion meal">
+				<dt><a href="http://simplesciencefitness.com/#">Strawberry Ice Cream</a></dt>
+				<dd style="display: none;">
+					<p><strong>Strawberry Ice Cream</strong></p>
+					<p><em>Ingredients</em></p>
+					<ul>
+						<li>1 frozen sliced banana</li>
+						<li>6-8 frozen strawberries</li>
+						<li>2 tbsp coconut milk</li>
+						<li>1 tbsp coconut oil</li>
+						<li>1 tsp vanilla extract</li>
+					</ul>
+					<p><em>Directions</em></p>
+					<ol>
+						<li>Mix all ingredients in a food processor or blender.</li>
+					</ol>
+				</dd>
+			</dl>				
+		</div>
+	</div>
+</div>
+
+<!-- ++++++++++++++++++++ HOW FOOD AFFECTS OUR BODY ++++++++++++++++++++ -->
+<a id="how-food-affects-our-body"></a>
+
+<div class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>How Food Affects Our Body</h2>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="fourcol">
+			<h3>Beyond Calories In-Out</h3>
+			<p>Calories in-out is a simplification since the body metabolises calories at different rates. Fiber, fat, and hormones, such as insulin and leptin, are factors.</p>
+			<h3>Энергетическая плотность</h3>
+			<p>Чем больше <a href="http://www.medicalnewstoday.com/articles/248333.php" title="Energy Density">энергетическая плотность</a> еды, тем больше калорий она содержит. Сахар это хороший пример энергетически плотной еды, где типичный <a href="http://www.idq.com/content/Nutrition/DQ%20Nutrition%20Allergy%20Treat%20Brochure%20-%20US.pdf" title="Dairy Queen nutritional sheet (pdf)">глазированный сырок</a>, еквивалентен по калорийности <a href="http://www.wolframalpha.com/input/?i=9+large+eggs" title="Nutritional profile for 9 large eggs">9-и большим яйцам</a>. Не так просто съесть 9 больших яиц в один присест, как 1 сырок на десерт после еды.</p>
+			<img src="./fitness_files/blizzard-to-eggs.png" alt="One medium Blizzard has the same calories as 18 eggs">
+			<p>Energy density may be the biggest clue to the obesity epidemic, considering easily consumable beverages such as pop, beer, juice, mixed coffee and <a href="http://www.hercampus.com/health/food-nutrition/10-highest-lowest-calorie-drinks-watch-out-over-spring-break" title="Alcoholic drinks high in calories">alcoholic drinks</a> can pack in <a href="http://www.divinecaroline.com/self/wellness/seven-high-calorie-beverages-pack-pounds" title="Seven High Calorie Beverages Pack on the Pounds">several hundred calories</a>!</p>	
+		</div>
+		<div class="fourcol">
+			<h3>Satiety</h3>
+			<p>Protein, fiber, and water are the most <a href="http://www.ncbi.nlm.nih.gov/pubmed/7498104" title="A satiety index of common foods">satiating</a> sources. They are abundant in meats, vegetables and fruits. Conversely, refined carbohydrates such as sugar and grains are <a href="http://www.ncbi.nlm.nih.gov/pubmed/16373948" title="Short-term effect of eggs on satiety in overweight and obese subjects">poor for satiety</a> and contribute to increased appetite. This is largely because they are very high in energy density, where energy density is strongly correlated with <a href="http://www.ncbi.nlm.nih.gov/pubmed/11478473" title="The effects of equal-energy portions of different breads on blood glucose levels, feelings of fullness and subsequent food intake.">satiety and overeating</a>.</p>
+			<h3>Лептин</h3>
+			<p>Лептин это гормон, который регулирует жировые запасы, аппетит и метаболизм. Когда уровень лептина низок &mdash; это сигнал съесть пищи, и уровень лептина становится высоким, когда вы наелись. То что блокирует рецепторы лецетина ведет к перееданию и <a href="http://www.ncbi.nlm.nih.gov/pubmed/11994393" title="Inhibition of leptin causes overfeeding">набору жировой массы</a> это <a href="http://www.ncbi.nlm.nih.gov/pubmed/18703413" title="Fructose inhibits leptin">фруктоза</a>, <a href="http://www.biomedcentral.com/1472-6823/5/10" title="Lectin inhibits leptin">лектин</a> (содержится в зернах), <a href="http://www.ncbi.nlm.nih.gov/pubmed/22518191" title="Excessive caloric deficits inhibits leptin">чрезмерное голодание</a>, и <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC535701/" title="Lack of sleep inhibits leptin">недостаток сна</a>.</p>
+		</div>
+		<div class="fourcol last">	
+			<h3>Insulin</h3>
+			<p>The body regulates fat through hormones and enzymes. Insulin is a hormone that regulates blood sugar and the storage and expenditure of energy. Insulin is raised after a meal, regardless of macronutrients, which contributes to the intake of nutrients for muscle growth as well as fat storage. Fat is being broken down when insulin is low between meals and during sleep. Simple carbs and refined carbs that are high on the glycemic index (GI) raise insulin levels significantly, but is <a href="http://www.ncbi.nlm.nih.gov/pubmed/12792658" title="Glycemic index of single and mixed meal foods among common Japanese foods with white rice as a reference food">reduced in combination</a> with fat, dairy, fiber, vinegar, or citrus fruits. Along with leptin, insulin is an important <a href="http://www.ncbi.nlm.nih.gov/pubmed/21294236" title="Insulin as a satiety hormone">satiety hormone</a>.</p>
+		</div>
+	</div>
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>Are Fats Good?</h3>
+			<p>Fats, especially <a href="https://www.ncbi.nlm.nih.gov/pubmed/20071648" title="Meta-analysis of prospective cohort studies evaluating the association of saturated fat with cardiovascular disease">saturated fats</a>, have been unfairly <a href="https://www.ncbi.nlm.nih.gov/pubmed/22583051" title="Dietary fats and coronary heart disease">demonized</a> in the conventional Western diet for causing weight gain and <a href="http://www.ajcn.org/content/91/3/535.full?sid=5660885d-0a78-4f9f-8ef1-060b9e0eebe4" title="Meta-analysis of prospective cohort studies evaluating the association of saturated fat with cardiovascular disease">cardiovascular disease</a>, when research shows the <a href="http://www.ajcn.org/content/80/5/1102.full" title="Saturated fat prevents coronary artery disease? An American paradox">opposite</a>. Looking at the <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1768013/" title="The French paradox: lessons for other countries">French paradox</a> and <a href="http://www.ncbi.nlm.nih.gov/pubmed/7435433" title="The composition of the Eskimo food in north western Greenland">Inuit paradox</a>, saturated fats and high-fat diets are not only healthy, but contributes to significant amounts of <a href="http://www.nature.com/ijo/journal/v32/n10/abs/ijo2008130a.html" title="Egg breakfast enhances weight loss">weight loss</a>. In addition, consumption of saturated fats <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1208952/" title="Saturated fats do not need to be limited">do not need to be limited</a> and actually serve important body functions for <a href="http://www.fourhourworkweek.com/blog/2009/06/06/saturated-fat/" title="Saturated fats important for bone, organ, brain, and immune health">bone, organ, brain, and immune health</a>. Opt for the <a href="http://wholehealthsource.blogspot.ca/2010/04/full-fat-dairy-for-cardiovascular.html" title="High fat dairy benefits">high-fat dairy</a> instead of the <a href="http://wholehealthsource.blogspot.ca/2012/07/new-review-paper-by-yours-truly-high.html" title="Low-fat dairy does not benefit">low-fat dairy</a>. Finally, fat benefits the <a href="http://examine.com/faq/when-should-i-take-vitamin-d.html" title="Fat helps transports nutrients">transport and bioavailability of nutrients</a> like fat-soluble vitamins such as vitamin A, D, E, and K.</p>
+			<p>Not all saturated fats are the same, however. Coconut oil is high in saturated fat but it mostly consists of medium-chain triglycerides with most in the form of lauric acid, which <a href="http://www.ncbi.nlm.nih.gov/pubmed/3519928" title="Medium chain triglycerides decreases heart disease">raises HDL</a> (good cholesterol).</p>
+			<p>Not all omega-3 fatty acids are the same either. Walnuts and flaxseed are very high in ALA omega-3, but since the body has to convert ALA to EPA and DHA, only a <a href="http://www.dhaomega3.org/Overview/Conversion-Efficiency-of-ALA-to-DHA-in-Humans" title="Conversion efficiency of ALA to DHA in humans">small portion</a> can be utilized. Seafood and fish oil are excellent sources of ALA and EPA omega-3 fatty acids.</p>
+			<h4>Low Fat Vs. High Fat</h4>
+			<p>Avoid anything that is labeled low fat. Low fat means higher carbs and/or added sugar, and without fat, the body is exposed to malnourishment as fats are needed to absorb important vitamins A, D, E, and K.</p>
+			<h4>The Ketogenic Diet</h4>
+			<p>The Ketogenic Diet is extremely high-fat and <a href="http://www.ajcn.org/content/86/2/276.full" title="Effects of a low-carb diet">low-carb</a> where the body uses ketones as an energy source. The ketogenic diet, similar to the Atkins diet, is well known for weight loss and producing excellent LDL/HDL <a href="http://www.nejm.org/doi/full/10.1056/NEJM199103283241306" title="88-year-old man eats 25 eggs a day">cholesterol levels</a>.</p>
+		</div>
+		<div class="fourcol">
+			<h3>Intermittent Fasting</h3>
+			<p>Intermittent fasting means no food (fasting; not starving) over a certain amount of time to optimize fat burning periods or to minimize fat accumulation on a bulk. Fasting also <a href="http://jcem.endojournals.org/content/74/4/757.abstract" title="Two days of fasting induced a 5-fold increase in the 24-h endogenous GH production rate">increases</a> growth hormone levels, <a href="http://www.ncbi.nlm.nih.gov/pubmed/15741046" title="Beneficial effects of intermittent fasting and caloric restriction on the cardiovascular and cerebrovascular systems">improves</a> the cardiovascular system, and decreases the risk of <a href="http://www.cell.com/cell-metabolism/abstract/S1550-4131(12)00189-1" title="Intermittent fasting in a high-fat diet reduces metabolic diseases in mice">metabolic diseases</a> and <a href="http://www.ncbi.nlm.nih.gov/pubmed/10524500" title="Intermittent feeding and fasting reduces diabetes incidence in BB rats">diabetes</a>. While you are sleeping, you are actually fasting. You may drink water or consume zero-calorie beverages during the fasted state. A 16 hour fast followed by an 8 hour feast is <a href="http://www.leangains.com/2010/06/intermittent-fasting-and-stubborn-body.html" title="Leangains">recommended for men</a>. Meal frequency <a href="http://www.leangains.com/2010/10/top-ten-fasting-myths-debunked.html" title="Leangains Myths Debunked">does not affect metabolism</a> because what matters is total calories consumed in a day.</p>
+			<p>Intermittent fasting is different for women, however. Stefani Ruper suggests <a href="http://www.paleoforwomen.com/shattering-the-myth-of-fasting-for-women-a-review-of-female-specific-responses-to-fasting-in-the-literature/" title="Intermittent fasting and women">women should listen to their body</a> if they attempt intermittent fasting, while Martin Berkhan suggests <a href="http://www.leangains.com/2009/11/questions-answers_23.html" title="Leangains fasting for women">limiting fasting to fourteen hours</a> for women.</p>
+			<p>To assess macronutrient ratios and caloric intake, use this <a href="http://www.1percentedge.com/ifcalc/" title="IF Calculator">intermittent fasting calculator</a>.</p>
+			<h3>When to Eat</h3>
+			<p>While intermittent fasting is encouraged, when you eat or whether or not you have breakfast <a href="http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=873508" title="Effect of the pattern of food intake on human energy metabolism">is not as important</a> as <em>what</em> you eat and <em>how</em> much you eat in a day. The body is efficient with partitioning and storing energy and nutrients, so it is fine to eat three meals or six meals a day as long as you meet the day's total caloric requirement.</p>
+		</div>
+		<div class="fourcol last">
+			<h3>Activity Level</h3>
+			<p>Someone who is active will naturally require <a href="http://www.ncbi.nlm.nih.gov/pubmed/20216465" title="Physical activity and food consumption in high- and low-active inbred mouse strains">greater consumption</a> of calories as their body demands it, while more sedentary individuals will opt to eat less. This correlates with the TDEE requirements. Overeating has little to do with activity level but more to do with food choices.</p>			
+			<h3>Portion Sizes</h3>
+			<p>Most people who consume a diet high in vegetables, fruits, meat and seafood will feel full naturally, so measuring portion sizes is not necessary. However, if the goal is to lose or gain weight, counting calories is recommended and a beneficial way to understand how many calories a type of food contains.</p>
+			<h3>Counting Calories</h3>
+			<p>For the purposes of losing or gaining weight, tracking calories is very helpful, especially for beginners. Many over- or underestimate the number of calories they consume daily. Below are some recommended calorie counting sites and apps:</p>
+			<p>
+			</p><ul>
+				<li><a href="http://swole.me/" title="Swole.me">Swole.me</a></li>
+				<li><a href="http://myfitnesspal.com/" title="MyFitnessPal">MyFitnessPal</a></li>
+				<li><a href="http://fitday.com/" title="FitDay">FitDay</a></li>
+			</ul>
+			<p></p>
+		</div>				
+	</div>
+</div>
+
+<!-- ++++++++++++++++++++ SUPPLEMENTS ++++++++++++++++++++ -->
+<a id="supplements"></a>
+
+<div class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>Спортивное питание</h2>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="fourcol">
+			<h3>Нужно ли оно мне?</h3>
+			<p><img class="imgBorder" src="./fitness_files/supplements.png" alt="Supplements"></p>			
+			<p>The foods outlined in the food pyramid should be enough to cover all nutritional requirements, therefore supplements are not required; however, supplements can be beneficial since food alone may not be enough.</p><p>
+			</p><p>Vitamin D3 is mostly acquired through sunlight, multivitamins may help cover any nutritional deficiencies, whey protein is a cheap and convenient source of protein, and fish oil is important for those who don’t consume enough omega-3 EPA and DHA sources (fish).</p>
+			<p>In addition to the above supplements, two other useful supplements would be creatine for bulking and caffeine for cutting.</p>
+		</div>
+		<div class="fourcol">
+			<h3>Recommended Supplements</h3>
+			<p><em>Сыворочный протеин</em>: While most can consume enough protein from foods alone, whey protein is a cheaper source of high quality proteins. Protein intake is usually spread throughout your meals and is crucial <a href="http://www.ncbi.nlm.nih.gov/pubmed/11440894" title="Timing of amino acid-carbohydrate ingestion alters anabolic response of muscle to resistance exercise">before</a> your workout, where a protein shake could be consumed. In addition, it is also found that a combination of whey and casein protein promoted the <a href="http://www.ncbi.nlm.nih.gov/pubmed/16937979" title="The effects of protein and amino acid supplementation on performance and training adaptations">greatest increases in fat-free mass</a>.</p>
+			<p><em>Мультивитамины</em>: Мультивитаминные комплексы полезны чтобы восполнить недостающие питательные из еды, особенно если вы потребляете мало еды или не придерживаетесь рекомендуемой пищевой пирамиды. Если вы получаете всё необходимое из еды — мультивитаминные комплексы бесполезны.</p>
+			<p><em>Витамин D3</em>: Люди не получающие достаточно солнечного света и живущие в холодном климате получат <a href="http://examine.com/supplements/Vitamin+D/" title="Benefits of Vitamin D3">большую пользу</a> от этого важного гормона. <a href="http://www.ncbi.nlm.nih.gov/pubmed/15989379" title="Benefits and requirements of vitamin D for optimal health: a review.">Витамин D</a> помогает сердцу, улучшает производительность и уменьшаяет время восстановления, снижает риск рака и диабета.</p>
+			<p><em>Рыбий жир</em>: Содержащийся в рыбе, рыбий жир содержит the omega-3 acids of EPA and DHA, which is an anti-inflammatory that offers several benefits to the heart, brain, liver, and reducing moods such as anxiety and <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1747-0080.2006.00109.x/abstract">depression</a>. In addition, fish oil helps with both <a href="http://examine.com/supplements/Fish+Oil/" title="Fish oil helps with weight loss and muscle building">weight loss and muscle building</a>.</p>				
+		</div>
+		<div id="interactive" class="fourcol last">			
+			<h3>For Bulking</h3>
+			<p><em>Креатин</em>: Естественным образом содержашийся в теле, креатин улучшает силовые характеристики. Используется для набора массы и не рекомендуется для похудения. Taking 5g (1 tsp) once a day at any time (<a href="http://www.ncbi.nlm.nih.gov/pubmed/8929583" title="Caffeine counteracts the ergogenic action of muscle creatine loading">except with caffeine</a>) is all that is needed.</p>
+			<h3>For Cutting</h3>
+			<p><em>Кофеин</em>: Пара чашек чёрного кофе или зеленого чая помогает увеличть вашу производительность и временно понизить аппетит.</p>			
+			<h3>Where to Buy Supplements</h3>
+			<p>Recommended quality supplements at good prices can be purchased from:</p>
+<!--
+<div id="supplements-tabs" style="margin-bottom: 1.4286em;">
+<ul> 
+	<li class="active"><a href="http://simplesciencefitness.com/#supplements-usa">USA</a></li>
+	<li><a href="http://simplesciencefitness.com/#supplements-can">CAN</a></li>
+	<li><a href="http://simplesciencefitness.com/#supplements-gbr">GBR</a></li>
+</ul>
+<div id="supplements-usa" style="display: block;">
+<dl>
+	<dt>Supplements in the USA</dt>
+	<dd><a href="http://amzn.to/Pp3tkN">Whey Protein</a></dd>
+	<dd>Multivitamins for <a href="http://amzn.to/NELAgj">Men</a> or <a href="http://amzn.to/QBMeeW">Women</a></dd>
+	<dd><a href="http://amzn.to/R2hTdu">Vitamin D3</a></dd>
+	<dd><a href="http://amzn.to/RPAOrW">Fish Oil</a></dd>
+	<dd><a href="http://amzn.to/R2i1K0">Creatine</a></dd>
+	<dd><a href="http://amzn.to/RVsisV">Caffeine</a></dd>
+</dl>
+</div>
+<div id="supplements-can" style="display: none;">
+<dl>
+	<dt>Supplements in Canada</dt>
+	<dd><a href="https://www.svncanada.com/search.php?q=optimum+nutrition+whey+gold+standard&aff=150">Whey Protein</a></dd>
+	<dd>Multivitamins for <a href="https://www.svncanada.com/product/2180/progressive-multivitamins-active-men?aff=150">Men</a> or <a href="https://www.svncanada.com/product/2181/progressive-multivitamins-active-women?aff=150">Women</a></dd>
+	<dd><a href="https://www.svncanada.com/product/2357/now-vitamin-d3-1000iu-360gels?aff=150">Vitamin D3</a></dd>
+	<dd><a href="https://www.svncanada.com/product/1494/optimum-nutrition-enteric-coated-fish-oil-100gels?aff=150">Fish Oil</a></dd>
+	<dd><a href="https://www.svncanada.com/search.php?q=creatine+monohydrate&aff=150">Creatine</a></dd>
+	<dd><a href="https://www.svncanada.com/search.php?q=caffeine+200mg&aff=150">Caffeine</a></dd>
+</dl>
+</div>
+<div id="supplements-gbr" style="display: none;">
+<dl>
+	<dt>Supplements in the UK</dt>
+	<dd><a href="http://amzn.to/RhE6a1">Whey Protein</a></dd>
+	<dd>Multivitamins for <a href="http://amzn.to/RhEaXj">Men</a> or <a href="http://amzn.to/RhEB3L">Women</a></dd>
+	<dd><a href="http://amzn.to/Nns2Oo">Vitamin D3</a></dd>
+	<dd><a href="http://amzn.to/NnscFl">Fish Oil</a></dd>
+	<dd><a href="http://amzn.to/RhF31O">Creatine</a></dd>
+	<dd><a href="http://amzn.to/NnsLz8">Caffeine</a></dd>
+</dl>
+</div>
+</div><!-- end supplements-tabs -->
+-->
+		</div>
+	</div>
+</div>
+
+<!-- //////////////////// EXERCISE //////////////////// -->
+
+<div class="container ad">
+	<div class="row">
+		<div class="twelvecol last">
+
+		</div>
+	</div>
+</div>
+<div class="container"><a id="exercise"></a>
+	<div class="row h1">
+		<div class="fourcol">
+			<h1>Упражнения</h1>
+		</div>
+		<div class="eightcol last quote">
+			<h3>Movement is a medicine for creating change in a person's physical, emotional, and mental states.</h3>
+			<p>—Carol Welch</p>
+		</div>
+	</div>
+</div>
+
+<!-- ++++++++++++++++++++ YOUR GOALS ++++++++++++++++++++ -->
+<a id="your-goals"></a>
+
+<div class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>Your Goals</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="twelvecol last">
+		<h3>You Are</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="threecol">
+			<p><em>A Beginner</em>: With your physician's clearance, before progressing to weight training and moderate to vigorous cardio, start with core bodyweight exercises (bodyweight squats, push-ups, planks, bridges, assisted chin-ups) and light to moderate cardio until your body can adapt to the neurological, physical, and psychological changes.</p>
+			<p style="text-align: center; color: #999;"><em>—or—</em></p>
+		</div>		
+		<div class="threecol">
+			<p><em>A Runner</em>: In addition to cardiorespiratory training, consider incorporating resistance training at least twice a week for strength and improved <a href="http://europepmc.org/abstract/MED/9927006/reload=0;jsessionid=2Ho8iqckv0PsnKYLgtzt.24" title="The effects of progressive resistance training on bone density">bone density</a>.</p>
+			<p style="text-align: center; color: #999;"><em>—or—</em></p>
+		</div>
+		<div class="threecol">
+			<p><em>A Lifter</em>: In addition to resistance training, consider incorporating light to moderate cardiorespiratory training on off days for cardiorespiratory health.</p>
+			<p style="text-align: center; color: #999;"><em>—or—</em></p>
+		</div>
+		<div class="threecol last">
+			<p><em>An Athlete</em>: Combined with resistance training, goals include improving speed, power, agility, coordination and balance. Exercises include sport-specific performance drills including sprints, high intensity interval training and plyometrics.</p>
+		</div>						
+	</div>
+
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>Why Exercise?</h3>
+			<p>While diet is important, exercise has numerous physiological <a href="http://bjsm.bmj.com/content/early/2009/09/29/bjsm.2009.065557.abstract" title="Even with no change in body weight, exercise provides benefits">benefits</a>, including keeping your <a href="http://www.ncbi.nlm.nih.gov/pubmed/8248681" title="Cardiovascular benefits of improved exercise capacity">heart healthy</a> and strengthening your immune system. Exercise improves your <a href="http://www.ncbi.nlm.nih.gov/pubmed/11273973" title="Benefits from aerobic exercise in patients with major depression">psychological well-being</a> by increasing mood-boosting dopamine and serotonin levels. Chronic exercise also increases our tolerance to cortisol, a stress hormone. These benefits retains youthful vigor, improves the <a href="http://www.ncbi.nlm.nih.gov/pubmed/9545677" title="Physical fitness and psychological benefits of strength training in community dwelling older adults">quality of life</a>, reduces the risk of morbidity and mortality, and also provides improvements in physical appearance, performance, balance, and mobility, which in turn helps with confidence.</p>
+		</div>
+		<div class="fourcol">
+			<h3>Fitness Goals</h3>
+			<p>There are many ways to improve your health and fitness. Choose a lifestyle or goal you can enjoy and stick with at a comfortable level.</p>
+			<p>Here are some fitness goals:
+				</p><ul>
+					<li><em>Health</em>: Both anaerobic and aerobic training; circuit training.</li>
+					<li><em>Strength</em>: Heavy weight training.</li>
+					<li><em>Взрывная сила</em>: Тяжелая атлетика, бег на короткие дистанции и плиометрика.</li>
+					<li><em>Aesthetics</em>: Hypertrophy training.</li>
+					<li><em>Endurance</em>: Cardiorespiratory training, interval training.</li>
+					<li><em>Flexibility</em>: Stretches, yoga, pilates.</li>
+					<li><em>Mind-Body</em>: Yoga, Tai Chi.</li>
+				</ul>
+			<p></p>
+		</div>
+		<div class="fourcol last">
+			<h3>Will Women Get Big and Bulky From Lifting?</h3>
+			<p>No, women will <em>not</em> get big and bulky from lifting weights because they have very little <a href="http://xgym.com/women-and-the-myth-of-bulking-up/" title="Women and the myth of bulking up">testosterone</a>. Conversely, lifting weights will contribute to women appearing like supermodels. Elite natural lifters such as <a href="http://www.google.ca/search?um=1&hl=en&authuser=0&tbm=isch&q=jennifer+nicole+lee" title="Image search for Jennifer Nicole Lee">Jennifer Nicole Lee</a>, <a href="http://www.google.ca/search?um=1&hl=en&authuser=0&tbm=isch&q=jamie+eason" title="Image search for Jamie Eason">Jamie Eason</a>, and <a href="http://www.google.ca/search?um=1&hl=en&authuser=0&tbm=isch&q=marzia+prince" title="Image search for Marzia Prince">Marzia Prince</a> are thin, lean, and "toned."</p>
+			<p>The lean but <a href="http://www.girlswithmuscle.com/images/full/875704242.jpg" title="Katka Kyptova">big</a>, <a href="http://www.girlswithmuscle.com/images/full/311767725.jpg" title="Ekaterina Gamagina">bulky</a> <a href="http://www.girlswithmuscle.com/images/full/500887347.jpg" title="Heidi Vuorela">women</a> use steroids.</p>
+		</div>
+	</div>	
+
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>Physical Goals</h3>
+			<p>Depending on your goals, the number of sets and repetitions relative to weight will give you different results and body shapes, but will always improve your mental and physical health. Women, due to genetics, will not be able to be as muscular as men, but will greatly benefit from a strength program.</p>
+			<p></p>
+			<table>
+			<thead>
+				<tr>
+					<th>Power Lifting</th>
+					<th>Strength Bodybuilding</th>
+					<th>Aesthetics Bodybuilding</th>
+					<th>Cardiovascular</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Strength</td>
+					<td>Myofibrillar Hypertrophy</td>
+					<td>Sarcoplasmic Hypertrophy</td>
+					<td>Endurance</td>
+				</tr>			
+				<tr>
+					<td>1–5 reps</td>
+					<td>4–8 reps</td>
+					<td>8–15 reps</td>
+					<td>15+ reps</td>
+				</tr>
+				<tr>
+					<td>3–5 sets</td>
+					<td>3–4 sets</td>
+					<td>4–5 sets</td>
+					<td>2–4 sets</td>
+				</tr>
+				<tr>
+					<td>2–5' rest</td>
+					<td>1–3' rest</td>
+					<td>0.5–1.5' rest</td>
+					<td>0.5–1.5' rest</td>
+				</tr>				
+			</tbody>
+			</table>
+			<p></p>
+		</div>
+		<div class="fourcol">
+			<h4>Your Desired Physique</h4>
+			<p>Your body shape is largely influenced by how much muscle mass you have. To attain your desirable body shape, here are some examples of athletes near or at their natural genetic limit:</p>
+			<ul>
+				<li><em>Strength</em>: <a href="http://3.bp.blogspot.com/_34PE0ZEgM80/THfzOPQlKeI/AAAAAAAAVU0/JnZcZzK68pY/s1600/Konstantin+Konstantinovs.jpg" title="Konstantin Konstantinovs">Male</a>/<a href="http://www.nickmitchellblog.com/wp-content/uploads/weight-training-for-women.jpg" title="Marilou Dozois-Prévost">Female 1</a>, <a href="http://www.pzpc.pl/foty/PolskaSztanga2010/MarzenaKarpinska.jpg" title="Marzena Karpińska">Female 2</a>.</li>
+				<li><em>Hypertrophy</em>: <a href="http://25.media.tumblr.com/tumblr_m6jqo1w2sF1qeaj38o3_1280.jpg" title="Robbie Sardinia">Male Front</a>, <a href="http://www.muscleandstrength.com/sites/default/files/images/articles/50Q/robbie-sardinia/robbie-sardinia.jpg" title="Robbie Sardinia">Male Back</a>/<a href="http://www.girlswithmuscle.com/images/full/320218032.jpg" title="Bella Falconi">Female Front</a>, <a href="http://www.girlswithmuscle.com/images/full/489608907.jpg" title="Joelle Tyler">Female Back</a>.</li>
+				<li><em>Cardiovascular</em>: <a href="http://cdn9.healthynomics.com/wp-content/demo/uploads/2010/05/2008-Triathlon-SimonWhitfield3_jpg_427x1200_upscale_q85.jpg" title="Simon Whitfield">Male</a>/<a href="http://ehplus.areavoices.com/files/2012/07/Kara-Goucher.jpeg" title="Kara Goucher">Female</a>.</li>
+			</ul>
+
+			<h4>"Toning"</h4>
+			<p>"Toning" is simply the result of building muscle and reducing body fat.</p>
+		</div>
+		<div class="fourcol last">
+			<h4>Six Pack Abs</h4>
+			<p>To get six pack abs, your body fat would be within the 10% range or lower. Abdominal definition is largely due to diet and attainable without having to do a single crunch. How much your abdominal muscles protrude is partially determined by genetics and partially determined by overall lean mass.</p>
+			<h4>Bulking Tips</h4><a id="bulking-tips"></a>
+			<p>High-fat dairy (whole milk, cheese, cream), oils such as coconut oil, and starchy carb sources such as rice and potatoes are easy ways to add extra calories to your primary sources of meats, fish, and vegetables.</p>
+		</div>
+	</div>	
+
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>Anaerobic vs. Aerobic</h3>
+			<p>Anaerobic respiration means the "abscence of oxygen" and aerobic respiration means "with oxygen." Anerobic exercises require short bursts of energy while aerobic exercises can be performed over a long period of time. Examples of anaerobic exercises include weight lifting, sprinting, high intensity interval training and plyometrics. Examples of aerobic exercises include running, biking, swimming, and sports.</p>
+			<p>While aerobic exercises are excellent for endurance and oxygen consumption (VO2 max), it is not as <a href="http://articles.elitefts.com/training-articles/women-running-into-trouble/" title="Treadmill and results">efficient or effective</a> as weight training and other anaerobic activities for burning fat or building muscle. Examples would be comparing the physiques of Olympic athletes relative to the time and workload they put in: weight lifters, gymnasts, and sprinters vs. runners, cyclists, and triathletes.</p>
+			<img class="imgBorder" src="./fitness_files/comparing-olympians.png" alt="Comparing anerobic and endurance Olympians"><p></p>
+			<p>Nonetheless, cardiovascular exercise is strongly encouraged alongside anaerobic exercise as it improves muscular endurance and heart health.</p>
+		</div>
+		<div class="fourcol">
+			<h3>Gym Memberships</h3>
+			<p>Gym memberships are useful to access equipment that you do not have at home and it can be motivational to be working out with other people. It is also low-cost in the short term.</p>
+			<h4>Personal Trainers</h4>
+			<p>If you are an absolute beginner, or unsure how to do proper form and technique, or would like to have guidance or motivation, working with a personal trainer is a worthwhile investment.</p>
+			<h4>Gym Attire</h4>
+			<p>T-shirts, shorts, and <a href="http://amzn.to/Nxj6pK" title="Under Armour">athletic wear</a> are suitable attire to wear in the gym. Many like to listen to their own music on an <a href="http://www.apple.com/ipodnano/features.html#fitness" title="Apple iPod Nano">iPod</a>. For footwear while doing heavy weights, flat bottomed shoes such as the Converse <a href="http://amzn.to/Ozj8vW">Chuck Taylor</a> and Vibram <a href="http://amzn.to/OpNsvI">Fivefingers</a> are recommended. If working out at home, going barefoot is acceptable. The Vibram Fivefingers are also useful for running.</p>
+		</div>		
+		<div class="fourcol last">
+			<h3>Home Gym</h3>
+			<p>If you are comfortable working out alone, a home gym is extremely convenient and a good long-term financial investment. The recommendations below are all that are necessary to build an effective, quality home gym where you can perform most exercises, including the Big Six.</p>
+<!--
+<div id="gym-tabs">
+<ul> 
+	<li class="active"><a href="http://simplesciencefitness.com/#gym-usa">USA</a></li>
+	<li><a href="http://simplesciencefitness.com/#gym-can">CAN</a></li>
+	<li><a href="http://simplesciencefitness.com/#gym-gbr">GBR</a></li>
+</ul>
+<div id="gym-usa" style="display: block;">
+<dl>
+	<dt>Build Your Home Gym (USA)</dt>
+	<dd><a href="http://amzn.to/RgzLUu">Power rack with pull-up bar</a> ~$550 <em><br>Optional</em>: <a href="http://amzn.to/R2l0ST">lat tower addition</a> ~$500</dd>
+	<dd><a href="http://www.amazon.com/gp/product/B002QJZAE4/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B002QJZAE4&linkCode=as2&tag=simpsciefitn-20">Bench</a> ~$300</dd>
+	<dd><a href="http://amzn.to/ND4Heg">45 lbs 7’ Olympic bar</a> ~$100</dd>
+	<dd><a href="http://amzn.to/R2lyYZ">250 lbs weight plate set</a> ~$300</dd>
+	<dd><a href="http://amzn.to/R2m3C8">Lock-Jaw 2" Olympic collars</a> ~$35</dd>
+	<dd class="caption">Optional Additions:</dd>
+	<dd><a href="http://www.amazon.com/gp/product/B006OB6V2A/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B006OB6V2A&linkCode=as2&tag=simpsciefitn-20">2x Dumbbell handle</a> ~$30, and <a href="http://www.amazon.com/s/?_encoding=UTF8&camp=1789&creative=390957&field-keywords=standard%20weight%20plates&linkCode=ur2&tag=simpsciefitn-20&url=search-alias%3Dsporting">standard steel plates</a></dd>
+	<dd><a href="http://www.amazon.com/gp/product/B003G09XDQ/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B003G09XDQ&linkCode=as2&tag=simpsciefitn-20">2x Lock-Jaw 1" collars</a> ~$50</dd>
+	<dd><a href="http://amzn.to/RgASU9">Olympic weight tree</a> ~$100</dd>
+</dl>
+</div>
+<div id="gym-can" style="display: none;">
+<dl>
+	<dt>Build Your Home Gym (Canada)</dt>
+	<dd><a href="http://www.treadmillfactory.ca/p-65-c--powertec-power-rack-set-p-pr-11-s.html">Power rack with pull-up bar, lat tower <br><em>and</em> bench</a> ~$900</dd>
+	<dd><a href="http://www.treadmillfactory.ca/idevaffiliate/pages/220.php?page=9&set=3&link=7">45 lbs 7 ft Olympic bar <br><em>with</em> 255 lbs weight plate set</a> ~$300</dd>
+	<dd><a href="http://www.treadmillfactory.ca/idevaffiliate/pages/220.php?page=10&set=3&link=8">Lock-Jaw 2" Olympic collars</a> ~$35</dd>
+	<dd class="caption">Optional Additions:</dd>
+	<dd><a href="http://www.treadmillfactory.ca/p-779-c--standard-dumbbell-handle.html">2x Dumbbell handle</a> ~$20, and <a href="http://www.treadmillfactory.ca/p-2036-c--standard-steel-plates.html">standard steel plates, $0.89/lbs</a></dd>
+	<dd><a href="http://www.treadmillfactory.ca/p-1581-c--lock-jaw-one-standard-1-barbell-collar.html">2x Lock-Jaw 1" collars</a> ~$50</dd>
+	<dd><a href="http://www.treadmillfactory.ca/idevaffiliate/pages/220.php?page=11&set=3&link=9">Olympic weight tree</a> ~$100</dd>
+</dl>
+</div>
+<div id="gym-gbr" style="display: none;">
+<dl>
+	<dt>Build Your Home Gym (Great Britain)</dt>
+	<dd><a href="http://amzn.to/RZMF8k">Power rack with pull-up bar and lat tower</a> ~£380</dd>
+	<dd><a href="http://amzn.to/QFnP85">Bench</a> ~£80</dd>
+	<dd><a href="http://amzn.to/QFo0QQ">20 kg 7 ft Olympic bar <br><em>with</em> 140 kg weight plate set</a> ~£280</dd>
+	<dd><a href="http://amzn.to/RZNhLa">Lock-Jaw 2" Olympic collars</a> ~£30</dd>
+	<dd class="caption">Optional Additions:</dd>
+	<dd><a href="http://www.amazon.co.uk/gp/product/B0015UP90U/ref=as_li_ss_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=B0015UP90U&linkCode=as2&tag=simpsciefit0d-21">2x Dumbbell handle</a> ~£20, and <a href="http://www.amazon.co.uk/s/?_encoding=UTF8&camp=1634&creative=19450&field-keywords=weight%20plates&linkCode=ur2&rh=n%3A318949011%2Ck%3Aweight%20plates&tag=simpsciefit0d-21&url=search-alias%3Dsports">standard steel plates</a></dd>
+	<dd><a href="http://www.amazon.co.uk/gp/product/B006TKKJ1A/ref=as_li_ss_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=B006TKKJ1A&linkCode=as2&tag=simpsciefit0d-21">2x Lock-Jaw 1" collars</a> ~£20</dd>
+	<dd><a href="http://amzn.to/QFoI0w">Weight tree</a> ~£125</dd>
+</dl>
+</div>
+</div><!-- end tabs -->
+
+		</div>
+	</div>
+</div>	
+
+
+<!-- ++++++++++++++++++++ ANAEROBIC TRAINING ++++++++++++++++++++ -->
+<a id="anaerobic-training"></a>
+
+<div class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>Анаэробные упражнения</h2>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="fourcol">
+			<h3>Weight Training</h3>
+			<p>While all kinds of physical activity provide health benefits, weight training is <a href="http://www.t-nation.com/readArticle.do?id=1526539" title="The hierarchy of fat loss">superior</a> in increasing metabolism for fat loss while strengthening your muscles to protect your joints, improve posture, <a href="http://www.ncbi.nlm.nih.gov/pubmed/7990242" title="Effects of high-intensity strength training on multiple risk factors for osteoporotic fractures">strengthen bones</a>, and decrease the risk of <a href="http://www.ncbi.nlm.nih.gov/pubmed/16084803" title="The relative benefits of endurance and strength training on the metabolic factors and muscle function of people with type 2 diabetes mellitus">disease</a> and injury. Cardiovascular exercise is also strongly encouraged to supplement strength training to keep your heart healthy.</p>
+		</div>
+		<div class="fourcol">
+			<h3>Gymnastics and Bodyweight Exercises</h3>
+			<p>As an alternative or supplementary to weight training, body weight/calisthenic exercises can be used. Exercises range in difficulty while no equipment is necessary to do pushups, <a href="http://www.exrx.net/WeightExercises/DeltoidAnterior/BWHandstandPressBench.html">handstand pushups</a>, <a href="http://www.exrx.net/WeightExercises/Quadriceps/BWSingleLegSquat.html">pistol squats</a>, and <a href="http://www.exrx.net/WeightExercises/RectusAbdominis/BWFrontPlank.html">planks</a>. With <a href="http://www.gymnasticbodies.com/store/homepage/xtreme-rings-black.html">Olympic rings</a>, simple to advanced chin-ups, pull-ups, pushups, and dips can be performed.</p>
+			<p>The <a href="http://www.gymnasticbodies.com/store/library.html">Gymnastics Bodies</a> book is recommended for calisthenics. Also, Reddit's <a href="http://www.reddit.com/r/bodyweightfitness">Bodyweight Fitness Community</a> is an excellent resource.</p>
+		</div>
+		<div class="fourcol last">
+			<h3>Sprints, HIIT, and Plyometrics</h3>
+			<p>Sprints, high intensity interval training (HIIT) and plyometrics are anaerobic activities similar to weight training, except it strongly relies on performance goals such as speed, agility, power, and coordination, as well as improving VO2 max and cardiovascular health. They should not be performed until you are proficient with the Big Six. Since it is a high intensity workout, it is not recommended to be performed on the same day as weight training due to the risk of overtraining. It is entirely optional to do on rest days if your body is adapted to the higher level of training. If you wish to incorporate sprinting with weight training, look at short intensity interval trainings such as <a href="http://tabatatraining.org/">tabata</a>, or simply do a single <a href="http://anabolicminds.com/forum/content/leptin-leanness-fasted-1492/" title="Leptin, fasting, and sprinting">30-second sprint</a> once a week.</p>
+		</div>
+	</div>
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>База</h3>
+			<p>Базовые упражнения это: 
+				</p><ul>
+					<li>Приседания</li>
+					<li>Становая тяга</li>
+					<li>Жим лежа</li>
+					<li>Жим над головой</li>
+					<li>Подтягивания</li>
+					<li>Тяга штанги в наклоне</li>
+				</ul>
+			<p></p>
+		</div>
+		<div class="fourcol">
+			<h3>&nbsp;</h3>
+			<p>Эти фундаментальные упражнения задействуют большое количество мышц и укреаляют торс &mdash; пресс и спину. Эти упражнения помогают сжигать жир и наращивать мышечную массу задействуя практически все тело. Они являются более интенсивными чем изоляционные упражнения, такие как подъем гантелей на бицепс.These exercises are strongly recommended for every person when they are physically able to progress to this level.</p>
+		</div>
+	</div>
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h4>Barbell Squat</h4>
+			<p><img class="imgBorder" src="./fitness_files/squat.png" alt="Barbell Squat"></p>
+			<p>Described as the king of all exercises, squats work primarily the legs and is often considered a full-body exercise. Barbell squats is probably the most intense exercise to perform, but also the most rewarding. <a href="http://www.exrx.net/WeightExercises/OlympicLifts/FrontSquat.html" title="Front squats">Front squats</a> is an excellent alternative or addition.</p>
+			<ul>
+				<li><a href="http://www.youtube.com/watch?v=WDa34zWwMgA">Video</a> and <a href="http://www.exrx.net/WeightExercises/Quadriceps/BBSquat.html" title="Barbell Squat">Technique</a></li>
+				<li><em>Primary Muscles</em>: quads, hamstrings, glutes.</li>
+				<li><em>Secondary Muscles</em>: abs, erector spinae.</li>
+				<li><em>Substitution</em>: Leg press, clean and jerk/power clean, lunges.</li>
+			</ul>
+		</div>
+		<div class="fourcol">
+			<h4>Barbell Deadlift</h4>
+			<p><img class="imgBorder" src="./fitness_files/deadlift.png" alt="Barbell Deadlift"></p>
+			<p>Often compared to squats, this powerful exercise works the entire posterior chain. It also is taxing on the central nervous system, so short and heavy is enough.</p>
+			<ul>
+				<li><a href="http://www.youtube.com/watch?v=1vcBQNqfxe8">Video 1</a>, <a href="http://www.youtube.com/watch?v=gujO4xYSAdo">Video 2</a>, <a href="http://www.exrx.net/WeightExercises/ErectorSpinae/BBDeadlift.html" title="Barbell Deadlift">Technique 1</a>, and <a href="http://www.thedeadlift.com/deadlifting/deadlift-technique/">Technique 2</a></li>
+				<li><em>Primary Muscles</em>: Erector spinae, hamstrings, glutes, traps.</li>
+				<li><em>Secondary Muscles</em>: Quads, abs, forearms.</li>
+				<li><em>Substitution</em>: Clean and jerk/power clean.</li>
+			</ul>
+		</div>
+		<div class="fourcol last">
+			<h4>Barbell Bench Press</h4>
+			<p><img class="imgBorder" src="./fitness_files/bench-press.png" alt="Barbell Bench Press"></p>
+			<p>Often included in the "<a href="http://www.mystrengthtraining.com/compound-lifts" title="Squats, deadlifts, and bench press">big three</a>," this chest exercise is also a good arm builder.</p><p>
+			</p><ul>
+				<li><a href="http://www.youtube.com/watch?v=m6yYXxB6Hhc">Video</a> and <a href="http://www.exrx.net/WeightExercises/PectoralSternal/BBBenchPress.html" title="Barbell Bench Press">Technique</a></li>
+				<li><em>Primary Muscle</em>: Pectorals.</li>
+				<li><em>Secondary Muscles</em>: Deltoids, triceps, biceps.</li>
+				<li><em>Substitution</em>: Push up.</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h4>Barbell Military/Overhead Press</h4>
+			<p><img class="imgBorder" src="./fitness_files/overhead-press.png" alt="Barbell Overhead Press"></p>
+			<p>This excellent shoulder exercise also works on the arms.</p>
+			<ul>
+				<li><a href="http://www.youtube.com/watch?v=SAXPJ3PfdyY">Video</a> and <a href="http://www.exrx.net/WeightExercises/DeltoidAnterior/BBMilitaryPress.html" title="Barbell Military/Overhead Press">Technique</a></li>
+				<li><em>Primary Muscle</em>: Deltoids.</li>
+				<li><em>Secondary Muscles</em>: Traps, triceps, abs.</li>
+				<li><em>Substitution</em>: Handstand push up, dumbbell lateral and front raise.</li>
+			</ul>
+		</div>
+		<div class="fourcol">
+			<h4>Chin-Up/Pull-Up</h4>
+			<p><img class="imgBorder" src="./fitness_files/chin-up.png" alt="Chin-Up"></p>
+			<p>A powerful exercise for the lats, and vastly underrated as a bicep builder. Beginners will often struggle with only one or two reps, but over time, even weighed chin-ups would be possible. Chin-ups are palms facing forward while pull-ups are palms facing away.</p>
+			<ul>
+				<li><a href="http://www.youtube.com/watch?v=Owu5_0vL6qw">Video 1</a>, <a href="http://www.youtube.com/watch?v=BHSaiX4bNdk">Video 2</a> and <a href="http://www.exrx.net/WeightExercises/LatissimusDorsi/BWUnderhandChinup.html" title="Chin-Ups">Technique</a></li>
+				<li><em>Primary Muscles</em>: Lats, biceps.</li>
+				<li><em>Secondary Muscles</em>: Traps, pectorals, triceps.</li>
+				<li><em>Substitution</em>: Cable pulldown.</li>
+			</ul>
+		</div>
+		<div class="fourcol last">
+			<h4>Barbell Row</h4>
+			<p><img class="imgBorder" src="./fitness_files/barbell-row.png" alt="Barbell Row"></p>
+			<p>An exercise that works the full back, including traps, lats, and rhomboids. Ensure that the movement starts and ends with the barbell on the ground.</p>
+			<ul>
+				<li><a href="http://www.youtube.com/watch?v=gQBSRBgRLVI">Video</a> and <a href="http://www.exrx.net/WeightExercises/BackGeneral/BBBentOverRow.html" title="Barbell Row">Technique</a></li>
+				<li><em>Muscles Worked</em>: Full back.</li>
+				<li><em>Substitution</em>: T-bar row, seated cable row, dumbbell row.</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>Accessory Exercises</h3>
+			<p>Once your body is adapted to the fundamental <a href="http://simplesciencefitness.com/#anaerobic-training">Big Six</a> lifts with proper form, you may wish to move into an intermediate program that includes supplementary exercises. Most accessory exercises target individual muscle groups.</p> 
+			<p>Please note that squats and deadlifts work the abs and glutes better than direct work (you need to have strong abs to be able to lift a 400 lbs deadlift or 300 lbs squat, for instance).</p>
+		</div>
+		<div class="fourcol">
+			<h4>Legs</h4>
+			<ul>
+			<li><em>Quadriceps</em>: <a href="http://www.exrx.net/WeightExercises/Quadriceps/SL45LegPress.html">Leg Press</a>, <a href="http://www.exrx.net/WeightExercises/Quadriceps/DBLunge.html">Dumbbell Lunge</a>.</li>
+			<li><em>Hamstrings</em>: <a href="http://www.exrx.net/WeightExercises/ErectorSpinae/BBStiffLegDeadlift.html">Stiff-Legged Deadlift</a>.</li>
+			<li><em>Calves</em>: <a href="http://www.exrx.net/WeightExercises/Gastrocnemius/BBStandingCalfRaise.html">Barbell Calf Raise</a>, <a href="http://www.exrx.net/WeightExercises/Gastrocnemius/DBStandingCalfRaise.html">Dumbbell Standing Calf Raise.</a></li>
+			</ul>
+			<h4>Chest</h4>
+			<ul>
+			<li><em>Pectorals</em>: <a href="http://www.exrx.net/WeightExercises/PectoralSternal/BWPushup.html">Push Up</a>, <a href="http://www.exrx.net/WeightExercises/PectoralSternal/DBFly.html">Dumbbell Fly</a>, <a href="http://www.exrx.net/WeightExercises/PectoralSternal/DBBenchPress.html">Dumbbell Bench Press.</a></li>
+			</ul>			
+			<h4>Back</h4>
+			<ul>
+			<li><em>Traps</em>: <a href="http://www.exrx.net/WeightExercises/BackGeneral/CBSeatedRow.html">Cable Seated Row</a>, <a href="http://www.exrx.net/WeightExercises/BackGeneral/DBBentOverRow.html">Dumbbell Bent-Over Row</a>, <a href="http://www.exrx.net/WeightExercises/TrapeziusUpper/DBShrug.html">Dumbbell Shrug</a>.</li>
+			<li><em>Lats</em>: <a href="http://www.exrx.net/WeightExercises/LatissimusDorsi/CBFrontPulldown.html">Cable Pulldown</a>.</li>
+			</ul>
+		</div>
+		<div class="fourcol last">
+			<h4>Shoulders</h4>
+			<ul>
+			<li><em>Deltoids</em>: <a href="http://www.exrx.net/WeightExercises/DeltoidLateral/DBLateralRaise.html">Dumbbell Lateral Raise</a>, <a href="http://www.exrx.net/WeightExercises/DeltoidAnterior/DBFrontRaise.html">Dumbbell Front Raise</a>, <a href="http://www.exrx.net/WeightExercises/DeltoidAnterior/DBArnoldPress.html">Arnold Press</a>.</li>
+			</ul>			
+			<h4>Arms</h4>
+			<ul>
+			<li><em>Triceps</em>: <a href="http://www.exrx.net/WeightExercises/Triceps/BWTriDip.html">Triceps Dip</a>, <a href="http://www.exrx.net/WeightExercises/Triceps/BBTriExt.html">Barbell Tricep Extension</a>, <a href="http://www.exrx.net/WeightExercises/Triceps/DBTriExt.html">Dumbbell Tricep Extension</a>, <a href="http://www.exrx.net/WeightExercises/Triceps/BBCloseGripBenchPress.html">Barbell Close Grip Press</a>, <a href="http://www.exrx.net/WeightExercises/Triceps/CBPushdown.html">Cable Pushdown</a>.</li>
+			<li><em>Biceps</em>: <a href="http://www.exrx.net/WeightExercises/Biceps/BBCurl.html">Barbell Curl</a>, <a href="http://www.exrx.net/WeightExercises/Brachioradialis/DBHammerCurl.html">Dumbbell Hammer Curl</a>, <a href="">Dumbbell Curl</a>, <a href="http://www.exrx.net/WeightExercises/Brachialis/DBConcentrationCurl.html">Dumbbell Concentration Curl</a>.</li>
+			</ul>
+			<h4>Abs</h4>
+			<ul>
+			<li>Squat and Deadlift</li>
+			<li><a href="http://www.exrx.net/WeightExercises/HipFlexors/BWKneelingWheelRollout.html">Wheel Rollout</a></li>
+			<li><a href="http://www.exrx.net/WeightExercises/RectusAbdominis/BWFrontPlank.html">Front Plank</a>
+			</li></ul>			
+		</div>				
+	</div>
+
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>Beginner Programs</h3>
+			<dl class="accordion program">
+				<dt><a href="http://simplesciencefitness.com/#">Base Program 3x</a></dt>
+				<dd style="display: none;">
+					<p><strong>Base Program 3x</strong></p>
+				<p>
+				</p><table>
+				<thead>
+					<tr>
+						<th>Day</th>
+						<th>Exercise</th>
+						<th>Sets</th>
+						<th>Reps</th>
+						<th>Rest</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td rowspan="3">A</td>
+						<td>Squats</td>
+						<td>3</td>
+						<td>5–8</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Bench Press</td>
+						<td>3</td>
+						<td>5–8</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Chin-Up</td>
+						<td>3</td>
+						<td>1–15</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td rowspan="3">B</td>		
+						<td>Deadlift</td>
+						<td>1</td>
+						<td>5</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Overhead Press</td>
+						<td>3</td>
+						<td>5–8</td>
+						<td>3'</td>
+					</tr>					
+					<tr>
+						<td>Barbell Row</td>
+						<td>3</td>
+						<td>5–8</td>
+						<td>2'</td>
+					</tr>				
+				</tbody>
+			</table>
+			<p></p>
+			<h4>Frequency</h4>
+			<p>Perform a workout day (A or B) three times a week on nonconsecutive days. For example, every Monday, Wednesday, and Fridays. Each week will alternate as workouts ABA and BAB.</p>
+			<h4>Duration</h4>
+			<p>Each workout is approximately 30–40 minutes long.</p>
+			<h4>Cycle</h4>
+			<p>Apply progressive overload for 6–8 weeks, then take one week off to allow the body and central nervous system to recover.</p>
+			<h4>Accessory Exercises</h4>
+			<p>You may add accessory exercises such as the stiff-legged deadlift, barbell curl, and calf raise.</p>			
+			<h4>Expectations</h4>
+			<p>Following proper diet, rest, and sleep, while applying progressive overload, you will expect to see strength and muscle increases on a bulk, or preservation of muscle mass while shedding fat on a cut.</p>
+				</dd>
+			</dl>
+
+			<h4>Other Beginner Programs</h4>
+			<ul>
+				<li><a href="http://startingstrength.wikia.com/wiki/The_Starting_Strength_Novice/Beginner_Programs" title="Starting Strength">Starting Strength</a></li>
+				<li><a href="http://stronglifts.com/stronglifts-5x5-beginner-strength-training-program/" title="Strong Lifts 5x5">Strong Lifts 5x5</a></li>
+			</ul>
+
+		</div>
+		<div class="fourcol">
+			<h3>Intermediate Programs</h3>
+			<dl class="accordion program">
+				<dt><a href="http://simplesciencefitness.com/#">Intermediate Program 4x</a></dt>
+				<dd style="display: none;">
+					<p><strong>Intermediate Program 4x</strong></p>
+			<p>
+			</p><table>
+				<thead>
+					<tr>
+						<th>Day</th>
+						<th>Exercise</th>
+						<th>Sets</th>
+						<th>Reps</th>
+						<th>Rest</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td rowspan="4">Mon</td>
+						<td>Front Squats</td>
+						<td>3–4</td>
+						<td>5</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Stiff-Legged Deadlift</td>
+						<td>3–4</td>
+						<td>6–8</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Barbell Squats</td>
+						<td>2–3</td>
+						<td>10–12</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Calf Raise</td>
+						<td>3–4</td>
+						<td>6–8</td>
+						<td>3'</td>				
+					</tr>
+					
+					<tr>
+						<td rowspan="6">Tues</td>		
+						<td>Bench Press</td>
+						<td>3–4</td>
+						<td>6–8</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Barbell Row</td>
+						<td>3–4</td>
+						<td>6–8</td>
+						<td>3'</td>
+					</tr>					
+					<tr>
+						<td>Lateral Raises</td>
+						<td>2–3</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Chin-Ups</td>
+						<td>2–3</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Dips</td>
+						<td>1–2</td>
+						<td>12–15</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Barbell Curls</td>
+						<td>1–2</td>
+						<td>12–15</td>
+						<td>1.5'</td>
+					</tr>
+
+					<tr>
+						<td rowspan="4">Thurs</td>
+						<td>Deadlift</td>
+						<td>1–2</td>
+						<td>5</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Leg Press</td>
+						<td>3–4</td>
+						<td>6–8</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Calf Raise</td>
+						<td>3–4</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Hack Squats</td>
+						<td>2–3</td>
+						<td>10–12</td>
+						<td>2'</td>				
+					</tr>
+
+					<tr>
+						<td rowspan="6">Fri</td>		
+						<td>Overhead Press</td>
+						<td>3–4</td>
+						<td>6–8</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Pull-Up</td>
+						<td>3–4</td>
+						<td>6–8</td>
+						<td>3'</td>
+					</tr>					
+					<tr>
+						<td>Dumbbell Fly</td>
+						<td>3–4</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Barbell Row</td>
+						<td>3–4</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Close-Grip Bench Press</td>
+						<td>1–2</td>
+						<td>12–15</td>
+						<td>1.5'</td>
+					</tr>
+					<tr>
+						<td>Hammer Curls</td>
+						<td>1–2</td>
+						<td>12–15</td>
+						<td>1.5'</td>
+					</tr>											
+				</tbody>
+			</table>
+			<p></p>
+			<h4>Frequency</h4>
+			<p>Upper and lower days are grouped together on consecutive days and there are four workouts per week. This routine is set to have Wednesdays and weekends off, however you can change to a Sunday/Monday/Wednesday/Thursday or Tuesday/Wednesday/Friday/Saturday format.</p>
+			<h4>Duration</h4>
+			<p>Each workout is approximately 60 minutes long.</p>
+			<h4>Cycle</h4>
+			<p>Apply progressive overload for 6–8 weeks, then deload for 2 weeks at 80% and 90% of your heaviest weights.</p>
+				</dd>
+
+				<dt><a href="http://simplesciencefitness.com/#">Intermediate Program 5x</a></dt>
+				<dd style="display: none;">
+					<p><strong>Intermediate Program 5x</strong></p>
+			<p>
+			</p><table>
+				<thead>
+					<tr>
+						<th>Day</th>
+						<th>Exercise</th>
+						<th>Sets</th>
+						<th>Reps</th>
+						<th>Rest</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td rowspan="5">Mon</td>
+						<td>Front Squats</td>
+						<td>3</td>
+						<td>6</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Lunges</td>
+						<td>3</td>
+						<td>8–12</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Barbell Squats</td>
+						<td>2–3</td>
+						<td>10–12</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Stiff-Legged Deadlift</td>
+						<td>3</td>
+						<td>6–8</td>
+						<td>3'</td>				
+					</tr>
+					<tr>
+						<td>Calf Raise</td>
+						<td>3</td>
+						<td>10–12</td>
+						<td>1'</td>				
+					</tr>					
+					
+					<tr>
+						<td rowspan="5">Tues</td>		
+						<td>Bench Press (Heavy)</td>
+						<td>3</td>
+						<td>6–8</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Bench Press (Light)</td>
+						<td>3</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Weighed Push-Ups</td>
+						<td>3</td>
+						<td>8–12</td>
+						<td>2'</td>
+					</tr>										
+					<tr>
+						<td>Dumbbell Flyes</td>
+						<td>3</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Dumbbell Bench Press</td>
+						<td>3</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+
+					<tr>
+						<td rowspan="5">Wed</td>
+						<td>Deadlift</td>
+						<td>1–2</td>
+						<td>5</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Weighed Pullup</td>
+						<td>3</td>
+						<td>6–12</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Barbell Row</td>
+						<td>3</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Cable Seated Row</td>
+						<td>3</td>
+						<td>6–8</td>
+						<td>2'</td>				
+					</tr>
+					<tr>
+						<td>Dumbbell Row</td>
+						<td>3</td>
+						<td>10–12</td>
+						<td>2'</td>		
+					</tr>					
+
+					<tr>
+						<td rowspan="5">Fri</td>		
+						<td>Overhead Press</td>
+						<td>5</td>
+						<td>8–12</td>
+						<td>3'</td>
+					</tr>
+					<tr>
+						<td>Face Pulls</td>
+						<td>3</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>					
+					<tr>
+						<td>Dumbbell Shoulder Press</td>
+						<td>3</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Dumbbell Lateral Raise</td>
+						<td>3</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+					<tr>
+						<td>Dumbbell Front Raise</td>
+						<td>3</td>
+						<td>10–12</td>
+						<td>2'</td>
+					</tr>
+
+					<tr>
+						<td rowspan="8">Sat</td>		
+						<td>Bodyweight/Weighed Chinup</td>
+						<td>3</td>
+						<td>6–12</td>
+						<td>1'</td>
+					</tr>
+					<tr>
+						<td>Bodyweight/Weighed Dip</td>
+						<td>3</td>
+						<td>6–8</td>
+						<td>1'</td>						
+					</tr>					
+					<tr>
+						<td>Barbell Bicep Curl</td>
+						<td>4</td>
+						<td>6–8</td>
+						<td>1'</td>						
+					</tr>	
+					<tr>
+						<td>Barbell Tricep Extension</td>
+						<td>4</td>
+						<td>8–12</td>
+						<td>1'</td>						
+					</tr>	
+					<tr>
+						<td>Hammer Curl</td>
+						<td>3</td>
+						<td>8–12</td>
+						<td>1'</td>						
+					</tr>
+					<tr>
+						<td>Close-Grip Bench Press</td>
+						<td>3</td>
+						<td>10–12</td>
+						<td>1'</td>						
+					</tr>					
+					<tr>
+						<td>Dumbbell Bicep Curl</td>
+						<td>3</td>
+						<td>8–12</td>
+						<td>1'</td>						
+					</tr>	
+					<tr>
+						<td>Tricep Pulldown</td>
+						<td>3</td>
+						<td>8–12</td>
+						<td>1'</td>						
+					</tr>				
+				</tbody>
+			</table>
+			<p></p>
+			<h4>Frequency</h4>
+			<p>Five workout days per week, with Thursdays and Sundays off. You could shift the days over to have Monday and Friday off, or Tuesday and Saturday off.</p>
+			<h4>Duration</h4>
+			<p>Each workout is approximately 50 minutes long.</p>
+			<h4>Cycle</h4>
+			<p>Apply progressive overload for 8–12 weeks, then take one week off.</p>
+				</dd>
+			</dl>			
+			<h4>Other Intermediate Programs</h4>
+			<ul>
+				<li><a href="http://www.t-nation.com/free_online_article/sports_body_training_performance/how_to_build_pure_strength" title="Jim Wendler&#39;s 5/3/1">Jim Wendler's 5/3/1</a> and <a href="http://strstd.com/" title="Strength Standards">5/3/1 Strength Standards</a></li>
+				<li><a href="http://jcdfitness.com/wp-content/download/Lyle_McDonald_Generic_Bulking_Routine_FAQ.pdf" title="Generic Bulking Routine">Lyle McDonald's Generic Bulking Routine</a></li>
+				<li><a href="http://www.jcdfitness.com/2008/12/doggcrapp-training-a-bodybuilding-program/" title="Doggcrapp Training">Doggcrapp Training</a></li>
+				<li><a href="http://www.jcdfitness.com/2008/10/hypertrophy-specific-training-a-bodybuilding-program/" title="Hypertrophy Specific Training">Hypertrophy Specific Training</a></li>
+			</ul>
+
+			<h3>Advanced Programs</h3>
+			<p>Experienced lifters who have trained for years may try:</p>
+			<ul>
+				<li><a href="http://www.simplyshredded.com/mega-feature-layne-norton-training-series-full-powerhypertrophy-routine-updated-2011.html" title="Layne Norton&#39;s PHAT Routine">Layne Norton's PHAT Routine</a></li>
+				<li><a href="http://www.t-nation.com/readArticle.do?id=1031781" title="HSS-100">HSS-100</a></li>
+				<li><a href="http://www.t-nation.com/free_online_article/sports_body_training_performance/bodybuildings_next_frontier" title="Waterbury High Frequency System">Waterbury High Frequency System</a></li>
+				<li><a href="http://www.muscleandstrength.com/articles/german-volume-training-for-shocking-muscle-growth.html" title="German Volume Training">German Volume Training</a></li>
+			</ul>	
+		</div>
+		<div class="fourcol last">	
+			<h3>Nutrition Timing</h3>
+			<ul>
+				<li>Generally, it does not matter when you eat, but what you eat; however, protein synthesis is <a href="http://www.ncbi.nlm.nih.gov/pubmed/11440894" title="Timing of amino acid-carbohydrate ingestion alters anabolic response of muscle to resistance exercise">greater</a> in a pre-workout meal/shake than it is post-workout. Consume sufficient protein before and after a workout.</li>
+				<li>For a pre-workout shake, consume one or two scoops of whey protein with a high GI sugar such as maltodextrin or dextrose, or a banana. This raises your insulin for faster protein absorption. Mix with water.</li>
+				<li>Your meal after your workout should be your largest and highest in carbohydrates (sweet potatoes, fruits, vegetables) to replenish muscle glycogen levels.</li>
+				<li>Your protein shake can be consumed 1–2 hours before a workout, while your high protein and high carbohydrate post-workout meal can be consumed 1–3 hours after your workout.</li> 
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+
+<!-- ++++++++++++++++++++ AEROBIC TRAINING ++++++++++++++++++++ -->
+<a id="aerobic-training"></a>
+
+<div class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>Аэробные упражнения</h2>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="fourcol">
+			<h3>Кардиодыхательные тренировки</h3>
+			<p>Cardio is an excellent way to keep your heart healthy and to stay in shape, but sometimes pose challenges in preserving muscle mass since prolonged activity increases <a href="http://www.marksdailyapple.com/case-against-cardio/" title="The case against cardio from a former mileage king">cortisol</a> levels, which burns muscle tissue. If you decide to combine cardio with weight training, make sure you get enough food and sleep, or you may risk overtraining.</p>
+			<p>Low intensity steady state cardio (<a href="http://www.simplyshredded.com/cardio-for-fat-loss-high-intensity-interval-training-cardio-vs-low-intensity-steady-state-cardio.html">LISS</a>) is a good way to burn excess calories while preserving muscle mass on a cut since lower intensity training targets a greater percentage of the body's <a href="http://btc.montana.edu/olympics/nutrition/fuel06.html" title="When Is Each Fuel Used During Exercise?">fat stores for fuel</a>.</p>
+			<p>While beginners should only do light to moderate cardio, those who are able to progress would <a href="http://europepmc.org/abstract/MED/16377300" title="Comparison of cardioprotective benefits of vigorous versus moderate intensity aerobic exercise">greatly benefit</a> from moderate to vigorous cardio.</p>
+		</div>
+		<div class="fourcol">
+			<h3>Индивидуальные</h3>
+			<p>Common individual cardiorespiratory exercises include:
+			</p><ul>
+				<li>Эллиптический тренажер</li>
+				<li>Скакалка</li>
+				<li>Бег</li>
+				<li>Степ-аэробика</li>
+				<li>Велотренажер</li>
+				<li>Беговая дорожка</li>
+				<li>Ходьба</li>				
+				<li>Скалолазание</li>
+			</ul>
+			<p></p>			
+			<h3>Групповые занятия</h3>
+			<p>Another popular type of activity that utilizes individual work within a group setting are group classes. Examples are:
+			</p><ul>
+				<li>Танцы</li>
+				<li>Боевые искусства</li>
+				<li>Пилатес</li>
+				<li>Spinning</li>
+				<li>Йога</li>
+			</ul>
+			<p></p>
+		</div>		
+		<div class="fourcol last">
+			<h3>Спорт</h3>
+			<p>Sports are one of the more fun and engaging activities that may also include anaerobic elements. Examples include:
+			</p><ul>
+				Баскетбол, бейсбол, бокс, велоспорт, футбол, хоккей, плавание, скейтборд, Skiing/Snowboarding, Серфинг, Тенис, Алтимат фрисби, Волейбол, Борьба.</ul>
+			<p></p>	
+		</div>
+	</div>
+</div>
+
+
+<!-- ++++++++++++++++++++ SEEING RESULTS ++++++++++++++++++++ -->
+<a id="seeing-results"></a>
+
+<div class="container" style="margin-bottom: 1.4286em;">
+	<div class="row">
+		<div class="twelvecol last">
+			<h2>Seeing Results</h2>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="fourcol">
+			<h3>Progressive Overload Principle</h3>
+			<p>Progressive overload pushes the body to break plateaus instead of adapting to the same workout. When you lift heavy weights, you deplete and cause microtears to your muscle fibers. To repair, rebuild, and create more muscle, you should get sufficient food, recovery time and sleep. With increased muscle mass, you will be able to lift heavier or be able to do more repetitions. In order to progress in strength, hypertrophy, or endurance, you must increase your weights, reps, sets, volume, or intensity over time.</p>
+			<p>For instance, once you reach your personal maximum number of repetitions that you can perform in an exercise, you should increase the weight until a new maximum can be performed.</p>
+			<p><em>Example 1</em>: You performed 20 lbs at 8 reps one week then 20 lbs for 12 reps the following week. Since you reached a personal maximum of 12 reps, you should increase your weight to 22.5 or 25 lbs the next week.</p>
+			<p><em>Example 2</em>: You performed 20 lbs at 12 reps one week then 25 lbs for 6 reps the following week. Since you increased the weight, the next week(s) should be attempting to reach 12 reps at 25 lbs.</p>
+		</div>
+		<div class="eightcol last">
+			<p><img src="./fitness_files/progressive-overload.png" alt="Progressive Overload Principle" style="padding-top: 3em;"></p>
+		</div>
+	</div>
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>Diet is 80%</h3>
+			<p>While exercise helps with building muscle and burning additional calories, diet is the reason why abs appear and muscles can grow. Remember to consume at least 1 gram of protein for every pound of lean body mass each day.</p>				
+		</div>
+		<div class="fourcol">
+			<h3>Sleep and Rest</h3>
+			<p>Do get at least 7–8 hours of sleep each night. Sleep helps with recovery, <a href="http://www.ncbi.nlm.nih.gov/pubmed/21550729" title="Sleep and muscle recovery">muscle growth</a>, performance, <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2902103/" title="Impact of sleep and its disturbances">well-being</a>, and mental health. Each muscle group needs at least 48 hours to repair, recover, and re-grow, so do not perform exercises that work on the same muscles on consecutive days.</p>				
+		</div>
+		<div class="fourcol last">
+			<h3>Injuries, Soreness and Sickness</h3>
+			<p>If you are sick, it is advisable to rest until you are well. If you are sore the day after a workout, this is <a href="http://en.wikipedia.org/wiki/Delayed_onset_muscle_soreness" title="Delayed onset muscle soreness (DOMS)">normal</a>, but if you feel a sharp pain, this is an injury. If injured, it is advisable to avoid any exercises that aggravates the injury and consult with a physician.</p>			
+		</div>
+	</div>	
+	<div class="row sectionBreak">
+		<div class="fourcol">
+			<h3>Weekly Expectations</h3>
+			<p>With a strict diet and training regimen without drugs or surgery, one can only build up to 0.5 lbs of muscle per week or burn 2 lbs of fat per week. Building muscle at this rate is consistent with the progressive overload principle. On a 500 calorie deficit per day with a perfect diet, you can burn 1 lbs of fat in a week (7 days x 500 calories = 3500 calories = 1 lbs of fat) plus an additional 1 lbs of fat through <a href="http://www.bodyrecomposition.com/fat-loss/metabolic-rate-overview.html" title="Metabolic rate overview">exercise and metabolic processes</a>. While that may be long or discouraging to some, the results can be substantial: In three months, one could build almost 6.5 lbs of lean muscle mass or burn 26 lbs of fat, respectively. With consistency, results follow.</p>
+			<h3>Track Your Progress</h3>
+			<p>You should track your progress and goals by writing down your results, or use an app such as <a href="http://www.fitnessfastapp.com/">FitnessFast</a>.</p>
+			<h3>Motivation</h3>
+			<p>For some, working out may feel like a chore. It is important to approach it as part of your goals for mental health, confidence, appearance, performance, and overall well-being. Once you are consistent for three months, it becomes part of your routine. If you miss a day, don't worry too much about it, but do try and be as consistent as possible. A powerful motivator is results, and the best way to observe this is take before-and-after photos, body measurements, track weight changes and monitor strength improvements. Environment and support are critical for motivation. Having a workout partner is not only highly motivational, but also keeps each other accountable and even competitive.</p>					
+		</div>
+		<div class="fourcol">						
+			<h3>Strength Standards</h3>
+			<p>What weight you're able to lift at your weight will determine Whether you are a beginner, novice, intermediate, or advanced lifter, you can compare your lifting numbers and set goals for the major exercises:</p>
+			<ul>
+				<li>Squats: <a href="http://www.exrx.net/Testing/WeightLifting/SquatStandards.html" title="Strength standards for squats in pounds">Pounds</a>/<a href="http://www.exrx.net/Testing/WeightLifting/SquatStandardsKg.html" title="Strength standards for squats in kilograms">Kilograms</a></li>
+				<li>Deadlifts: <a href="http://www.exrx.net/Testing/WeightLifting/DeadliftStandards.html" title="Strength standards for deadlifts in pounds">Pounds</a>/<a href="http://www.exrx.net/Testing/WeightLifting/DeadliftStandardsKg.html" title="Strength standards for deadlifts in kilograms">Kilograms</a></li>
+				<li>Bench Press: <a href="http://www.exrx.net/Testing/WeightLifting/BenchStandards.html" title="Strength standards for bench press in pounds">Pounds</a>/<a href="http://www.exrx.net/Testing/WeightLifting/BenchStandardsKg.html" title="Strength standards for bench press in kilograms">Kilograms</a></li>
+				<li>Overhead Press: <a href="http://www.exrx.net/Testing/WeightLifting/PressStandards.html" title="Strength standards for overhead press in pounds">Pounds</a>/<a href="http://www.exrx.net/Testing/WeightLifting/PressStandardsKg.html" title="Strength standards for overhead press in kilograms">Kilograms</a></li>
+			<h3>Warm-Ups</h3>
+			<p>To reduce the risk of injuries, warming up the body with several minutes of cardio such as jump rope or <a href="http://www.exrx.net/ExInfo/Stretching.html">dynamic stretches</a> is necessary <a href="http://www.nytimes.com/2008/11/02/sports/playmagazine/112pewarm.html?_r=2&ref=health" title="Stretching: The Truth">before</a> performing heavy weights.</p>
+			<h3>Flexibility</h3>
+			<p>Gaining muscle does not mean you lose flexibility. To maintain and increase flexibility, perform <a href="http://www.exrx.net/ExInfo/Stretching.html">static stretches</a>. Static stretches are not recommended right before a workout as it pre-fatigues the muscles, thus hindering <a href="http://www.medicalnewstoday.com/releases/122341.php" title="Pre-Activity Stretching May Hinder Athletic Performance">performance</a>. Do stretch after a workout.</p>				
+			</ul>						
+		</div>
+		<div class="fourcol last">
+			<h3>Form and Technique</h3>
+			<p>Proper and controlled form is more important than how heavy you can lift. Never sacrifice form for heavier weights. If good form becomes difficult, deload the weights until you are stronger. The concentric movement (going against gravity) should be explosive (but it will appear slower with a heavy enough weight) and the eccentric movement (going with gravity) should be slower. For power, aim for fast explosive movements, and for hypertrophy, aim for slower eccentric movements.</p>
+			<p>General guidelines for good form while performing a lift:</p>
+			<ol>
+				<li>Always keep your core (abs and back) tight and flexed.</li>
+				<li>Always keep your butt out and not have your lower back arching inwards.</li> 
+				<li>Your knees and elbows should be slightly bent (not locked).</li>
+				<li>If lifting a barbell above your waist, keep your forearms and wrist straight and perpendicular to the floor.</li>
+				<li>Each lift should be performed with a full range of motion.</li>
+				<li>Do not swing or rely on momentum to perform a lift.</li>
+			</ol>
+		</div>
+	</div>
+</div>
+
+
+<div class="container ad">
+	<div class="row">
+		<div class="twelvecol last">
+			<h4 class="adCaption">Advertisement: </h4>
+
+		</div>
+	</div>
+</div>
+
+<footer class="container">
+	<div class="row">
+		<div class="twelvecol last">
+			<h1 style="color: #000;">+</h1><a id="footer"></a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="threecol">
+			<h2>Resources</h2><a id="resources"></a>
+			<h4>Online Community</h4>
+			<p>
+			</p><ul>
+				<li><a href="http://www.bodyrecomposition.com/">Body Recomposition</a></li>
+				<li><a href="http://examine.com/">Examine.com</a></li>
+				<li><a href="http://fitocracy.com/">Fitocracy</a></li>
+				<li><a href="http://nusi.org/">Nutrition Science Initiative</a></li>
+				<li><a href="http://reddit.com/r/fitness">r/fitness</a></li>
+				<li><a href="http://wholehealthsource.blogspot.ca/">Whole Health Source</a></li> 
+			</ul>
+			<p></p>
+
+<div id="resources-tabs">
+<ul> 
+	<li class="active"><a href="http://simplesciencefitness.com/#books-usa">USA</a></li>
+	<li><a href="http://simplesciencefitness.com/#books-can">CAN</a></li>
+	<li><a href="http://simplesciencefitness.com/#books-gbr">GBR</a></li>
+</ul>
+<div id="books-usa" style="display: block;">
+<dl>
+	<dt>Books on Diet</dt>
+	<dd><a href="http://amzn.to/NDMnSb">Fast Food Nation</a></dd>
+	<dd><a href="http://amzn.to/Po8flZ">Good Calories, Bad Calories</a></dd>
+	<dd><a href="http://amzn.to/QCpj2W">In Defense of Food</a></dd>
+	<dd><a href="http://amzn.to/Po8EF6">The Paleo Solution</a></dd>
+	<dd><a href="http://amzn.to/13eINUV">Perfect Health Diet</a></dd>	
+</dl>
+
+<dl>
+	<dt>Books on Exercise</dt>
+	<dd><a href="http://amzn.to/Po8Tjq">Body By Science</a></dd>
+	<dd><a href="http://amzn.to/OwDlba">Starting Strength</a></dd>
+	<dd><a href="http://amzn.to/NDNe5t">Strength Training Anatomy</a></dd>
+</dl>
+
+<dl>
+	<dt>Book on Supplements</dt>
+	<dd><a href="http://examine.com/referfriend/SimpleScienceFitness/w">Examine.com Supplement-Goals Reference Guide</a></dd>
+</dl>
+
+</div>
+
+<div id="books-can" style="display: none;">
+<dl>
+	<dt>Books on Diet</dt>
+	<dd><a href="http://amzn.to/NBZ5ij">Fast Food Nation</a></dd>
+	<dd><a href="http://amzn.to/RQNPBq">Good Calories, Bad Calories</a></dd>
+	<dd><a href="http://amzn.to/NBZeT8">In Defense of Food</a></dd>
+	<dd><a href="http://amzn.to/PobFVW">The Paleo Solution</a></dd>
+	<dd><a href="http://amzn.to/19Axwl2">Perfect Health Diet</a></dd>		
+</dl>
+
+<dl>
+	<dt>Books on Exercise</dt>
+	<dd><a href="http://amzn.to/PpvNnb">Body By Science</a></dd>
+	<dd><a href="http://amzn.to/PdlN2N">Starting Strength</a></dd>
+	<dd><a href="http://amzn.to/NFxeMD">Strength Training Anatomy</a></dd>
+</dl>
+
+<dl>
+	<dt>Book on Supplements</dt>
+	<dd><a href="http://examine.com/referfriend/SimpleScienceFitness/w">Examine.com Supplement-Goals Reference Guide</a></dd>
+</dl>
+
+</div>
+
+<div id="books-gbr" style="display: none;">
+<dl>
+	<dt>Books on Diet</dt>
+	<dd><a href="http://amzn.to/QFoW7H">Fast Food Nation</a></dd>
+	<dd><a href="http://amzn.to/RZOAcY">Good Calories, Bad Calories</a></dd>
+	<dd><a href="http://amzn.to/QFpg6E">In Defense of Food</a></dd>
+	<dd><a href="http://amzn.to/QFplqI">The Paleo Solution</a></dd>
+	<dd><a href="http://amzn.to/11P5Y9Z">Perfect Health Diet</a></dd>		
+</dl>
+
+<dl>
+	<dt>Books on Exercise</dt>
+	<dd><a href="http://amzn.to/QFpOt9">Body By Science</a></dd>
+	<dd><a href="http://amzn.to/QFpQkL">Starting Strength</a></dd>
+	<dd><a href="http://amzn.to/RZPnuI">Strength Training Anatomy</a></dd>
+</dl>
+
+<dl>
+	<dt>Book on Supplements</dt>
+	<dd><a href="http://examine.com/referfriend/SimpleScienceFitness/w">Examine.com Supplement-Goals Reference Guide</a></dd>
+</dl>
+
+</div>
+</div><!-- end resources-tabs -->
+
+		</div>
+		<div class="threecol">
+			<h2>About</h2><a id="about"></a>
+			<img src="./fitness_files/joachim.png" style="margin-top: 1.4286em; border: 1px solid #555;" title="Profile">
+			<p>With a passion to help others reach their fitness goals, I am constantly met with confusing and overwhelming (mis)information. As a response, I did my research and created this site. Hopefully the information presented here is educational and beneficial towards your own fitness and health goals.</p>
+		</div>
+		<div class="threecol">
+			<h2>Contact</h2><a id="footer-contact"></a>
+			<p>I'd love to hear your suggestions, feedback, links, or testimonials.</p>
+
+			<form method="post" action="http://simplesciencefitness.com/index.php" id="contact">
+		        
+		    <label>Name</label>
+		    <input name="name" placeholder="Full Name">
+		            
+		    <label>Email</label>
+		    <input name="email" type="email" placeholder="name@email.com">
+
+		    <label>Message</label>
+		    <textarea name="message" placeholder="Your Message"></textarea>
+		            
+		    <input id="submit" name="submit" type="submit" value="Submit">
+		        
+			</form>
+
+			
+		</div>
+		<div class="threecol last">
+			<h2>Connect</h2><a id="connect"></a>
+			<p>Keep up with the latest fitness &amp; nutrition news and site updates through:</p>
+			<ul>
+				<li><a href="http://twitter.com/simplescifit" title="Follow on Twitter">Twitter @SimpleSciFit</a></li>
+				<li><a href="http://facebook.com/simplesciencefitness" title="Subscribe to Facebook Page">Facebook Page</a></li>
+				<li><a href="https://plus.google.com/u/1/b/105096324464504697717/105096324464504697717/" title="Google Plus Page">Google+ Page</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row bottom-page">
+		<div class="threecol socialMedia">
+
+			<div style="top: -6px; margin-right: 1em;" class="fb-like" data-href="http://simplesciencefitness.com/" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+
+			<div style="display: inline-block; position: relative; top: -3px;"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://simplesciencefitness.com" data-text="Simple Science Fitness" data-via="SimpleSciFit" data-dnt="true">Tweet</a></div>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+			<div class="g-plusone" data-size="medium" data-annotation="inline" data-width="120"></div>
+			<script type="text/javascript">(function() {
+    		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    		po.src = 'https://apis.google.com/js/plusone.js';
+    		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  			})();
+			</script>
+
+		</div>
+		<div class="sixcol">
+			<p class="caption">Copyright © 2013 Сделано с ♥ by Igor</p>
+		</div>
+		<div class="threecol last">
+			<p>
+			</p><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="LNLCSXZ9D7G92">
+			<input type="image" src="./fitness_files/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="./fitness_files/pixel.gif" width="1" height="1">
+			</form>
+			<p></p>
+		</div>
+	</div>
+</footer>
+	
+	<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
+	<!--<script type="text/javascript" src="./fitness_files/css3-mediaqueries.js"></script>
+	<script type="text/javascript" src="./fitness_files/bmr-calculator.min.js"></script>
+	
+	<script src="./fitness_files/jquery.min.js"></script>
+	<script type="text/javascript" src="./fitness_files/jquery-tabs.js"></script>
+	<script type="text/javascript" src="./fitness_files/jquery-accordion.js"></script>
+	<script type="text/javascript" src="./fitness_files/jquery-sticky-navigation.js"></script>
+	<script type="text/javascript" src="./fitness_files/jquery-smooth-scroll.js"></script>
+
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-34494431-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+
+-->
+
+</body></html>
