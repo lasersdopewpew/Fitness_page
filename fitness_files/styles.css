@@ -39,6 +39,11 @@ p {
   margin: 0 0 1.4286em 0;
 }
 
+#anatomyContainer > p{
+  margin: 0 0 1em 0 !important;
+  line-height: 1em !important;
+}
+
 ul, ol {
 	margin-bottom: 1.4286em;
 }
@@ -191,7 +196,8 @@ h4 {
 	font-size: 1em; /* 14px */
 	line-height: 1.4286em; /* 20px */
 	margin-top: 1.4286em;
-	/*margin-bottom: 1.4286em;*/
+	font-weight: bold;
+	margin-bottom: 0.3em;
 }
 
 a {
@@ -628,12 +634,12 @@ footer {
 /* ============================= */
 
 .vitamins, .minerals, .protein, .fats, .omega3, .fiber {
-	font-family: Verdana, sans-serif;
+	font-family: PT Sans, sans-serif;
 	display: inline-block;
 	font-size: 0.7143em; /* 10px */
 	width: 1.1em;
 	height: 1.1em;
-	line-height: 1.4286em;
+	line-height: 1.2em;
 	-moz-border-radius: 0.55em;
 	border-radius: 0.55em;
 	text-align: center;
@@ -663,6 +669,7 @@ footer {
 
 .fiber {
 	background-color: #c6e9ff;
+	line-height: 1em;
 	font-style: italic;
 }
 
